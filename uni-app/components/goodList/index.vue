@@ -4,18 +4,18 @@
 			<view @click="goDetail(item)" class='item acea-row row-between-wrapper' hover-class="none">
 				<view class='pictrue'>
 					<image :src='item.image'></image>
-					<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '1'">秒杀</span>
-					<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '2'">砍价</span>
-					<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '3'">拼团</span>
+					<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '1'">Giây giết</span>
+					<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '2'">KanJia</span>
+					<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '3'">Đánh vần</span>
 				</view>
 				<view class='underline'>
 					<view class='text'>
 						<view class='line1'>{{item.store_name}}</view>
 						<view class='money font-color'>￥<text class='num'>{{item.price}}</text></view>
 						<view class='vip-money acea-row row-middle' v-if="item.vip_price && item.vip_price > 0">￥{{item.vip_price || 0}}
-							<image src='../../static/images/vip.png'></image><text class='num'>已售{{item.sales}}{{item.unit_name}}</text>
+							<image src='../../static/images/vip.png'></image><text class='num'>Đã bán{{item.sales}}{{item.unit_name}}</text>
 						</view>
-						<view class='vip-money acea-row row-middle' v-else><text class='num'>已售{{item.sales}}{{item.unit_name}}</text></view>
+						<view class='vip-money acea-row row-middle' v-else><text class='num'>Đã bán{{item.sales}}{{item.unit_name}}</text></view>
 					</view>
 				</view>
 				<view class='iconfont icon-gouwuche cart-color acea-row row-center-wrapper'></view>

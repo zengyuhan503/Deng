@@ -28,9 +28,9 @@
 						</view>
 						<view class='introduce'>{{storeInfo.store_name}}</view>
 						<view class='label acea-row row-between-wrapper'>
-							<view>原价:￥{{storeInfo.ot_price}}</view>
-							<view>库存:{{storeInfo.stock}}{{storeInfo.unit_name}}</view>
-							<view>销量:{{storeInfo.fsales}}{{storeInfo.unit_name}}</view>
+							<view>Giá gốc:￥{{storeInfo.ot_price}}</view>
+							<view>trong kho:{{storeInfo.stock}}{{storeInfo.unit_name}}</view>
+							<view>Bán hang:{{storeInfo.fsales}}{{storeInfo.unit_name}}</view>
 						</view>
 						<!-- <view class='coupon acea-row row-between-wrapper' v-if="storeInfo.give_integral > 0">
 							<view class='hide line1 acea-row'>
@@ -40,26 +40,26 @@
 						</view> -->
 						<view class='coupon acea-row row-between-wrapper' @click='couponTap' style="margin-top: 20rpx;">
 							<view class='hide line1 acea-row'>
-								优惠券：
-								<view class='activity' v-for="(item,index) in couponList" :key="index">满{{item.use_min_price}}减{{item.coupon_price}}</view>
+								phiếu mua hang：
+								<view class='activity' v-for="(item,index) in couponList" :key="index">đầy{{item.use_min_price}}giảm{{item.coupon_price}}</view>
 							</view>
 							<view class='iconfont icon-jiantou'></view>
 						</view>
 						<view class="coupon acea-row row-between-wrapper" v-if="activity.length">
 							<view class="line1 acea-row">
-								<text>活&nbsp;&nbsp;&nbsp;动：</text>
+								<text>Di&nbsp;&nbsp;&nbsp;chuyển：</text>
 								<view v-for='(item,index) in activity' :key='index' @click="goActivity(item)">
 									<view v-if="item.type === '1'" :class="index==0?'activity_pin':'' || index==1?'activity_miao':'' || index==2?'activity_kan':''">
 										<text class="iconfonts iconfont icon-pintuan"></text>
-										<text class="activity_title"> 参与秒杀</text>
+										<text class="activity_title"> Tham gia vào giết</text>
 									</view>
 									<view :class="index==0?'activity_pin':'' || index==1?'activity_miao':'' || index==2?'activity_kan':''" v-if="item.type === '2'">
 										<text class="iconfonts iconfont icon-shenhezhong"></text>
-										<text class="activity_title"> 参与砍价</text>
+										<text class="activity_title"> Tham gia mặc cả</text>
 									</view>
 									<view :class="index==0?'activity_pin':'' || index==1?'activity_miao':'' || index==2?'activity_kan':''" v-if="item.type === '3'">
 										<text class="iconfonts iconfont icon-kanjia"></text>
-										<text class="activity_title"> 参与拼团</text>
+										<text class="activity_title"> Đánh vần</text>
 									</view>
 								</view>
 							</view>
@@ -74,9 +74,9 @@
 				</view>
 				<view class='userEvaluation' id="past1">
 					<view class='title acea-row row-between-wrapper'>
-						<view>用户评价({{replyCount}})</view>
+						<view>Người dùng đánh giá({{replyCount}})</view>
 						<navigator class='praise' hover-class='none' :url='"/pages/users/goods_comment_list/index?product_id="+id'>
-							<text class='font-color'>{{replyChance}}%</text>好评率
+							<text class='font-color'>{{replyChance}}%</text>Tỷ lệ khen ngợi
 							<text class='iconfont icon-jiantou'></text>
 						</navigator>
 					</view>
@@ -88,7 +88,7 @@
 				<view class="superior" if='good_list.length' id="past2">
 					<view class="title acea-row row-center-wrapper">
 						<image src="../../static/images/ling.png"></image>
-						<view class="titleTxt">优品推荐</view>
+						<view class="titleTxt">Khuyến nghị chất lượng cao</view>
 						<image src="../../static/images/ling.png"></image>
 					</view>
 					<view class="slider-banner banner">
@@ -99,9 +99,9 @@
 									<view class="item" v-for="(val,indexn) in item.list" :key="indexn" @click="goDetail(val)">
 										<view class="pictrue">
 											<image :src="val.image"></image>
-											<span class="pictrue_log pictrue_log_class" v-if="val.activity && val.activity.type === '1'">秒杀</span>
-											<span class="pictrue_log pictrue_log_class" v-if="val.activity && val.activity.type === '2'">砍价</span>
-											<span class="pictrue_log pictrue_log_class" v-if="val.activity && val.activity.type === '3'">拼团</span>
+											<span class="pictrue_log pictrue_log_class" v-if="val.activity && val.activity.type === '1'">Giây giết</span>
+											<span class="pictrue_log pictrue_log_class" v-if="val.activity && val.activity.type === '2'">KanJia</span>
+											<span class="pictrue_log pictrue_log_class" v-if="val.activity && val.activity.type === '3'">Đánh vần</span>
 										</view>
 										<view class="name line1">{{val.store_name}}</view>
 										<view class="money font-color">¥{{val.price}}</view>
@@ -113,7 +113,7 @@
 					</view>
 				</view>
 				<view class='product-intro' id="past3">
-					<view class='title'>产品介绍</view>
+					<view class='title'>	Giới thiệu sản phẩm</view>
 					<view class='conter'>
 						<jyf-parser :html="description" ref="article" :tag-style="tagStyle"></jyf-parser>
 					</view>
@@ -124,35 +124,20 @@
 			</view>
 		<view class='footer acea-row row-between-wrapper'>
 			<!-- #ifdef MP -->
-			<button open-type="contact" hover-class='none' class='item'>
-				<view class='iconfont icon-kefu'></view>
-				<view>客服</view>
-			</button>
-			<!-- #endif -->
-			<!-- #ifndef MP -->
-			<navigator hover-class="none" class="item" :url="'/pages/customer_list/index?productId='+id">
-				<view class="iconfont icon-kefu"></view>
-				<view>客服</view>
-			</navigator>
-			<!-- #endif -->
-			<view @click="setCollect" class='item'>
-				<view class='iconfont icon-shoucang1' v-if="storeInfo.userCollect"></view>
-				<view class='iconfont icon-shoucang' v-else></view>
-				<view>收藏</view>
-			</view>
+			
 			<navigator open-type='switchTab' class="animated item" :class="animated==true?'bounceIn':''" url='/pages/order_addcart/order_addcart'
 			 hover-class="none">
 				<view class='iconfont icon-gouwuche1'>
 					<text class='num bg-color'>{{CartCount || 0}}</text>
 				</view>
-				<view>购物车</view>
+				<view>Giỏ hàng</view>
 			</navigator>
 			<view class='bnt acea-row'>
 				<form @submit="joinCart" report-submit='true'>
-					<button class='joinCart bnts' form-type="submit">加入购物车</button>
+					<button class='joinCart bnts' form-type="submit">Thêm vào giỏ hàng</button>
 				</form>
 				<form @submit="goBuy" report-submit='true'>
-					<button class='buy bnts' form-type="submit">立即购买</button>
+					<button class='buy bnts' form-type="submit">Mua ngay lập tức</button>
 				</form>
 			</view>
 		</view>
@@ -266,7 +251,7 @@
 					'coupon': false,
 					list: [],
 				},
-				attrTxt: '请选择', //属性页面提示
+				attrTxt: 'Hãy chọn', //属性页面提示
 				attrValue: '', //已选属性
 				animated: false, //购物车动画
 				id: 0, //商品id
@@ -358,7 +343,7 @@
 			}
 			if (!options.id){
 				return this.$util.Tips({
-					title: '缺少参数无法查看商品'
+					title: 'Thiếu thông số không thể xem hàng hóa'
 				}, {
 					tab: 3,
 					url: 1
@@ -555,7 +540,7 @@
 					this.$set(this.attr.productSelect, "unique", productSelect.unique);
 					this.$set(this.attr.productSelect, "cart_num", 1);
 					this.$set(this, "attrValue", res);
-					this.$set(this, "attrTxt", "已选择");
+					this.$set(this, "attrTxt", "Đã chọn");
 				} else {
 					this.$set(this.attr.productSelect, "image", this.storeInfo.image);
 					this.$set(this.attr.productSelect, "price", this.storeInfo.price);
@@ -563,7 +548,7 @@
 					this.$set(this.attr.productSelect, "unique", "");
 					this.$set(this.attr.productSelect, "cart_num", 0);
 					this.$set(this, "attrValue", "");
-					this.$set(this, "attrTxt", "请选择");
+					this.$set(this, "attrTxt", "Hãy chọn");
 				}
 			},
 			/**
@@ -621,9 +606,9 @@
 					uni.setNavigationBarTitle({
 						title: storeInfo.store_name.substring(0, 7) + "..."
 					})
-					 var navList = ['商品', '评价', '详情'];
+					 var navList = ['Hàng hóa', 'Đánh giá', 'Chi tiết'];
 					      if (goodArray.length) {
-					        navList.splice(2, 0, '推荐')
+					        navList.splice(2, 0, 'Giới thiệu')
 					      }
 						  that.$set(that,'navList',navList);
 					// #ifdef H5
@@ -734,7 +719,7 @@
 					this.$set(this.attr.productSelect, "unique", productSelect.unique);
 					this.$set(this.attr.productSelect, "cart_num", 1);
 					this.$set(this, "attrValue", value.sort().join(","));
-					this.$set(this, "attrTxt", "已选择");
+					this.$set(this, "attrTxt", "Đã chọn");
 				} else if (!productSelect && productAttr.length) {
 					this.$set(
 						this.attr.productSelect,
@@ -747,7 +732,7 @@
 					this.$set(this.attr.productSelect, "unique", "");
 					this.$set(this.attr.productSelect, "cart_num", 0);
 					this.$set(this, "attrValue", "");
-					this.$set(this, "attrTxt", "请选择");
+					this.$set(this, "attrTxt", "Hãy chọn");
 				} else if (!productSelect && !productAttr.length) {
 					this.$set(
 						this.attr.productSelect,
@@ -764,7 +749,7 @@
 					);
 					this.$set(this.attr.productSelect, "cart_num", 1);
 					this.$set(this, "attrValue", "");
-					this.$set(this, "attrTxt", "请选择");
+					this.$set(this, "attrTxt", "Hãy chọn");
 				}
 			},
 			/**
@@ -892,7 +877,7 @@
 					that.isOpen === true
 				)
 					return that.$util.Tips({
-						title: "产品库存不足，请选择其它"
+						title: "Sản phẩm tồn kho là không đủ, hãy chọn một cái gì đó khác"
 					});
 				let q = {
 					productId: that.id,
@@ -911,7 +896,7 @@
 							});
 						} else {
 							that.$util.Tips({
-								title: "添加购物车成功",
+								title: "Thêm giỏ hàng thành công",
 								success: () => {
 									that.getCartCount(true);
 								}
@@ -1084,7 +1069,7 @@
 						// #endif
 						// #ifdef MP
 						return that.$util.Tips({
-							title: '小程序二维码需要发布正式版后才能获取到'
+							title: 'Mã qr của chương trình cần được phát hành một cách chính thức'
 						});
 						// #endif
 					},
@@ -1096,7 +1081,7 @@
 								arr2[2] = msgPromotionCode;
 								if (arr2[2] == '')
 									return that.$util.Tips({
-										title: '海报二维码生成失败！'
+										title: 'Mã qr của poster đã thất bại！'
 									});
 								that.$util.PosterCanvas(arr2, that.storeInfo.store_name, that.storeInfo.price, function(tempFilePath) {
 									that.$set(that, 'posterImage', tempFilePath);
@@ -1144,13 +1129,13 @@
 										success: function(res) {
 											that.posterImageClose();
 											that.$util.Tips({
-												title: '保存成功',
+												title: 'Bảo quản thành công',
 												icon: 'success'
 											});
 										},
 										fail: function(res) {
 											that.$util.Tips({
-												title: '保存失败'
+												title: 'Lưu thất bại'
 											});
 										}
 									})
@@ -1162,7 +1147,7 @@
 								success: function(res) {
 									that.posterImageClose();
 									that.$util.Tips({
-										title: '保存成功',
+										title: 'Bảo quản thành công',
 										icon: 'success'
 									});
 								},

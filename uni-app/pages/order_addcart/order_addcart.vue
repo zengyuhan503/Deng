@@ -2,14 +2,14 @@
 	<view>
 		<view class='shoppingCart'>
 			<view class='labelNav acea-row row-around row-middle'>
-				<view class='item'><text class='iconfont icon-xuanzhong'></text>100%正品保证</view>
-				<view class='item'><text class='iconfont icon-xuanzhong'></text>所有商品精挑细选</view>
-				<view class='item'><text class='iconfont icon-xuanzhong'></text>售后无忧</view>
+				<view class='item'><text class='iconfont icon-xuanzhong'></text>100% đảm bảo chính hang</view>
+				<view class='item'><text class='iconfont icon-xuanzhong'></text>Tất cả các sản phẩm được lựa chọn cẩn thận</view>
+				<view class='item'><text class='iconfont icon-xuanzhong'></text>Hậu mãi không lo lắng</view>
 			</view>
 			<view class='nav acea-row row-between-wrapper'>
-				<view>购物数量 <text class='num font-color'>{{cartCount}}</text></view>
+				<view>Số lượng mua hang <text class='num font-color'>{{cartCount}}</text></view>
 				<view v-if="cartList.valid.length > 0 || cartList.invalid.length > 0" class='administrate acea-row row-center-wrapper'
-				 @click='manage'>{{ footerswitch ? '管理' : '取消'}}</view>
+				 @click='manage'>{{ footerswitch ? 'sự quản lý' : 'Hủy bỏ'}}</view>
 			</view>
 			<view v-if="cartList.valid.length > 0 || cartList.invalid.length > 0">
 				<view class='list'>
@@ -29,7 +29,7 @@
 									</view>
 									<view class='text'>
 										<view class='line1'>{{item.productInfo.store_name}}</view>
-										<view class='infor line1' v-if="item.productInfo.attrInfo">属性：{{item.productInfo.attrInfo.suk}}</view>
+										<view class='infor line1' v-if="item.productInfo.attrInfo">Thuộc tính/ặc định：{{item.productInfo.attrInfo.suk}}</view>
 										<view class='money'>￥{{item.truePrice}}</view>
 									</view>
 									<view class='carnum acea-row row-center-wrapper'>
@@ -47,23 +47,23 @@
 				</view>
 				<view class='invalidGoods' v-if="cartList.invalid.length > 0">
 					<view class='goodsNav acea-row row-between-wrapper'>
-						<view @click='goodsOpen'><text class='iconfont' :class='goodsHidden==true?"icon-xiangxia":"icon-xiangshang"'></text>失效商品</view>
-						<view class='del' @click='unsetCart'><text class='iconfont icon-shanchu1'></text>清空</view>
+						<view @click='goodsOpen'><text class='iconfont' :class='goodsHidden==true?"icon-xiangxia":"icon-xiangshang"'></text>Hàng hóa thất bại</view>
+						<view class='del' @click='unsetCart'><text class='iconfont icon-shanchu1'></text>Dọn dẹp</view>
 					</view>
 					<view class='goodsList' :hidden='goodsHidden'>
 						<block v-for="(item,index) in cartList.invalid" :key='index'>
 							<view class='item acea-row row-between-wrapper'>
-								<view class='invalid'>失效</view>
+								<view class='invalid'>hỏng</view>
 								<view class='pictrue'>
 									<image v-if="item.productInfo.attrInfo" :src='item.productInfo.attrInfo.image'></image>
 									<image v-else :src='item.productInfo.image'></image>
 								</view>
 								<view class='text acea-row row-column-between'>
 									<view class='line1 name'>{{item.productInfo.store_name}}</view>
-									<view class='infor line1' v-if="item.productInfo.attrInfo">属性：{{item.productInfo.attrInfo.suk}}</view>
+									<view class='infor line1' v-if="item.productInfo.attrInfo">Thuộc tính：{{item.productInfo.attrInfo.suk}}</view>
 									<view class='acea-row row-between-wrapper'>
 										<!-- <view>￥{{item.truePrice}}</view> -->
-										<view class='end'>该商品已失效</view>
+										<view class='end'>Hàng hóa đã hết hiệu lực</view>
 									</view>
 								</view>
 							</view>
@@ -81,21 +81,21 @@
 			<view class='footer acea-row row-between-wrapper' v-if="cartList.valid.length > 0">
 				<view>
 					<checkbox-group @change="checkboxAllChange">
-						<checkbox value="all" :checked="!!isAllSelect" /><text class='checkAll'>全选 ({{cartCount}})</text>
+						<checkbox value="all" :checked="!!isAllSelect" /><text class='checkAll'>chọn tất cả ({{cartCount}})</text>
 					</checkbox-group>
 				</view>
 				<view class='money acea-row row-middle' v-if="footerswitch==true">
 					<text class='font-color'>￥{{selectCountPrice}}</text>
 					<form @submit="subOrder" report-submit='true'>
-						<button class='placeOrder bg-color' formType="submit">立即下单</button>
+						<button class='placeOrder bg-color' formType="submit">chọn tất cả</button>
 					</form>
 				</view>
 				<view class='button acea-row row-middle' v-else>
 					<form @submit="subCollect" report-submit='true'>
-						<button class='bnt cart-color' formType="submit">收藏</button>
+						<button class='bnt cart-color' formType="submit">Bộ sưu tập</button>
 					</form>
 					<form @submit="subDel" report-submit='true'>
-						<button class='bnt' formType="submit">删除</button>
+						<button class='bnt' formType="submit">Xoá bỏ</button>
 					</form>
 				</view>
 			</view>
@@ -253,7 +253,7 @@
 					});
 				} else {
 					return that.$util.Tips({
-						title: '请选择产品'
+						title: 'Hãy chọn sản phẩm'
 					});
 				}
 			},
@@ -266,7 +266,7 @@
 					});
 				} else {
 					return that.$util.Tips({
-						title: '请选择产品'
+						title: 'Hãy chọn sản phẩm'
 					});
 				}
 			},
@@ -472,7 +472,7 @@
 				}
 				cartDel(ids).then(res => {
 					that.$util.Tips({
-						title: '清除成功'
+						title: 'Làm sạch thành công'
 					});
 					that.$set(that.cartList, 'invalid', []);
 				}).catch(res => {
@@ -488,7 +488,7 @@
 
 <style scoped lang="scss">
 	.shoppingCart .labelNav {
-		height: 76rpx;
+		height: 150rpx;
 		padding: 0 30rpx;
 		font-size: 22rpx;
 		color: #8c8c8c;
@@ -517,13 +517,13 @@
 		position: fixed;
 		left: 0;
 		z-index: 5;
-		top: 76rpx;
+		top: 160rpx;
 	}
 
 	.shoppingCart .nav .administrate {
 		font-size: 26rpx;
 		color: #282828;
-		width: 110rpx;
+		width: 210rpx;
 		height: 46rpx;
 		border-radius: 6rpx;
 		border: 1px solid #868686;
@@ -547,7 +547,7 @@
 	}
 
 	.shoppingCart .list {
-		margin-top: 171rpx;
+		margin-top: 260rpx;
 	}
 
 	.shoppingCart .list .item {

@@ -2,7 +2,7 @@
 	<view class='recommend'>
 		<view class='title acea-row row-center-wrapper'>
 			<text class='iconfont icon-zhuangshixian'></text>
-			<text class='name'>热门推荐</text>
+			<text class='name'>Đề xuất phổ biến</text>
 			<text class='iconfont icon-zhuangshixian lefticon'></text>
 		</view>
 		<view class='recommendList acea-row row-between-wrapper'>

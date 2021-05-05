@@ -9,7 +9,7 @@
 					<view class="info">
 						<!-- #ifdef MP -->
 						<view class="name" v-if="!userInfo.uid" @tap="openAuto">
-							请点击授权
+							Hãy nhấp vào giấy ủy quyền
 						</view>
 						<!-- #endif -->
 						<view class="name" v-if="userInfo.uid">
@@ -25,30 +25,30 @@
 								<image src="/static/images/edit.png" mode=""></image>
 							</view>
 						</view>
-						<view class="phone" v-if="!userInfo.phone && isLogin" @tap="bindPhone">绑定手机号</view>
+						<view class="phone" v-if="!userInfo.phone && isLogin" @tap="bindPhone">Ràng buộc số điện thoại di động</view>
 					</view>
 				</view>
 				<view class="num-wrapper">
 					<view class="num-item" @click="goMenuPage('/pages/users/user_money/index')">
 						<text class="num">{{userInfo.now_money || 0}}</text>
-						<view class="txt">余额</view>
+						<view class="txt">Thăng bằng</view>
 					</view>
 					<view class="num-item" @click="goMenuPage('/pages/users/user_integral/index')">
 						<text class="num">{{userInfo.integral || 0}}</text>
-						<view class="txt">积分</view>
+						<view class="txt">Xác nhận</view>
 					</view>
 					<view class="num-item" @click="goMenuPage('/pages/users/user_coupon/index')">
 						<text class="num">{{userInfo.couponCount || 0}}</text>
-						<view class="txt">优惠券</view>
+						<view class="txt">Phiếu giảm giá</view>
 					</view>
 				</view>
-				<view class="sign" @click="goSignIn">签到</view>
+				<view class="sign" @click="goSignIn">QianDao</view>
 			</view>
 			<view class="order-wrapper">
 				<view class="order-hd flex">
-					<view class="left">订单中心</view>
+					<view class="left">Trung tâm đặt hàng</view>
 					<navigator class="right flex" hover-class="none" url="/pages/users/order_list/index" open-type="navigate">
-						查看全部
+						Xem tất cả
 						<text class="iconfont icon-xiangyou"></text>
 					</navigator>
 				</view>
@@ -93,7 +93,7 @@
 			<navigator class="item" url="/pages/customer_list/index" hover-class="none">
 				<view class="left">
 					<image src="/static/images/user_menu08.png"></image>
-					<text>联系客服</text>
+					<text>Trả lời</text>
 				</view>
 				<view class="iconfont icon-xiangyou"></view>
 			</navigator>
@@ -102,7 +102,7 @@
 			<button class="item" open-type='contact' hover-class='none'>
 				<view class="left">
 					<image src="/static/images/user_menu08.png"></image>
-					<text>联系客服</text>
+					<text>Trả lời</text>
 				</view>
 				<view class="iconfont icon-xiangyou"></view>
 			</button>
@@ -141,64 +141,64 @@
 			return {
 				orderMenu: [{
 						img: '/static/images/order1.png',
-						title: '待付款',
+						title: 'thanh toán',
 						url: '/pages/users/order_list/index?status=0'
 					},
 					{
 						img: '/static/images/order2.png',
-						title: '待发货',
+						title: 'được giao',
 						url: '/pages/users/order_list/index?status=1'
 					},
 					{
 						img: '/static/images/order3.png',
-						title: '待收货',
+						title: 'Đã nhận được',
 						url: '/pages/users/order_list/index?status=2'
 					},
 					{
 						img: '/static/images/order4.png',
-						title: '待评价',
+						title: 'bình luận',
 						url: '/pages/users/order_list/index?status=3'
 					},
 					{
 						img: '/static/images/order5.png',
-						title: '售后/退款',
+						title: 'Sau khi bán \ Hoàn tiền ',
 						url: '/pages/users/user_return_list/index'
 					},
 				],
 				imgUrls: [],
 				userMenu: [{
 						icon: '/static/images/user_menu01.png',
-						title: '会员中心',
+						title: 'Trung tâm thành viên',
 						url: '/pages/users/user_vip/index'
 					},
 					{
 						icon: '/static/images/user_menu02.png',
-						title: '我的推广',
+						title: 'Sự quảng bá của tôi',
 						url: '/pages/users/user_spread_user/index'
 					},
 					{
 						icon: '/static/images/user_menu03.png',
-						title: '优惠券',
+						title: 'Phiếu giảm giá',
 						url: '/pages/users/user_coupon/index'
 					},
 					{
 						icon: '/static/images/user_menu04.png',
-						title: '砍价记录',
+						title: 'Hồ sơ mặc cả',
 						url: '/pages/activity/bargain/index'
 					},
 					{
 						icon: '/static/images/user_menu05.png',
-						title: '我的余额',
+						title: 'Số dư của tôi',
 						url: '/pages/users/user_money/index'
 					},
 					{
 						icon: '/static/images/user_menu06.png',
-						title: '我的收藏',
+						title: 'Bộ sưu tập của tôi',
 						url: '/pages/users/user_goods_collection/index'
 					},
 					{
 						icon: '/static/images/user_menu07.png',
-						title: '地址管理',
+						title: 'Quản lý địa chỉ',
 						url: '/pages/users/user_address_list/index'
 					},
 				],
@@ -275,19 +275,19 @@
 					that.$store.commit("SETUID", res.data.uid);
 					that.orderMenu.forEach((item, index) => {
 						switch (item.title) {
-							case '待付款':
+							case 'thanh toán':
 								item.num = res.data.orderStatusNum.unpaid_count
 								break
-							case '待发货':
+							case 'được giao':
 								item.num = res.data.orderStatusNum.unshipped_count
 								break
-							case '待收货':
+							case 'Đã nhận được':
 								item.num = res.data.orderStatusNum.received_count
 								break
-							case '待评价':
+							case 'bình luận':
 								item.num = res.data.orderStatusNum.evaluated_count
 								break
-							case '售后/退款':
+							case 'Sau khi bán \ Hoàn tiền':
 								item.num = res.data.orderStatusNum.refund_count
 								break
 						}
@@ -494,6 +494,7 @@
 						align-items: center;
 						width: 20%;
 						height: 160rpx;
+						text-align: center;
 
 						.pic {
 							position: relative;

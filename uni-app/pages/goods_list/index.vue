@@ -9,29 +9,29 @@
 				<view class='iconfont' :class='is_switch==true?"icon-pailie":"icon-tupianpailie"' @click='Changswitch'></view>
 			</view>
 			<view class='nav acea-row row-middle'>
-				<view class='item' :class='title ? "font-color":""' @click='set_where(1)'>{{title ? title:'默认'}}</view>
+				<view class='item' :class='title ? "font-color":""' @click='set_where(1)'>{{title ? title:'mặc định'}}</view>
 				<view class='item' @click='set_where(2)'>
-					价格
+					giá bán
 					<image v-if="price==1" src='../../static/images/up.png'></image>
 					<image v-else-if="price==2" src='../../static/images/down.png'></image>
 					<image v-else src='../../static/images/horn.png'></image>
 				</view>
 				<view class='item' @click='set_where(3)'>
-					销量
+					Bán hang
 					<image v-if="stock==1" src='../../static/images/up.png'></image>
 					<image v-else-if="stock==2" src='../../static/images/down.png'></image>
 					<image v-else src='../../static/images/horn.png'></image>
 				</view>
 				<!-- down -->
-				<view class='item' :class='nows ? "font-color":""' @click='set_where(4)'>新品</view>
+				<view class='item' :class='nows ? "font-color":""' @click='set_where(4)'>Sản phẩm mới</view>
 			</view>
 			<view class='list acea-row row-between-wrapper' :class='is_switch==true?"":"on"'>
 				<view class='item' :class='is_switch==true?"":"on"' hover-class='none' v-for="(item,index) in productList" :key="index" @click="godDetail(item)">
 					<view class='pictrue' :class='is_switch==true?"":"on"'>
 						<image :src='item.image' :class='is_switch==true?"":"on"'></image>
-						<span class="pictrue_log_class" :class="is_switch === true ? 'pictrue_log_big' : 'pictrue_log'" v-if="item.activity && item.activity.type === '1'">秒杀</span>
-						<span class="pictrue_log_class" :class="is_switch === true ? 'pictrue_log_big' : 'pictrue_log'" v-if="item.activity && item.activity.type === '2'">砍价</span>
-						<span class="pictrue_log_class" :class="is_switch === true ? 'pictrue_log_big' : 'pictrue_log'" v-if="item.activity && item.activity.type === '3'">拼团</span>
+						<span class="pictrue_log_class" :class="is_switch === true ? 'pictrue_log_big' : 'pictrue_log'" v-if="item.activity && item.activity.type === '1'">Giây giết</span>
+						<span class="pictrue_log_class" :class="is_switch === true ? 'pictrue_log_big' : 'pictrue_log'" v-if="item.activity && item.activity.type === '2'">KanJia</span>
+						<span class="pictrue_log_class" :class="is_switch === true ? 'pictrue_log_big' : 'pictrue_log'" v-if="item.activity && item.activity.type === '3'">Đánh vần</span>
 					</view>
 					<view class='text' :class='is_switch==true?"":"on"'>
 						<view class='name line1'>{{item.store_name}}</view>
@@ -40,7 +40,7 @@
 							<view class='vip-money' v-if="item.vip_price && item.vip_price > 0">￥{{item.vip_price}}
 								<image src='../../static/images/vip.png'></image>
 							</view>
-							<view>已售{{item.sales}}件</view>
+							<view>Đã bán{{item.sales}}con số</view>
 						</view>
 					</view>
 				</view>
@@ -90,7 +90,7 @@
 				nows: false,
 				loadend: false,
 				loading: false,
-				loadTitle: '加载更多',
+				loadTitle: 'Nạp thêm đạn',
 				title: '',
 				hostProduct: [],
 				hotPage:1,
@@ -199,12 +199,12 @@
 					let loadend = list.length < that.where.limit;
 					that.loadend = loadend;
 					that.loading = false;
-					that.loadTitle = loadend ? '已全部加载' : '加载更多';
+					that.loadTitle = loadend ? 'Tất cả đã được tải' : 'Nạp thêm đạn';
 					that.$set(that, 'productList', productList);
 					that.$set(that.where, 'page', that.where.page + 1);
 				}).catch(err => {
 					that.loading = false;
-					that.loadTitle = '加载更多';
+					that.loadTitle = 'Nạp thêm đạn';
 				});
 			},
 		},

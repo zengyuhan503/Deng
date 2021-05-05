@@ -62,29 +62,29 @@ export default {
   methods: {
     titleInfo: function() {
       if (this.type === "1") {
-        this.name = "精品推荐";
+        this.name = "Được đề xuất";
         this.icon = "icon-jingpintuijian";
         // document.title = "精品推荐";
 				uni.setNavigationBarTitle({
-					title:"精品推荐"
+					title:"Được đề xuất"
 				})
       } else if (this.type === "2") {
-        this.name = "热门榜单";
+        this.name = "Danh sách phổ biến";
         this.icon = "icon-remen";
 				uni.setNavigationBarTitle({
-					title:"热门榜单"
+					title:"Danh sách phổ biến"
 				})
       } else if (this.type === "3") {
-        this.name = "首发新品";
+        this.name = "Sản phẩm mới";
         this.icon = "icon-xinpin";
 				uni.setNavigationBarTitle({
-					title:"首发新品"
+					title:"Sản phẩm mới"
 				})
       }else if (this.type === "4") {
-        this.name = "促销单品";
+        this.name = "Hàng khuyến mãi";
         this.icon = "icon-xinpin";
 				uni.setNavigationBarTitle({
-					title:"促销单品"
+					title:"Hàng khuyến mãi"
 				})
       }
     },

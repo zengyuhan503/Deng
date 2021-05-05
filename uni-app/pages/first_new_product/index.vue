@@ -41,34 +41,34 @@
 		      let type = this.type;
 		      if (type == 1){
 				uni.setNavigationBarTitle({
-				   title:"精品推荐"
+				   title:"Được đề xuất"
 				});
-				this.name = '精品推荐';
+				this.name = 'Được đề xuất';
 				this.icon = 'icon-jingpintuijian';
 		      } else if (type == 2) {
 				uni.setNavigationBarTitle({
-				   title:"热门榜单"
+				   title:"Danh sách phổ biến"
 				});
-				this.name = '热门榜单';
+				this.name = 'Danh sách phổ biến';
 				this.icon = 'icon-remen';
 				this.status = 1;
 		      } else if (type == 3) {
 				uni.setNavigationBarTitle({
-				   title:"首发新品"
+				   title:"Sản phẩm mới"
 				});
-				this.name = '首发新品';
+				this.name = 'Sản phẩm mới';
 				this.icon = 'icon-xinpin';  
 		      } else if (type == 4) {
 				  uni.setNavigationBarTitle({
-				     title:"促销单品"
+				     title:"Hàng khuyến mãi"
 				  });
-				  this.name = '促销单品';
+				  this.name = 'Hàng khuyến mãi';
 				  this.icon = 'icon-cuxiaoguanli';
 		      }else{
 				  uni.setNavigationBarTitle({
-				     title:"首发新品"
+				     title:"Sản phẩm mới"
 				  });
-				  this.name = '首发新品';
+				  this.name = 'Sản phẩm mới';
 				  this.icon = 'icon-xinpin';
 		      }
 		      this.getIndexGroomList();

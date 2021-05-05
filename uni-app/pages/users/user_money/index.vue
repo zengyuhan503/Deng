@@ -6,31 +6,31 @@
 					<view class='headerCon'>
 						<view class='account acea-row row-top row-between'>
 							<view class='assets'>
-								<view>总资产(元)</view>
+								<view>Tổng tài sản (nhân dân tệ)</view>
 								<view class='money'>{{userInfo.now_money || 0}}</view>
 							</view>
 							<!-- #ifdef APP-PLUS || H5 -->
-							<navigator url="/pages/users/user_payment/index" hover-class="none" class='recharge font-color'>充值</navigator>
+							<!-- <navigator url="/pages/users/user_payment/index" hover-class="none" class='recharge font-color'>充值</navigator> -->
 							<!-- #endif -->
 							<!-- #ifdef MP -->
-							<view v-if="recharge_switch" @click="openSubscribe('/pages/users/user_payment/index')" class='recharge font-color'>充值</view>
+							<!-- <view v-if="recharge_switch" @click="openSubscribe('/pages/users/user_payment/index')" class='recharge font-color'>充值</view> -->
 							<!-- #endif -->
 						</view>
 						<view class='cumulative acea-row row-top'>
 							<!-- #ifdef APP-PLUS || H5 -->
-							<view class='item'>
+							<!-- <view class='item'>
 								<view>累计充值(元)</view>
 								<view class='money'>{{userInfo.recharge || 0}}</view>
-							</view>
+							</view> -->
 							<!-- #endif -->
 							<!-- #ifdef MP -->
-							<view class='item' v-if="recharge_switch">
+						<!-- 	<view class='item' v-if="recharge_switch">
 								<view>累计充值(元)</view>
 								<view class='money'>{{userInfo.recharge || 0}}</view>
-							</view>
+							</view> -->
 							<!-- #endif -->
 							<view class='item'>
-								<view>累计消费(元)</view>
+								<view>Người tiêu dùng tích lũy (yuan)</view>
 								<view class='money'>{{userInfo.orderStatusSum || 0}}</view>
 							</view>
 						</view>
@@ -41,29 +41,29 @@
 						<view class='pictrue'>
 							<image src='../../../static/images/record1.png'></image>
 						</view>
-						<view>账单记录</view>
+						<view>Ghi chép hóa đơn</view>
 					</navigator>
 					<navigator class='item' hover-class='none' url='/pages/users/user_bill/index?type=1'>
 						<view class='pictrue'>
 							<image src='../../../static/images/record2.png'></image>
 						</view>
-						<view>消费记录</view>
+						<view>Hồ sơ tiêu thụ</view>
 					</navigator>
 					<navigator class='item' hover-class='none' url='/pages/users/user_bill/index?type=2' v-if="recharge_switch">
 						<view class='pictrue'>
 							<image src='../../../static/images/record3.png'></image>
 						</view>
-						<view>充值记录</view>
+						<view>Nạp tiền hồ sơ</view>
 					</navigator>
-					<navigator class='item' hover-class='none' url='/pages/users/user_integral/index'>
+					<!-- <navigator class='item' hover-class='none' url='/pages/users/user_integral/index'>
 						<view class='pictrue'>
 							<image src='../../../static/images/record4.png'></image>
 						</view>
 						<view>积分中心</view>
-					</navigator>
+					</navigator> -->
 				</view>
 				<view class='advert acea-row row-between-wrapper'>
-					<navigator class='item acea-row row-between-wrapper' hover-class='none' url='/pages/users/user_sgin/index'>
+					<!-- <navigator class='item acea-row row-between-wrapper' hover-class='none' url='/pages/users/user_sgin/index'>
 						<view class='text'>
 							<view class='name'>签到领积分</view>
 							<view>赚积分抵现金</view>
@@ -71,18 +71,18 @@
 						<view class='pictrue'>
 							<image src='../../../static/images/gift.png'></image>
 						</view>
-					</navigator>
+					</navigator> -->
 					<navigator class='item on acea-row row-between-wrapper' hover-class='none' url='/pages/users/user_get_coupon/index'>
 						<view class='text'>
-							<view class='name'>领取优惠券</view>
-							<view>满减享优惠</view>
+							<view class='name'>Nhận phiếu giảm giá</view>
+							<view>Giảm hạn chế</view>
 						</view>
 						<view class='pictrue'>
 							<image src='../../../static/images/money.png'></image>
 						</view>
 					</navigator>
 				</view>
-				<view class='list'>
+				<view class='list' v-if="false">
 					<view class='item acea-row row-between-wrapper'>
 						<view class='picTxt acea-row row-between-wrapper'>
 							<view class='iconfont icon-hebingxingzhuang'></view>
@@ -352,7 +352,7 @@
 
 	.my-account .wrapper .advert .item {
 		background-color: #fff6d1;
-		width: 332rpx;
+		width: 100%;
 		height: 118rpx;
 		border-radius: 10rpx;
 		padding: 0 27rpx 0 25rpx;

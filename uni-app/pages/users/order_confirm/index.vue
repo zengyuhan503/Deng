@@ -887,9 +887,9 @@
 				if (!that.payType) return that.$util.Tips({
 					title: '请选择支付方式'
 				});
-				if (!that.addressId && !that.shippingType) return that.$util.Tips({
-					title: '请选择收货地址'
-				});
+				// if (!that.addressId && !that.shippingType) return that.$util.Tips({
+				// 	title: '请选择收货地址'
+				// });
 				if (that.shippingType == 1) {
 					if (that.contacts == "" || that.contactsTel == "") {
 						return that.$util.Tips({

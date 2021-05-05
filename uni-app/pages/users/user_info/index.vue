@@ -3,7 +3,7 @@
 		<form @submit="formSubmit" report-submit='true'>
 			<view class='personal-data'>
 				<view class="wrapper">
-					<view class="title">管理我的账号</view>
+					<view class="title">Quản lý tài khoản của tôi</view>
 					<view class="wrapList">
 						<view class="item acea-row row-between-wrapper" :class="item.uid === userInfo.uid ? 'on' : ''" v-for="(item,index) in switchUserInfo"
 						 :key="index" @click='switchAccounts(index)'>
@@ -17,29 +17,29 @@
 								</view>
 								<view class="text">
 									<view class="name line1">{{ item.nickname }}</view>
-									<view class="phone" v-if="item.phone && item.user_type !='h5'">绑定手机号：{{ item.phone }}</view>
-									<view class="phone" v-else-if="item.phone && item.user_type =='h5'">账号：{{ item.phone }}</view>
-									<view class="phone" v-else>暂未绑定手机号</view>
+									<view class="phone" v-if="item.phone && item.user_type !='h5'">Ràng buộc số điện thoại di động：{{ item.phone }}</view>
+									<view class="phone" v-else-if="item.phone && item.user_type =='h5'">Tài khoản：{{ item.phone }}</view>
+									<view class="phone" v-else>Chưa ràng buộc số điện thoại</view>
 								</view>
 							</view>
 							<view class="currentBnt acea-row row-center-wrapper font-color" v-if='item.uid === userInfo.uid'>
-								当前账号
+								Tài khoản hiện tại
 							</view>
 							<view class="bnt font-color acea-row row-center-wrapper" v-else>
-								使用账号
+								số tài khoản
 							</view>
 						</view>
 					</view>
 				</view>
 				<view class='list'>
 					<view class='item acea-row row-between-wrapper'>
-						<view>昵称</view>
+						<view>tên nick</view>
 						<view class='input'><input type='text' name='nickname' :value='userInfo.nickname'></input></view>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view>手机号码</view>
+						<view>Số điện thoại di động</view>
 						<navigator url="/pages/user_phone/index" hover-class="none" class="input" v-if="!userInfo.phone">
-							点击绑定手机号<text class="iconfont icon-xiangyou"></text>
+							Bấm số điện thoại đi<text class="iconfont icon-xiangyou"></text>
 						</navigator>
 						<view class='input acea-row row-between-wrapper' v-else>
 							<input type='text' disabled='true' name='phone' :value='userInfo.phone' class='id'></input>
@@ -47,7 +47,7 @@
 						</view>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view>ID号</view>
+						<view>số ID</view>
 						<view class='input acea-row row-between-wrapper'>
 							<input type='text' :value='userInfo.uid' disabled='true' class='id'></input>
 							<text class='iconfont icon-suozi'></text>
@@ -55,22 +55,22 @@
 					</view>
 					<!-- #ifdef MP -->
 					<view class='item acea-row row-between-wrapper'>
-						<view>权限设置</view>
+						<view>Thiết lập quyền</view>
 						<view class="input" @click="Setting">
-							点击管理<text class="iconfont icon-xiangyou"></text>
+							Nhấp chuột quản lý<text class="iconfont icon-xiangyou"></text>
 						</view>
 					</view>
 					<!-- #endif -->
 					<view class="item acea-row row-between-wrapper" v-if="userInfo.phone && userInfo.user_type == 'h5'">
-						<view>密码</view>
+						<view>Mật khẩu</view>
 						<navigator url="/pages/user_pwd_edit/index" hover-class="none" class="input">
-							点击修改密码<text class="iconfont icon-xiangyou"></text>
+							Bấm vào để thay đổi mật khẩu<text class="iconfont icon-xiangyou"></text>
 						</navigator>
 					</view>
 				</view>
-				<button class='modifyBnt bg-color' formType="submit">保存修改</button>
+				<button class='modifyBnt bg-color' formType="submit">Lưu thay đổi</button>
 				<!-- #ifdef H5 -->
-				<view class="logOut cart-color acea-row row-center-wrapper" @click="outLogin" v-if="!this.$wechat.isWeixin()">退出登录</view>
+				<view class="logOut cart-color acea-row row-center-wrapper" @click="outLogin" v-if="!this.$wechat.isWeixin()">đăng xuất</view>
 				<!-- #endif -->
 			</view>
 		</form>
@@ -156,11 +156,11 @@
 				that.userIndex = index;
 				if (that.switchUserInfo.length <= 1) return true;
 				if (userInfo === undefined) return that.$util.Tips({
-					title: '切换的账号不存在'
+					title: 'Chuyển tài khoản không tồn tại'
 				});
 				if (userInfo.user_type === 'h5') {
 					uni.showLoading({
-						title: '正在切换中'
+						title: 'Đang chuyển đổi'
 					});
 					switchH5Login().then(res => {
 						uni.hideLoading();
@@ -180,7 +180,7 @@
 				} else {
 					that.$store.commit("LOGOUT");
 					uni.showLoading({
-						title: '正在切换中'
+						title: 'Đang chuyển đổi'
 					});
 					// #ifdef H5 || APP-PLUS
 					toLogin();
@@ -199,8 +199,8 @@
 				let that = this;
 				if (that.loginType == 'h5') {
 					uni.showModal({
-					    title: '提示',
-					    content: '确认退出登录?',
+					    title: 'Gợi ý',
+					    content: 'Xác nhận đăng nhập?',
 					    success: function (res) {
 					        if (res.confirm) {
 					            getLogout()
@@ -214,7 +214,7 @@
 					                console.log(err);
 					              });
 					        } else if (res.cancel) {
-					            console.log('用户点击取消');
+					            console.log('Người dùng nhấp vào để hủy bỏ');
 					        }
 					    }
 					});	
@@ -268,7 +268,7 @@
 					value = e.detail.value,
 					userInfo = that.switchUserInfo[that.userIndex];
 				if (!value.nickname) return that.$util.Tips({
-					title: '用户姓名不能为空'
+					title: 'Tên người dùng không phải là rỗng'
 				});
 				value.avatar = userInfo.avatar;
 				userEdit(value).then(res => {
@@ -281,7 +281,7 @@
 					});
 				}).catch(msg => {
 					return that.$util.Tips({	
-						title: msg || '保存失败，您并没有修改'
+						title: msg || 'Lưu thất bại, bạn không sửa đổi'
 					}, {
 						tab: 3,
 						url: 1

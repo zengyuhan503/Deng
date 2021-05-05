@@ -8,7 +8,7 @@
 					<image :src="logoUrl" mode=""></image>
 				</view>
 				<navigator url="/pages/goods_search/index" class="input" hover-class="none"><text class="iconfont icon-xiazai5"></text>
-					搜索商品</navigator>
+					Tìm kiếm tên sản phẩm</navigator>
 			</view>
 			<tabNav class="tabNav" :class="{'fixed':isFixed}" :tabTitle="navTop" @changeTab='changeTab' @emChildTab='emChildTab'
 			 @childTab='childTab'></tabNav>
@@ -24,7 +24,7 @@
 						<image :src="logoUrl" mode=""></image>
 					</view>
 					<navigator url="/pages/goods_search/index" class="input" hover-class="none"><text class="iconfont icon-xiazai5"></text>
-						搜索商品</navigator>
+						Tìm kiếm tên sản phẩm</navigator>
 				</view>
 			</view>
 			<tabNav class="tabNav" :tabTitle="navTop" @changeTab='changeTab'></tabNav>
@@ -73,15 +73,15 @@
 					<view class="live-top" :class="liveList[0].live_status == 101?'pictrue_log_xl':liveList[0].live_status == 103?'pictrue_log_xl_gray':'pictrue_log_xl_blue'">
 						<block v-if="liveList[0].live_status == 101">
 							<image src="/static/images/live-01.png" mode=""></image>
-							<text>直播中</text>
+							<text>sống</text>
 						</block>
 						<block v-if="liveList[0].live_status == 103">
 							<image src="/static/images/live-02.png" mode=""></image>
-							<text>已结束</text>
+							<text>Đã kết thúc</text>
 						</block>
 						<block v-if="liveList[0].live_status == 102">
 							<image src="/static/images/live-03.png" mode=""></image>
-							<text>未开始</text>
+							<text>Không bắt đầu</text>
 						</block>
 					</view>
 					<image :src="liveList[0].share_img"></image>
@@ -93,15 +93,15 @@
 							<view class="live-top" :class="item.type == 1?'pictrue_log_xl':item.type == 2?'pictrue_log_xl_gray':'pictrue_log_xl_blue'">
 								<block v-if="item.live_status == 101">
 									<image src="/static/images/live-01.png" mode=""></image>
-									<text>直播中</text>
+									<text>ố</text>
 								</block>
 								<block v-if="item.live_status == 103">
 									<image src="/static/images/live-02.png" mode=""></image>
-									<text>已结束</text>
+									<text>Đã kết thúc</text>
 								</block>
 								<block v-if="item.live_status == 102">
 									<image src="/static/images/live-03.png" mode=""></image>
-									<text>未开始</text>
+									<text>Không bắt đầu</text>
 								</block>
 							</view>
 							<image :src="item.share_img"></image>
@@ -123,25 +123,6 @@
 					</block>
 				</swiper>
 			</view>
-			<!-- 超值爆款 -->
-			<view class="explosion">
-				<view class="hd">
-					<image src="/static/images/explosion-title.png" mode=""></image>
-					<view class="txt">美好生活由此开始</view>
-				</view>
-				<view class="bd">
-					<navigator class="item" v-for="(item,index) in explosiveMoney" :key="index" :url="'/pages/columnGoods/HotNewGoods/index?type='+item.type"
-					 hover-class='none'>
-						<view class="con-box">
-							<view class="title line1">{{item.title}}</view>
-							<view class="con line2">{{item.info}}</view>
-							<view class="go">GO！<image src="/static/images/right-icon.png" mode=""></image>
-							</view>
-						</view>
-						<image :src="item.image"></image>
-					</navigator>
-				</view>
-			</view>
 			<!-- 限时秒杀 -->
 			<view class="spike-box" v-if="spikeList.length>0">
 				<view class="hd">
@@ -151,7 +132,7 @@
 						<countDown :is-day="false" :tip-text="' '" :day-text="' '" :hour-text="' : '" :minute-text="' : '" :second-text="' '"
 						 :datatime="datatime"></countDown>
 					</view>
-					<navigator class="more" url="/pages/activity/goods_seckill/index">更多 <text class="iconfont icon-jiantou"
+					<navigator class="more" url="/pages/activity/goods_seckill/index">Nhiều hơn <text class="iconfont icon-jiantou"
 						 hover-class='none'></text></navigator>
 				</view>
 				<view class="spike-wrapper">
@@ -160,12 +141,12 @@
 						 hover-class='none'>
 							<view class="img-box">
 								<image :src="item.image" mode=""></image>
-								<view class="msg flex-aj-center">{{item.discountNum}}折起</view>
+								<view class="msg flex-aj-center">{{item.discountNum}}Giảm giá</view>
 							</view>
 							<view class="info">
 								<view class="name line1">{{item.title}}</view>
 								<view class="price-box">
-									<text class="tips">抢</text>
+									<text class="tips">cướp</text>
 									<text class="price"><text>￥</text>{{item.price}}</text>
 								</view>
 							</view>
@@ -186,12 +167,12 @@
 									<image :src="item.image" class="slide-image"></image>
 									<view class="info-txt">
 										<view class="price">￥{{item.price}}</view>
-										<view class="txt">立即砍价</view>
+										<view class="txt">Ngay lập tức mặc cả</view>
 									</view>
 								</view>
 							</block>
 							<navigator url="/pages/activity/goods_bargain/index" class="more-box" hover-class="none">
-								<view class="txt">查看更多</view>
+								<view class="txt">Xem thêm</view>
 								<image src="/static/images/mores.png"></image>
 							</navigator>
 						</view>
@@ -211,10 +192,10 @@
 									<image :src="item" mode=""></image>
 								</block>
 							</view>
-							<view class="num" v-if="pinkInfo.pink_count>0">{{pinkInfo.pink_count}}人拼团成功</view>
+							<view class="num" v-if="pinkInfo.pink_count>0">{{pinkInfo.pink_count}}ngườiChính tả thành công</view>
 						</view>
 					</view>
-					<navigator class="more" url="/pages/activity/goods_combination/index" hover-class="none">更多 <text class="iconfont icon-jiantou"></text></navigator>
+					<navigator class="more" url="/pages/activity/goods_combination/index" hover-class="none">Nhiều hơn <text class="iconfont icon-jiantou"></text></navigator>
 				</view>
 				<view class="group-scroll">
 					<scroll-view scroll-x="true" style="white-space: nowrap; display: flex" show-scrollbar="false">
@@ -224,27 +205,14 @@
 							<view class="info">
 								<view class="name line1">{{item.title}}</view>
 								<view class="price-box">
-									<text class="tips">拼团价</text>
+									<text class="tips">Chính tả giá</text>
 									<text class="price"><text>￥</text>{{item.price}}</text>
 								</view>
 							</view>
-							<view class="bom-btn">参与拼团</view>
+							<view class="bom-btn">Tham gia vào nhiệm vụ chính tả</view>
 						</navigator>
 					</scroll-view>
 				</view>
-			</view>
-			<!-- 精品推荐 -->
-			<view class='boutique'>
-				<swiper autoplay="true" indicator-dots="true" :circular="circular" :interval="interval" :duration="duration"
-				 indicator-color="rgba(0,0,0,.4)" indicator-active-color="#fff">
-					<block v-for="(item,index) in bastBanner" :key="index">
-						<swiper-item>
-							<navigator :url='item.link' style='width:100%;height:100%;' hover-class='none'>
-								<image :src="item.img" class="slide-image" />
-							</navigator>
-						</swiper-item>
-					</block>
-				</swiper>
 			</view>
 			<!-- 首页推荐 -->
 			<view class="index-product-wrapper" style="min-height: 1500rpx;">
@@ -259,9 +227,9 @@
 				<view class="list-box animated" :class='tempArr.length > 0?"fadeIn on":""'>
 					<view class="item" v-for="(item,index) in tempArr" :key="index" @click="goDetail(item)">
 						<view class="pictrue">
-							<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '1'">秒杀</span>
-							<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '2'">砍价</span>
-							<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '3'">拼团</span>
+							<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '1'">Giây giết</span>
+							<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '2'">KanJia</span>
+							<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '3'">Ghétp hội đồng lãnh đạo,</span>
 							<image :src="item.image" mode=""></image>
 						</view>
 						<view class="text-info">
@@ -278,7 +246,7 @@
 					<text class='loading iconfont icon-jiazai' :hidden='loading==false'></text>
 				</view>
 				<view class="mores-txt flex" v-if="!goodScroll">
-					<text>我是有底线的</text>
+					<text>Tôi cũng có một điểm mấu chốt</text>
 				</view>
 			</view>
 		</view>
@@ -325,6 +293,7 @@
 		<authorize @onLoadFun="onLoadFun" :isAuto="isAuto" :isShowAuth="isShowAuth" @authColse="authColse" :isGoIndex="false"></authorize>
 		<!-- #endif -->
 	</view>
+
 </template>
 
 <script>
@@ -546,7 +515,7 @@
 				let that = this;
 				getCategoryList().then(res => {
 					res.data.unshift({
-						'cate_name': '首页'
+						'cate_name': 'Trang đầu'
 					})
 					that.navTop = res.data;
 				})
@@ -759,8 +728,8 @@
 				if (!this.isLogin) {
 					// #ifdef H5
 					uni.showModal({
-						title: '提示',
-						content: '您未登陆，请登陆！',
+						title: 'Gợi ý',
+						content: 'Bạn đã không hạ cánh, hãy hạ cánh！',
 						success: function(res) {
 							if (res.confirm) {
 								uni.navigateTo({
@@ -802,8 +771,8 @@
 				if (item.activity && item.activity.type === "2" && !this.isLogin) {
 					// #ifdef H5
 					uni.showModal({
-						title: '提示',
-						content: '您未登陆，请登陆！',
+						title: 'Gợi ý',
+						content: 'Bạn đã không hạ cánh, hãy hạ cánh！',
 						success: function(res) {
 							if (res.confirm) {
 								uni.navigateTo({
@@ -1643,19 +1612,25 @@
 						width: 25%;
 
 						.txt {
-							font-size: 32rpx;
+							font-size: 24rpx;
 							color: #282828;
+							text-align: center;
+							min-height: 50px;
+							display: flex;
+							justify-content: center;
+							align-items: center;
 						}
 
 						.label {
 							display: flex;
 							align-items: center;
 							justify-content: center;
-							width: 124rpx;
-							height: 32rpx;
 							margin-top: 5rpx;
 							font-size: 24rpx;
 							color: #999;
+							text-align: center;
+							padding: 5px;
+							width: 100%;
 						}
 
 						&.active {

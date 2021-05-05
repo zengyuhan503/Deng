@@ -3,7 +3,7 @@
 		<view class='header acea-row row-center-wrapper'>
 			<view class='acea-row row-between-wrapper input'>
 				<text class='iconfont icon-sousuo'></text>
-				<input type='text' placeholder='点击搜索商品信息' @confirm="searchSubmitValue" confirm-type='search' name="search"
+				<input type='text' placeholder='Tìm kiếm tên sản phẩm' @confirm="searchSubmitValue" confirm-type='search' name="search"
 				 placeholder-class='placeholder'></input>
 			</view>
 		</view>
@@ -116,7 +116,7 @@
 					})
 				else
 					return this.$util.Tips({
-						title: '请填写要搜索的产品信息'
+						title: 'Tìm kiếm tên sản phẩm'
 					});
 			},
 		}

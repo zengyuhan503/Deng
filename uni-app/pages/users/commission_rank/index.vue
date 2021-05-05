@@ -112,7 +112,7 @@
 			        this.rankList.push.apply(this.rankList, list);
 					this.loading = false;
 					this.loadend = loadend;
-					this.loadTitle = loadend ? '😕我也是有底线的':'加载更多';
+					this.loadTitle = loadend ? '😕Tôi cũng có một điểm mấu chốt':'加载更多';
 					this.$set(this,'rankList',this.rankList);
 					this.position = res.data.position;
 			      }).catch(err=>{
