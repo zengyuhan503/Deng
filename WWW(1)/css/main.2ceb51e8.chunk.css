@@ -1,0 +1,51 @@
+a,address,a img,b,blockquote,body,code,dd,div,dl,dt,font,form,h1,h2,h3,h4,h5,h6,hr,html,iframe,img,input,label,li,map,ol,p,samp,span,strong,table,td,th,tr,ul {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-size: 12px
+}
+
+ol,ul {
+    list-style: none
+}
+
+a {
+    text-decoration: none
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 400
+}
+
+em,i {
+    font-style: normal
+}
+
+input {
+    background: none
+}
+
+.clearFix:after {
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both
+}
+
+input:-webkit-autofill,select:-webkit-autofill,textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset!important;
+    background-color: transparent;
+    background-image: none;
+    -webkit-transition: background-color 50000s ease-in-out 0s;
+    transition: background-color 50000s ease-in-out 0s
+}
+
+input {
+    background-color: transparent
+}
+
+/*# sourceMappingURL=main.2ceb51e8.chunk.css.map */
