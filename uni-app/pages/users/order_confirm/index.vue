@@ -3,7 +3,7 @@
 		<view class='order-submission'>
 			<view class="allAddress" :style="store_self_mention ? '':'padding-top:10rpx'">
 				<view class="nav acea-row">
-					<view class="item font-color" :class="shippingType == 0 ? 'on' : 'on2'" @tap="addressType(0)" v-if='store_self_mention'></view>
+					<!-- <view class="item font-color" :class="shippingType == 0 ? 'on' : 'on2'" @tap="addressType(0)" v-if='store_self_mention'></view> -->
 					<view class="item font-color" :class="shippingType == 1 ? 'on' : 'on2'" @tap="addressType(1)" v-if='store_self_mention'></view>
 				</view>
 				<view class='address acea-row row-between-wrapper' @tap='onAddress' v-if='shippingType == 0'>
@@ -337,7 +337,7 @@
 				status: 0,
 				is_address: false,
 				toPay: false, //修复进入支付时页面隐藏从新刷新页面
-				shippingType: 0,
+				shippingType: 1,
 				system_store: {},
 				storePostage: 0,
 				contacts: '',

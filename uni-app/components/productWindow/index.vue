@@ -29,7 +29,7 @@
 				</view>
 			</view>
 			<view class="cart">
-				<view class="title">数量</view>
+				<view class="title">Số lượng</view>
 				<view class="carnum acea-row row-left">
 					<view class="item reduce" :class="attr.productSelect.cart_num <= 1 ? 'on' : ''" @click="CartNumDes">
 						-

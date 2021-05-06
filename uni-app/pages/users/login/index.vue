@@ -28,9 +28,9 @@
 						</div>
 					</div>
 				</form>
-				<navigator class="forgetPwd" hover-class="none" url="/pages/customer_list/index">
+			<!-- 	<navigator class="forgetPwd" hover-class="none" url="/pages/customer_list/index">
 					<span class="iconfont icon-wenti"></span>Trả lời
-				</navigator>
+				</navigator> -->
 			</div>
 			<div class="list" :hidden="true">
 				<div class="item">
