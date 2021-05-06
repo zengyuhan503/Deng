@@ -16,13 +16,13 @@
 			<view class="w-picker-view" v-if="mode=='half'">
 				<picker-view :indicator-style="itemHeight" :value="pickVal" @change="bindChange"  @touchstart="touchStart" @touchend="touchEnd">
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.years" :key="index">{{item}}年</view>
+						<view class="w-picker-item" v-for="(item,index) in data.years" :key="index">{{item}}năm</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.months" :key="index">{{item}}月</view>
+						<view class="w-picker-item" v-for="(item,index) in data.months" :key="index">{{item}}tháng</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.days" :key="index">{{item}}日</view>
+						<view class="w-picker-item" v-for="(item,index) in data.days" :key="index">{{item}}Vào ngày</view>
 					</picker-view-column>
 					<picker-view-column>
 						<view class="w-picker-item" v-for="(item,index) in data.areas" :key="index">{{item.label}}</view>
@@ -32,42 +32,42 @@
 			<view class="w-picker-view" v-if="mode=='date'">
 				<picker-view :indicator-style="itemHeight" :value="pickVal" @change="bindChange" @touchstart="touchStart" @touchend="touchEnd">
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.years" :key="index">{{item}}年</view>
+						<view class="w-picker-item" v-for="(item,index) in data.years" :key="index">{{item}}năm</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.months" :key="index">{{item}}月</view>
+						<view class="w-picker-item" v-for="(item,index) in data.months" :key="index">{{item}}tháng</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.days" :key="index">{{item}}日</view>
+						<view class="w-picker-item" v-for="(item,index) in data.days" :key="index">{{item}}Vào ngày</view>
 					</picker-view-column>
 				</picker-view>
 			</view>
 			<view class="w-picker-view" v-if="mode=='yearMonth'">
 				<picker-view :indicator-style="itemHeight" :value="pickVal" @change="bindChange" @touchstart="touchStart" @touchend="touchEnd">
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.years" :key="index">{{item}}年</view>
+						<view class="w-picker-item" v-for="(item,index) in data.years" :key="index">{{item}}năm</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.months" :key="index">{{item}}月</view>
+						<view class="w-picker-item" v-for="(item,index) in data.months" :key="index">{{item}}tháng</view>
 					</picker-view-column>
 				</picker-view>
 			</view>
 			<view class="w-picker-view" v-if="mode=='dateTime'">
 				<picker-view :indicator-style="itemHeight" :value="pickVal" @change="bindChange" @touchstart="touchStart" @touchend="touchEnd">
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.years" :key="index">{{item}}年</view>
+						<view class="w-picker-item" v-for="(item,index) in data.years" :key="index">{{item}}năm</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.months" :key="index">{{item}}月</view>
+						<view class="w-picker-item" v-for="(item,index) in data.months" :key="index">{{item}}tháng</view>
 					</picker-view-column>
 					<picker-view-column >
-						<view class="w-picker-item" v-for="(item,index) in data.days" :key="index">{{item}}日</view>
+						<view class="w-picker-item" v-for="(item,index) in data.days" :key="index">{{item}}Vào ngày</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.hours" :key="index">{{item}}时</view>
+						<view class="w-picker-item" v-for="(item,index) in data.hours" :key="index">{{item}}khi</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.minutes" :key="index">{{item}}分</view>
+						<view class="w-picker-item" v-for="(item,index) in data.minutes" :key="index">{{item}}phút</view>
 					</picker-view-column>
 					<picker-view-column v-if="hasSecond">
 						<view class="w-picker-item" v-for="(item,index) in data.seconds" :key="index">{{item}}秒</view>
@@ -102,10 +102,10 @@
 			<view class="w-picker-view" v-if="mode=='time'">
 				<picker-view :indicator-style="itemHeight" :value="pickVal" @change="bindChange" @touchstart="touchStart" @touchend="touchEnd">
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.hours" :key="index">{{item}}时</view>
+						<view class="w-picker-item" v-for="(item,index) in data.hours" :key="index">{{item}}khi</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.minutes" :key="index">{{item}}分</view>
+						<view class="w-picker-item" v-for="(item,index) in data.minutes" :key="index">{{item}}phút</view>
 					</picker-view-column>
 					<picker-view-column v-if="hasSecond">
 						<view class="w-picker-item" v-for="(item,index) in data.seconds" :key="index">{{item}}秒</view>
@@ -138,10 +138,10 @@
 						<view class="w-picker-item" v-for="(item,index) in data.date" :key="index">{{item.label}}</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.hours" :key="index">{{item.label}}时</view>
+						<view class="w-picker-item" v-for="(item,index) in data.hours" :key="index">{{item.label}}khi</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.minutes" :key="index">{{item.label}}分</view>
+						<view class="w-picker-item" v-for="(item,index) in data.minutes" :key="index">{{item.label}}phút</view>
 					</picker-view-column>
 				</picker-view>
 			</view>
@@ -154,7 +154,7 @@
 						<view class="w-picker-item" v-for="(item,index) in data.areas" :key="index">{{item.label}}</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="w-picker-item" v-for="(item,index) in data.hours" :key="index">{{item.label}}时</view>
+						<view class="w-picker-item" v-for="(item,index) in data.hours" :key="index">{{item.label}}khi</view>
 					</picker-view-column>
 				</picker-view>
 			</view>
@@ -517,7 +517,7 @@
 						if(aTime>bTime){
 							uni.showModal({
 								title:"提示",
-								content:"选择时间必须大于当前时间",
+								content:"选择khi间必须大于当前khi间",
 								confirmColor:this.themeColor
 							});
 							return;
@@ -585,7 +585,7 @@
 						a=_this.data.areas[arr[1]]||_this.data.areas[_this.data.areas.length-1];
 						h=_this.data.hours[arr[2]]||_this.data.hours[_this.data.hours.length-1];
 						_this.checkArr=[d,a,h];
-						_this.resultStr=`${d.value+' '+a.label+' '+h.label+"时"}`;
+						_this.resultStr=`${d.value+' '+a.label+' '+h.label+"khi"}`;
 						break;
 					case "limit":
 						col1=_this.data.date[arr[0]];
@@ -959,7 +959,7 @@
 						col2=data.areas[dVal[2]]||data.areas[data.areas.length-1];
 						col3=data.hours[dVal[1]]||data.hours[data.hours.length-1];
 						_this.checkArr=[col1,col2,col3];
-						_this.resultStr=`${col1.value+' '+col2.label+' '+col3.label+'时'}`;
+						_this.resultStr=`${col1.value+' '+col2.label+' '+col3.label+'khi'}`;
 						break;
 					case "limit":
 						col1=data.date[dVal[0]]||data.date[data.date.length-1];

@@ -149,7 +149,7 @@
 				<view>Giá trị:
 					<text class='font-color'>₫{{totalPrice || 0}}</text>
 				</view>
-				<view class='settlement' style='z-index:100' @tap="SubOrder">立即结算</view>
+				<view class='settlement' style='z-index:100' @tap="SubOrder">Lập tức giải quyết</view>
 			</view>
 			<view class="vnPayModal" v-show='vnpayActive'>
 				<view class="Modalbody">
@@ -896,11 +896,11 @@
 							title: 'Xin vui lòng điền số liên lạc hoặc số liên lạc'
 						});
 					}
-					if (!/^1(3|4|5|7|8|9|6)\d{9}$/.test(that.contactsTel)) {
-						return that.$util.Tips({
-							title: 'Xin vui lòng điền vào số điện thoại'
-						});
-					}
+					// if (!/^1(3|4|5|7|8|9|6)\d{9}$/.test(that.contactsTel)) {
+					// 	return that.$util.Tips({
+					// 		title: 'Xin vui lòng điền vào số điện thoại'
+					// 	});
+					// }
 					if (!/^[\u4e00-\u9fa5\w]{2,16}$/.test(that.contacts)) {
 						return that.$util.Tips({
 							title: 'Xin vui lòng điền tên thật của bạn'
@@ -1025,7 +1025,7 @@
 	.order-submission .allAddress .nav .item.on::before {
 		position: absolute;
 		bottom: 0;
-		content: "快递配送";
+		content: "Nhận phân phối";
 		font-size: 28rpx;
 		display: block;
 		height: 0;
@@ -1040,7 +1040,7 @@
 	}
 
 	.order-submission .allAddress .nav .item:nth-of-type(2).on::before {
-		content: "到店自提";
+		content: "Đến cửa hàng";
 		border-width: 0 0 80rpx 20rpx;
 		border-radius: 30rpx 7rpx 0 0;
 	}
@@ -1052,7 +1052,7 @@
 	.order-submission .allAddress .nav .item.on2::before {
 		position: absolute;
 		bottom: 0;
-		content: "到店自提";
+		content: "Đến cửa hàng";
 		font-size: 28rpx;
 		display: block;
 		height: 0;
@@ -1066,7 +1066,7 @@
 	}
 
 	.order-submission .allAddress .nav .item:nth-of-type(1).on2::before {
-		content: "快递配送";
+		content: "Nhận phân phối";
 		border-width: 0 60rpx 60rpx 0;
 		border-radius: 6rpx 40rpx 0 0;
 	}

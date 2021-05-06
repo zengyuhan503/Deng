@@ -197,9 +197,9 @@
 				if (!that.account) return that.$util.Tips({
 					title: 'Xin vui lòng điền vào số điện thoại di động'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: 'Vui lòng nhập đúng số điện thoại'
-				});
+				// if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
+				// 	title: 'Vui lòng nhập đúng số điện thoại'
+				// });
 				// if (!that.captcha) return that.$util.Tips({
 				// 	title: '请填写验证码'
 				// });
@@ -247,9 +247,9 @@
 				if (!that.account) return that.$util.Tips({
 					title: 'Xin vui lòng điền vào số điện thoại di động'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: 'Vui lòng nhập đúng số điện thoại'
-				});
+				// if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
+				// 	title: 'Vui lòng nhập đúng số điện thoại'
+				// });
 				// if (!that.captcha) return that.$util.Tips({
 				// 	title: '请填写验证码'
 				// });
@@ -285,9 +285,9 @@
 				if (!that.account) return that.$util.Tips({
 					title: 'Xin vui lòng điền vào mật khẩu'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: 'Vui lòng nhập đúng số điện thoại'
-				});
+				// if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
+				// 	title: 'Vui lòng nhập đúng số điện thoại'
+				// });
 				if (that.formItem == 2) that.type = "register";
 				
 				await registerVerify({

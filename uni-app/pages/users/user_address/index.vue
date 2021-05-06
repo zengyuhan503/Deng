@@ -387,9 +387,9 @@
 				if (!value.phone) return that.$util.Tips({
 					title: '请填写联系电话'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(value.phone)) return that.$util.Tips({
-					title: '请输入正确的手机号码'
-				});
+				// if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(value.phone)) return that.$util.Tips({
+				// 	title: '请输入正确的手机号码'
+				// });
 				if (that.region == '省-市-区') return that.$util.Tips({
 					title: '请选择所在地区'
 				});

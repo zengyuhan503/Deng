@@ -97,9 +97,9 @@
 				if (!that.account) return that.$util.Tips({
 					title: 'Xin vui lòng điền vào số điện thoại di động'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: 'Xin vui lòng điền vào số điện thoại di động'
-				});
+				// if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
+				// 	title: 'Xin vui lòng điền vào số điện thoại di động'
+				// });
 				if (!that.captcha) return that.$util.Tips({
 					title: 'Hãy điền vào captcha'
 				});
@@ -127,9 +127,9 @@
 				if (!that.account) return that.$util.Tips({
 					title: 'Xin vui lòng điền vào số điện thoại di động'
 				});
-				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: 'Vui lòng nhập đúng số điện thoại'
-				});
+				// if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
+				// 	title: 'Vui lòng nhập đúng số điện thoại'
+				// });
 				if (that.formItem == 2) that.type = "register";
 				await registerVerify({
 						phone: that.account,
