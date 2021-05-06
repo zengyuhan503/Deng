@@ -51,7 +51,7 @@
 				<div class="item" v-if="false">
 					<div class="acea-row row-middle">
 						<image src="/static/images/code_2.png"></image>
-						<input type="text" placeholder="填写验证码" class="codeIput" v-model="codeVal" />
+						<input type="text" placeholder="Điền vào mã xác minh" class="codeIput" v-model="codeVal" />
 						<div class="code" @click="again"><img :src="codeUrl" /></div>
 					</div>
 				</div>

@@ -90,22 +90,22 @@
 				</navigator>
 			</block>
 			<!-- #ifdef H5 -->
-			<navigator class="item" url="/pages/customer_list/index" hover-class="none">
+		<!-- 	<navigator class="item" url="/pages/customer_list/index" hover-class="none">
 				<view class="left">
 					<image src="/static/images/user_menu08.png"></image>
 					<text>Trả lời</text>
 				</view>
 				<view class="iconfont icon-xiangyou"></view>
-			</navigator>
+			</navigator> -->
 			<!-- #endif -->
 			<!-- #ifdef MP -->
-			<button class="item" open-type='contact' hover-class='none'>
+		<!-- 	<button class="item" open-type='contact' hover-class='none'>
 				<view class="left">
 					<image src="/static/images/user_menu08.png"></image>
 					<text>Trả lời</text>
 				</view>
 				<view class="iconfont icon-xiangyou"></view>
-			</button>
+			</button> -->
 			<!-- #endif -->
 		</view>
 		<view style="height: 50rpx;"></view>

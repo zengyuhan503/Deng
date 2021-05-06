@@ -2,10 +2,10 @@
 	<view>
 		<view class='order-submission'>
 			<view class="allAddress" :style="store_self_mention ? '':'padding-top:10rpx'">
-				<view class="nav acea-row">
-					<!-- <view class="item font-color" :class="shippingType == 0 ? 'on' : 'on2'" @tap="addressType(0)" v-if='store_self_mention'></view> -->
+			<!-- 	<view class="nav acea-row">
+					<view class="item font-color" :class="shippingType == 0 ? 'on' : 'on2'" @tap="addressType(0)" v-if='store_self_mention'></view>
 					<view class="item font-color" :class="shippingType == 1 ? 'on' : 'on2'" @tap="addressType(1)" v-if='store_self_mention'></view>
-				</view>
+				</view> -->
 				<view class='address acea-row row-between-wrapper' @tap='onAddress' v-if='shippingType == 0'>
 					<view class='addressCon' v-if="addressInfo.real_name">
 						<view class='name'>{{addressInfo.real_name}}
@@ -20,7 +20,7 @@
 					</view>
 					<view class='iconfont icon-jiantou'></view>
 				</view>
-				<view class='address acea-row row-between-wrapper' v-else @tap="showStoreList">
+				<!-- <view class='address acea-row row-between-wrapper' v-else @tap="showStoreList">
 					<block v-if="storeList.length>0">
 						<view class='addressCon' >
 							<view class='name'>{{system_store.name}}
@@ -33,7 +33,7 @@
 					<block v-else>
 						<view>Không có thông tin cửa hàng</view>
 					</block>
-				</view>
+				</view> -->
 				<view class='line'>
 					<image src='/static/images/line.jpg'></image>
 				</view>
@@ -113,15 +113,6 @@
 									         </view>
 							</view>
 						</view>
-						<!-- #ifdef MP || APP-PLUS -->
-						<!-- <view class='payItem acea-row row-middle' :class='active==index ?"on":""' @tap='payItem(index)' v-for="(item,index) in cartArr"
-						 :key='index' v-if="item.payStatus==1">
-							<view class='name acea-row row-center-wrapper'>
-								<view class='iconfont animated' :class='(item.icon) + " " + (animated==true&&active==index ?"bounceIn":"")'></view>{{item.name}}
-							</view>
-							<view class='tip'>{{item.title}}</view>
-						</view> -->
-						<!-- #endif -->
 					</view>
 					
 				</view>
@@ -282,7 +273,7 @@
 						"icon": "icon-weixin2",
 						value: 'weixin',
 						title: 'Ứng dụng thanh toán nhanh',
-						payStatus: 1,
+						payStatus: 2,
 					},
 				
 					{
@@ -293,12 +284,13 @@
 						payStatus: 1,
 					},
 					{
-						"name": "Thanh toán trực tuyến",
+						"name": "Giao dịch dưới đường dây",
 						"icon": "icon-yinhangqia",
 						value: 'offline',
-						title: 'Thanh toán trực tuyến',
+						title: 'Giao dịch dưới đường dây',
 						payStatus: 1,
-					},	{
+					},	
+					{
 						"name": "Thanh toán trực tuyến",
 						"icon": "icon-yinhangqia",
 						value: 'vnpay',
@@ -632,10 +624,10 @@
 					// that.$set(that, 'usableCoupon', res.data.usableCoupon);
 					that.$set(that, 'store_self_mention', res.data.store_self_mention);
 					that.cartArr[1].title = 'Số dư có sẵn:' + res.data.userInfo.now_money;
-					that.cartArr[0].payStatus = res.data.pay_weixin_open || 0
-					that.cartArr[1].payStatus = res.data.yue_pay_status || 0
+					that.cartArr[0].payStatus = 2
+					that.cartArr[1].payStatus = 1
 					if (res.data.offline_pay_status == 2){
-						that.cartArr[2].payStatus = 0
+						that.cartArr[2].payStatus = 1
 					}else{
 						that.cartArr[2].payStatus = 1
 					}
@@ -890,26 +882,26 @@
 				// if (!that.addressId && !that.shippingType) return that.$util.Tips({
 				// 	title: '请选择收货地址'
 				// });
-				if (that.shippingType == 1) {
-					if (that.contacts == "" || that.contactsTel == "") {
-						return that.$util.Tips({
-							title: 'Xin vui lòng điền số liên lạc hoặc số liên lạc'
-						});
-					}
-					// if (!/^1(3|4|5|7|8|9|6)\d{9}$/.test(that.contactsTel)) {
-					// 	return that.$util.Tips({
-					// 		title: 'Xin vui lòng điền vào số điện thoại'
-					// 	});
-					// }
-					if (!/^[\u4e00-\u9fa5\w]{2,16}$/.test(that.contacts)) {
-						return that.$util.Tips({
-							title: 'Xin vui lòng điền tên thật của bạn'
-						});
-					}
-					if(that.storeList.length == 0) return that.$util.Tips({
-						title: 'Không có cửa hàng, hãy chọn cách khác'
-					});
-				}
+				// if (that.shippingType == 1) {
+				// 	if (that.contacts == "" || that.contactsTel == "") {
+				// 		return that.$util.Tips({
+				// 			title: 'Xin vui lòng điền số liên lạc hoặc số liên lạc'
+				// 		});
+				// 	}
+				// 	// if (!/^1(3|4|5|7|8|9|6)\d{9}$/.test(that.contactsTel)) {
+				// 	// 	return that.$util.Tips({
+				// 	// 		title: 'Xin vui lòng điền vào số điện thoại'
+				// 	// 	});
+				// 	// }
+				// 	if (!/^[\u4e00-\u9fa5\w]{2,16}$/.test(that.contacts)) {
+				// 		return that.$util.Tips({
+				// 			title: 'Xin vui lòng điền tên thật của bạn'
+				// 		});
+				// 	}
+				// 	if(that.storeList.length == 0) return that.$util.Tips({
+				// 		title: 'Không có cửa hàng, hãy chọn cách khác'
+				// 	});
+				// }
 				data = {
 					real_name: that.contacts,
 					phone: that.contactsTel,
