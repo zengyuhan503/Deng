@@ -95,10 +95,10 @@
 					that.$set(that,'signList',that.signList);
 					that.loadend = loadend;
 					that.loading = false;
-					that.loadtitle = loadend ? "哼😕~我也是有底线的~" : "加载更多"
+					that.loadtitle = loadend ? "😕~Tôi cũng có giới hạn~" : "Nạp thêm đạn"
 			      }).catch(err=>{
 					that.loading = false;
-					that.loadtitle = '加载更多';
+					that.loadtitle = 'Nạp thêm đạn';
 			      });
 			    },
 		}

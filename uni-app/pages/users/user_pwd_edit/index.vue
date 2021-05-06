@@ -2,22 +2,22 @@
 	<view>
 		<view class="ChangePassword">
 			<form @submit="editPwd" report-submit='true'>
-				<view class="phone">当前手机号：{{phone}}</view>
+				<view class="phone">Số điện thoại di động：{{phone}}</view>
 				<view class="list">
 					<view class="item">
-						<input type='password' placeholder='设置新密码' placeholder-class='placeholder' name="password" :value="password"></input>
+						<input type='password' placeholder='Thiết lập mật khẩu mới' placeholder-class='placeholder' name="password" :value="password"></input>
 					</view>
 					<view class="item">
-						<input type='password' placeholder='确认新密码' placeholder-class='placeholder' name="qr_password" :value="qr_password"></input>
+						<input type='password' placeholder='Xác nhận mật khẩu mới' placeholder-class='placeholder' name="qr_password" :value="qr_password"></input>
 					</view>
 					<view class="item acea-row row-between-wrapper">
-						<input type='number' placeholder='填写验证码' placeholder-class='placeholder' class="codeIput" name="captcha" :value="captcha"></input>
+						<input type='number' placeholder='Điền vào mã xác minh' placeholder-class='placeholder' class="codeIput" name="captcha" :value="captcha"></input>
 						<button class="code font-color" :class="disabled === true ? 'on' : ''" :disabled='disabled' @click="code">
 							{{ text }}
 						</button>
 					</view>
 				</view>
-				<button form-type="submit" class="confirmBnt bg-color">确认修改</button>
+				<button form-type="submit" class="confirmBnt bg-color">Xác nhận sửa đổi</button>
 			</form>
 		</view>
 		<!-- #ifdef MP -->
@@ -106,7 +106,7 @@
 			async code() {
 				let that = this;
 				if (!that.userInfo.phone) return that.$util.Tips({
-					title: '手机号码不存在,无法发送验证码！'
+					title: 'Số điện thoại không tồn tại, không thể gửi captcha!'
 				});
 				await registerVerify(that.userInfo.phone).then(res => {
 					that.$util.Tips({
@@ -130,13 +130,13 @@
 					qr_password = e.detail.value.qr_password,
 					captcha = e.detail.value.captcha;
 				if (!password) return that.$util.Tips({
-					title: '请输入新密码'
+					title: 'Hãy nhập mật khẩu mới'
 				});
 				if (qr_password != password) return that.$util.Tips({
-					title: '两次输入的密码不一致！'
+					title: 'Hai lần nhập mật khẩu không phù hợp!！'
 				});
 				if (!captcha) return that.$util.Tips({
-					title: '请输入验证码'
+					title: 'Hãy nhập captcha'
 				});
 				phoneRegisterReset({
 					account: that.userInfo.phone,

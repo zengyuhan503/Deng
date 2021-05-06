@@ -4,15 +4,15 @@
 			<view class='addAddress'>
 				<view class='list'>
 					<view class='item acea-row row-between-wrapper'>
-						<view class='name'>姓名</view>
-						<input type='text' placeholder='请输入姓名' name='real_name' :value="userAddress.real_name" placeholder-class='placeholder'></input>
+						<view class='name'>tên</view>
+						<input type='text' placeholder='tên' name='real_name' :value="userAddress.real_name" placeholder-class='placeholder'></input>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view class='name'>联系电话</view>
-						<input type='text' placeholder='请输入联系电话' name="phone" :value='userAddress.phone' placeholder-class='placeholder'></input>
+						<view class='name'>Số liên lạc</view>
+						<input type='text' placeholder='Số liên lạc' name="phone" :value='userAddress.phone' placeholder-class='placeholder'></input>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view class='name'>所在地区</view>
+						<view class='name'>Khu vực</view>
 						<view class="address">
 							<picker mode="multiSelector" @change="bindRegionChange" @columnchange="bindMultiPickerColumnChange" :value="valueRegion"
 							 :range="multiArray">
@@ -24,21 +24,21 @@
 						</view>
 					</view>
 					<view class='item acea-row row-between-wrapper'>
-						<view class='name'>详细地址</view>
-						<input type='text' placeholder='请填写具体地址' name='detail' placeholder-class='placeholder' :value='userAddress.detail'></input>
+						<view class='name'>Địa chỉ chi tiết</view>
+						<input type='text' placeholder='Địa chỉ chi tiết' name='detail' placeholder-class='placeholder' :value='userAddress.detail'></input>
 					</view>
 				</view>
 				<view class='default acea-row row-middle'>
 					<checkbox-group @change='ChangeIsDefault'>
-						<checkbox :checked="userAddress.is_default ? true : false" />设置为默认地址</checkbox-group>
+						<checkbox :checked="userAddress.is_default ? true : false" />Đặt địa chỉ mặc định</checkbox-group>
 				</view>
 
-				<button class='keepBnt bg-color' form-type="submit">立即保存</button>
+				<button class='keepBnt bg-color' form-type="submit">Bảo quản ngay lập tức</button>
 				<!-- #ifdef MP -->
-				<view class="wechatAddress" v-if="!id" @click="getWxAddress">导入微信地址</view>
+				<view class="wechatAddress" v-if="!id" @click="getWxAddress">Nhập địa chỉ ứng dụng</view>
 				<!-- #endif -->
 				<!-- #ifdef H5 -->
-				<view class="wechatAddress" v-if="this.$wechat.isWeixin() && !id" @click="getAddress">导入微信地址</view>
+				<view class="wechatAddress" v-if="this.$wechat.isWeixin() && !id" @click="getAddress">Nhập địa chỉ ứng dụng</view>
 				<!-- #endif -->
 			</view>
 		</form>
@@ -105,7 +105,7 @@
 				this.couponId = options.couponId || 0;
 				this.id = options.id || 0;
 				uni.setNavigationBarTitle({
-					title: options.id ? '修改地址' : '添加地址'
+					title: options.id ? 'Thay đổi địa chỉ' : 'Thêm địa chỉ'
 				})
 				this.getUserAddress();
 				this.getCityList();

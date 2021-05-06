@@ -10,7 +10,7 @@
 					<view class='name line1'>{{item.store_name}}</view>
 					<view class='acea-row row-between-wrapper'>
 						<view class='money font-color'>￥{{item.price}}</view>
-						<view class='delete' @click.stop='delCollection(item.pid,index)'>删除</view>
+						<view class='delete' @click.stop='delCollection(item.pid,index)'>Xoá bỏ</view>
 					</view>
 				</view>
 			</navigator>
@@ -59,7 +59,7 @@
 		data() {
 			return {
 				hostProduct: [],
-				loadTitle: '加载更多',
+				loadTitle: 'Nạp thêm đạn',
 				loading: false,
 				loadend: false,
 				collectProductList: [],
@@ -128,12 +128,12 @@
 					that.collectProductList = that.$util.SplitArray(collectProductList, that.collectProductList);
 					that.$set(that, 'collectProductList', that.collectProductList);
 					that.loadend = loadend;
-					that.loadTitle = loadend ? '我也是有底线的' : '加载更多';
+					that.loadTitle = loadend ? 'Tôi cũng có giới hạn' : 'Nạp thêm đạn';
 					that.page = that.page + 1;
 					that.loading = false;
 				}).catch(err => {
 					that.loading = false;
-					that.loadTitle = "加载更多";
+					that.loadTitle = "Nạp thêm đạn";
 				});
 			},
 			/**
@@ -143,7 +143,7 @@
 				let that = this;
 				collectDel(id).then(res => {
 					return that.$util.Tips({
-						title: '取消收藏成功',
+						title: 'Hủy bỏ bộ sưu tập thành công',
 						icon: 'success'
 					}, function() {
 						that.collectProductList.splice(index, 1);

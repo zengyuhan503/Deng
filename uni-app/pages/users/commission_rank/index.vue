@@ -2,8 +2,8 @@
 	<view>
 		<view class="CommissionRank">
 		    <view class="header">
-		      <view class="rank" v-if="position">您目前的排名<text class="num">{{position}}</text>名</view>
-		      <view class="rank" v-else>您目前暂无排名</view>
+		      <view class="rank" v-if="position">Vị trí hiện tại của bạn<text class="num">{{position}}</text>名</view>
+		      <view class="rank" v-else>Bạn không có bảng xếp hạng</view>
 		    </view>
 		    <view class="wrapper">
 		      <view class="nav acea-row row-around">
@@ -53,14 +53,14 @@
 		},
 		data() {
 			return {
-				navList: ["周排行", "月排行"],
+				navList: ["Tuần xếp hạng", "Hàng tháng xếp hạng"],
 				    active: 0,
 				    rankList:[],
 				    page:1,
 				    limit:10,
 				    loadend:false,
 				    loading:false,
-				    loadTitle:'加载更多',
+				    loadTitle:'Nạp thêm đạn',
 				    type:'week',
 				    position:0,
 				isAuto: false, //没有授权的不会自动授权
@@ -112,12 +112,12 @@
 			        this.rankList.push.apply(this.rankList, list);
 					this.loading = false;
 					this.loadend = loadend;
-					this.loadTitle = loadend ? '😕Tôi cũng có một điểm mấu chốt':'加载更多';
+					this.loadTitle = loadend ? '😕Tôi cũng có một điểm mấu chốt':'Nạp thêm đạn';
 					this.$set(this,'rankList',this.rankList);
 					this.position = res.data.position;
 			      }).catch(err=>{
 					  this.loading = false;
-					  this.loadTitle = '加载更多';
+					  this.loadTitle = 'Nạp thêm đạn';
 			      })
 			    }
 		},

@@ -2,9 +2,9 @@
 	<view>
 		<view class='bill-details'>
 			<view class='nav acea-row'>
-				<view class='item' :class='type==0 ? "on":""' @click='changeType(0)'>全部</view>
-				<view class='item' :class='type==1 ? "on":""' @click='changeType(1)'>消费</view>
-				<view class='item' :class='type==2 ? "on":""' @click='changeType(2)'>充值</view>
+				<view class='item' :class='type==0 ? "on":""' @click='changeType(0)'>Tất cả</view>
+				<view class='item' :class='type==1 ? "on":""' @click='changeType(1)'>Tiêu thụ</view>
+				<view class='item' :class='type==2 ? "on":""' @click='changeType(2)'>Bạn biết</view>
 			</view>
 			<view class='sign-record'>
 				<view class='list' v-for="(item,index) in userBillList" :key="index">
@@ -26,7 +26,7 @@
 					<text class='loading iconfont icon-jiazai' :hidden='loading==false'></text>{{loadTitle}}
 				</view>
 				<view v-if="userBillList.length == 0">
-					<emptyPage title="暂无账单的记录哦～"></emptyPage>
+					<emptyPage title="Không có ghi chép hóa đơn～"></emptyPage>
 				</view>
 			</view>
 		</view>
@@ -62,7 +62,7 @@
 		},
 		data() {
 			return {
-				loadTitle: '加载更多',
+				loadTitle: 'Nạp thêm đạn',
 				loading: false,
 				loadend: false,
 				page: 1,
@@ -130,11 +130,11 @@
 					that.$set(that, 'userBillList', that.userBillList);
 					that.loadend = loadend;
 					that.loading = false;
-					that.loadTitle = loadend ? "哼😕~我也是有底线的~" : "加载更多";
+					that.loadTitle = loadend ? "😕~Tôi cũng có giới hạn~" : "Nạp thêm đạn";
 					that.page = that.page + 1;
 				}, function(res) {
 					that.loading = false;
-					that.loadTitle = '加载更多';
+					that.loadTitle = 'Nạp thêm đạn';
 				});
 			},
 			/**

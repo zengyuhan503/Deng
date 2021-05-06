@@ -8,16 +8,16 @@
 				</view>
 				<view class='text'>
 					<view class='condition line1'>
-					    <span class='line-title' :class='(item.is_use==true || item.is_use==2)?"gray":""' v-if='item.type===0'>通用劵</span>
-					    <span class='line-title' :class='(item.is_use==true || item.is_use==2)?"gray":""' v-else-if='item.type===1'>品类券</span>
-					    <span class='line-title' :class='(item.is_use==true || item.is_use==2)?"gray":""' v-else>商品券</span>
+					    <span class='line-title' :class='(item.is_use==true || item.is_use==2)?"gray":""' v-if='item.type===0'>General coupon</span>
+					    <span class='line-title' :class='(item.is_use==true || item.is_use==2)?"gray":""' v-else-if='item.type===1'>Phiếu giảm giá</span>
+					    <span class='line-title' :class='(item.is_use==true || item.is_use==2)?"gray":""' v-else>Chứng từ</span>
 					    <span>{{item.title}}</span>
 					</view>
 					<view class='data acea-row row-between-wrapper'>
 						<view>{{ item.start_time ? item.start_time + "-" : ""}}{{ item.end_time }}</view>
-						<view class='bnt gray' v-if="item.is_use==true">已领取</view>
-						<view class='bnt gray' v-else-if="item.is_use==2">已领完</view>
-						<view class='bnt bg-color' v-else @click='getCoupon(item.id,index)'>立即领取</view>
+						<view class='bnt gray' v-if="item.is_use==true">Đã nhận được</view>
+						<view class='bnt gray' v-else-if="item.is_use==2">Đã dẫn đến</view>
+						<view class='bnt bg-color' v-else @click='getCoupon(item.id,index)'>Ngay lập tức</view>
 					</view>
 				</view>
 			</view>
@@ -61,7 +61,7 @@
 					couponsList: [],
 					loading: false,
 					loadend: false,
-					loadTitle: '加载更多',//提示语
+					loadTitle: 'Nạp thêm đạn',//提示语
 					page: 1,
 					limit: 20,
 					isAuto: false, //没有授权的不会自动授权
@@ -105,7 +105,7 @@
 				    setCouponReceive(id).then(function (res) {
 				      list[index].is_use = true;
 					  that.$set(that,'couponsList',list);
-				      that.$util.Tips({ title: '领取成功' });
+				      that.$util.Tips({ title: 'Nhận được thành công' });
 				    },function(res){
 				      return that.$util.Tips({title:res.msg});
 				    });
@@ -122,12 +122,12 @@
 				        let couponsList = that.$util.SplitArray(list, that.couponsList);
 						that.$set(that,'couponsList',couponsList);
 						that.loadend = loadend;
-						that.loadTitle = loadend ? '我也是有底线的' : '加载更多';
+						that.loadTitle = loadend ? 'Tôi cũng có giới hạn' : 'Nạp thêm đạn';
 						that.page = that.page + 1;
 						that.loading = false;
 				      }).catch(err=>{
 						  that.loading = false;
-						  that.loadTitle = '加载更多';
+						  that.loadTitle = 'Nạp thêm đạn';
 				      });
 				    }
 			}

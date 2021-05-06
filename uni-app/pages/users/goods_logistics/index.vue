@@ -18,15 +18,15 @@
 					<view class='picTxt acea-row row-between-wrapper'>
 						<view class='iconfont icon-wuliu'></view>
 						<view class='text'>
-							<view><text class='name line1'>物流公司：</text> {{orderInfo.delivery_name}}</view>
-							<view class='express line1'><text class='name'>快递单号：</text> {{orderInfo.delivery_id}}</view>
+							<view><text class='name line1'>Công ty hậu cần：</text> {{orderInfo.delivery_name}}</view>
+							<view class='express line1'><text class='name'>Nhận đơn số：</text> {{orderInfo.delivery_id}}</view>
 						</view>
 					</view>
 					<!-- #ifndef H5 -->
-					<view class='copy' @tap='copyOrderId'>复制单号</view>
+					<view class='copy' @tap='copyOrderId'>SAO chép số duy nhất</view>
 					<!-- #endif -->
 					<!-- #ifdef H5 -->
-					<view class='copy copy-data' :data-clipboard-text="orderInfo.delivery_id">复制单号</view>
+					<view class='copy copy-data' :data-clipboard-text="orderInfo.delivery_id">SAO chép số duy nhất</view>
 					<!-- #endif -->
 				</view>
 				<view class='item' v-for="(item,index) in expressList" :key="index">
@@ -104,7 +104,7 @@
 		  		const clipboard = new ClipboardJS(".copy-data");
 		  		clipboard.on("success", () => {
 		  			this.$util.Tips({
-		  				title: '复制成功'
+		  				title: 'SAO chép thành công'
 		  			});
 		  		});
 		  	});

@@ -3,51 +3,51 @@
 		<view class='my-promotion'>
 			<view class="header">
 				<view class='name acea-row row-center-wrapper'>
-					<view>当前佣金</view>
-					<navigator url='/pages/users/user_spread_money/index?type=1' hover-class="none" class='record'>提现记录<text class='iconfont icon-xiangyou'></text></navigator>
+					<view>Ủy ban hiện tại</view>
+					<navigator url='/pages/users/user_spread_money/index?type=1' hover-class="none" class='record'>Hồ sơ rút tiền<text class='iconfont icon-xiangyou'></text></navigator>
 				</view>
 				<view class='num'>{{userInfo.brokerage_price}}</view>
 				<view class='profit acea-row row-between-wrapper'>
 					<view class='item'>
-						<view>昨日收益</view>
+						<view>Lợi nhuận vào ngày hôm nay</view>
 						<view class='money'>{{userInfo.yesterDay}}</view>
 					</view>
 					<view class='item'>
-						<view>累积已提</view>
+						<view>Tích lũy</view>
 						<view class='money'>{{userInfo.extractTotalPrice}}</view>
 					</view>
 				</view>
 			</view>
 			<!-- #ifdef APP-PLUS || H5 -->
-			<navigator url="/pages/users/user_cash/index" hover-class="none" class='bnt bg-color'>立即提现</navigator>
+			<navigator url="/pages/users/user_cash/index" hover-class="none" class='bnt bg-color'>Ngay lập tức rút tiền</navigator>
 			<!-- #endif -->
 			<!-- #ifdef MP -->
-			<view @click="openSubscribe('/pages/users/user_cash/index')" class='bnt bg-color'>立即提现</view>
+			<view @click="openSubscribe('/pages/users/user_cash/index')" class='bnt bg-color'>Ngay lập tức rút tiền</view>
 			<!-- #endif -->
 			<view class='list acea-row row-between-wrapper'>
 				<navigator url='/pages/users/user_spread_code/index' hover-class="none" class='item acea-row row-center-wrapper row-column'>
 					<text class='iconfont icon-erweima'></text>
-					<view>推广名片</view>
+					<view>Quảng bá thẻ kinh doanh</view>
 				</navigator>
 				<navigator url='/pages/users/promoter-list/index' hover-class="none" class='item acea-row row-center-wrapper row-column'>
 					<text class='iconfont icon-tongji'></text>
-					<view>推广人统计</view>
+					<view>Thống kê nhà quảng cáo</view>
 				</navigator>
 				<navigator url='/pages/users/user_spread_money/index?type=2' hover-class="none" class='item acea-row row-center-wrapper row-column'>
 					<text class='iconfont icon-qiandai'></text>
-					<view>佣金明细</view>
+					<view>Chi tiết hoa hồng</view>
 				</navigator>
 				<navigator url='/pages/users/promoter-order/index' hover-class="none" class='item acea-row row-center-wrapper row-column'>
 					<text class='iconfont icon-dingdan'></text>
-					<view>推广人订单</view>
+					<view>Quảng cáo đơn đặt hàng</view>
 				</navigator>
 				<navigator url='/pages/users/promoter_rank/index' hover-class="none" class='item acea-row row-center-wrapper row-column'>
 					<text class='iconfont icon-paihang1'></text>
-					<view>推广人排行</view>
+					<view>Người quảng cáo xếp hạng</view>
 				</navigator>
 				<navigator url='/pages/users/commission_rank/index' hover-class="none" class='item acea-row row-center-wrapper row-column'>
 					<text class='iconfont icon-paihang'></text>
-					<view>佣金排行</view>
+					<view>Ủy ban xếp hạng</view>
 				</navigator>
 			</view>
 		</view>
@@ -110,7 +110,7 @@
 			},
 			openSubscribe: function(page) {
 				uni.showLoading({
-					title: '正在加载',
+					title: 'Đang tải',
 				})
 				console.log('666');
 				openExtrctSubscribe().then(res => {

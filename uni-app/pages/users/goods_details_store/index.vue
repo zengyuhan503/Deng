@@ -14,8 +14,8 @@
 						<a class="store-phone" :href="'tel:' + item.phone"><span class="iconfont icon-dadianhua01"></span></a>
 					</div>
 					<div class="store-distance" @click.stop="showMaoLocation(item)">
-						<span class="addressTxt" v-if="item.range">距离{{ item.range }}千米</span>
-						<span class="addressTxt" v-else>查看地图</span>
+						<span class="addressTxt" v-if="item.range">Khoảng cách{{ item.range }}km</span>
+						<span class="addressTxt" v-else>Xem bản đồ</span>
 						<span class="iconfont icon-youjian"></span>
 					</div>
 				</div>

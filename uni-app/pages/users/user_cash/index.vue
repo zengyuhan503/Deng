@@ -12,15 +12,15 @@
 				<view :hidden='currentTab != 0' class='list'>
 					<form @submit="subCash" report-submit='true'>
 						<view class='item acea-row row-between-wrapper'>
-							<view class='name'>持卡人</view>
-							<view class='input'><input placeholder='请输入持卡人姓名' placeholder-class='placeholder' name="name"></input></view>
+							<view class='name'>Người giữ thẻ</view>
+							<view class='input'><input placeholder='Xin nhập tên của người giữ thẻ' placeholder-class='placeholder' name="name"></input></view>
 						</view>
 						<view class='item acea-row row-between-wrapper'>
-							<view class='name'>卡号</view>
-							<view class='input'><input type='number' placeholder='请填写卡号' placeholder-class='placeholder' name="cardnum"></input></view>
+							<view class='name'>số</view>
+							<view class='input'><input type='number' placeholder='Xin vui lòng điền số thẻ' placeholder-class='placeholder' name="cardnum"></input></view>
 						</view>
 						<view class='item acea-row row-between-wrapper'>
-							<view class='name'>银行</view>
+							<view class='name'>Ngân hàng</view>
 							<view class='input'>
 								<picker @change="bindPickerChange" :value="index" :range="array">
 									<text class='Bank'>{{array[index]}}</text>
@@ -29,54 +29,54 @@
 							</view>
 						</view>
 						<view class='item acea-row row-between-wrapper'>
-							<view class='name'>提现</view>
-							<view class='input'><input :placeholder='"最低提现金额"+minPrice' placeholder-class='placeholder' name="money" type='digit'></input></view>
+							<view class='name'>DiXian</view>
+							<view class='input'><input :placeholder='"Số tiền rút tiền tối thiểu"+minPrice' placeholder-class='placeholder' name="money" type='digit'></input></view>
 						</view>
 						<view class='tip'>
-							当前可提现金额: <text class="price">￥{{userInfo.commissionCount}},</text>冻结佣金：￥{{userInfo.broken_commission}}
+							Số tiền rút tiền hiện tại: <text class="price">￥{{userInfo.commissionCount}},</text>Đóng băng tiền hoa hồng：￥{{userInfo.broken_commission}}
 						</view>
 						<view class='tip'>
-							说明: 每笔佣金的冻结期为{{userInfo.broken_day}}天，到期后可提现
+						Ghi chú: thời gian đóng băng của mỗi khoản hoa hồng{{userInfo.broken_day}}Chúa ơi，Và rút tiền khi hết hạn
 						</view>
-						<button formType="submit" class='bnt bg-color'>提现</button>
+						<button formType="submit" class='bnt bg-color'>DiXian</button>
 					</form>
 				</view>
 				<view :hidden='currentTab != 1' class='list'>
 					<form @submit="subCash" report-submit='true'>
 						<view class='item acea-row row-between-wrapper'>
-							<view class='name'>账号</view>
-							<view class='input'><input placeholder='请填写您的微信账号' placeholder-class='placeholder' name="name"></input></view>
+							<view class='name'>Tài khoản</view>
+							<view class='input'><input placeholder='Xin vui lòng điền vào tài khoản ứng dụng của bạn' placeholder-class='placeholder' name="name"></input></view>
 						</view>
 						<view class='item acea-row row-between-wrapper'>
-							<view class='name'>提现</view>
-							<view class='input'><input :placeholder='"最低提现金额"+minPrice' placeholder-class='placeholder' name="money" type='digit'></input></view>
+							<view class='name'>DiXian</view>
+							<view class='input'><input :placeholder='"DiXian"+minPrice' placeholder-class='placeholder' name="money" type='digit'></input></view>
 						</view>
 						<view class='tip'>
-							当前可提现金额: <text class="price">￥{{userInfo.commissionCount}},</text>冻结佣金：￥{{userInfo.broken_commission}}
+							Số tiền rút tiền hiện tại: <text class="price">￥{{userInfo.commissionCount}},</text>冻结佣金：￥{{userInfo.broken_commission}}
 						</view>
 						<view class='tip'>
-							说明: 每笔佣金的冻结期为{{userInfo.broken_day}}天，到期后可提现
+						Ghi chú: thời gian đóng băng của mỗi khoản hoa hồng{{userInfo.broken_day}}Chúa ơi，Và rút tiền khi hết hạn
 						</view>
-						<button formType="submit" class='bnt bg-color'>提现</button>
+						<button formType="submit" class='bnt bg-color'>DiXian</button>
 					</form>
 				</view>
 				<view :hidden='currentTab != 2' class='list'>
 					<form @submit="subCash" report-submit='true'>
 						<view class='item acea-row row-between-wrapper'>
-							<view class='name'>账号</view>
-							<view class='input'><input placeholder='请填写您的支付宝账号' placeholder-class='placeholder' name="name"></input></view>
+							<view class='name'>Tài khoản</view>
+							<view class='input'><input placeholder='Xin vui lòng điền vào tài khoản paypal của bạn' placeholder-class='placeholder' name="name"></input></view>
 						</view>
 						<view class='item acea-row row-between-wrapper'>
-							<view class='name'>提现</view>
-							<view class='input'><input :placeholder='"最低提现金额"+minPrice' placeholder-class='placeholder' name="money" type='digit'></input></view>
+							<view class='name'>DiXian</view>
+							<view class='input'><input :placeholder='"DiXian"+minPrice' placeholder-class='placeholder' name="money" type='digit'></input></view>
 						</view>
 						<view class='tip'>
-							当前可提现金额: <text class="price">￥{{userInfo.commissionCount}},</text>冻结佣金：￥{{userInfo.broken_commission}}
+						Ghi chú: thời gian đóng băng của mỗi khoản hoa hồng{{userInfo.broken_day}}Chúa ơi，Và rút tiền khi hết hạn
 						</view>
 						<view class='tip'>
-							说明: 每笔佣金的冻结期为{{userInfo.broken_day}}天，到期后可提现
+						Ghi chú: thời gian đóng băng của mỗi khoản hoa hồng{{userInfo.broken_day}}Chúa ơi，Và rút tiền khi hết hạn
 						</view>
-						<button formType="submit" class='bnt bg-color'>提现</button>
+						<button formType="submit" class='bnt bg-color'>DiXian</button>
 					</form>
 				</view>
 			</view>
@@ -111,15 +111,15 @@
 		data() {
 			return {
 				navList: [{
-						'name': '银行卡',
+						'name': 'Thẻ ngân hàng',
 						'icon': 'icon-yinhangqia'
 					},
 					{
-						'name': '微信',
+						'name': 'Vi bức thư',
 						'icon': 'icon-weixin2'
 					},
 					{
-						'name': '支付宝',
+						'name': 'alipay',
 						'icon': 'icon-icon34'
 					}
 				],
@@ -161,7 +161,7 @@
 				let that = this;
 				extractBank().then(res => {
 					let array = res.data.extractBank;
-					array.unshift("请选择银行");
+					array.unshift("Xin vui lòng chọn ngân hàng");
 					that.$set(that, 'array', array);
 					that.minPrice = res.data.minPrice;
 				});
@@ -186,34 +186,34 @@
 					value = e.detail.value;
 				if (that.currentTab == 0) { //银行卡
 					if (value.name.length == 0) return this.$util.Tips({
-						title: '请填写持卡人姓名'
+						title: 'Xin điền tên người giữ thẻ'
 					});
 					if (value.cardnum.length == 0) return this.$util.Tips({
-						title: '请填写卡号'
+						title: 'Xin vui lòng điền số thẻ'
 					});
 					if (that.index == 0) return this.$util.Tips({
-						title: "请选择银行"
+						title: "Xin vui lòng chọn ngân hàng"
 					});
 					value.extract_type = 'bank';
 					value.bankname = that.array[that.index];
 				} else if (that.currentTab == 1) { //微信
 					value.extract_type = 'weixin';
 					if (value.name.length == 0) return this.$util.Tips({
-						title: '请填写微信号'
+						title: 'Xin vui lòng điền vào micro-tín hiệu'
 					});
 					value.weixin = value.name;
 				} else if (that.currentTab == 2) { //支付宝
 					value.extract_type = 'alipay';
 					if (value.name.length == 0) return this.$util.Tips({
-						title: '请填写账号'
+						title: 'Xin vui lòng điền vào tài khoản'
 					});
 					value.alipay_code = value.name;
 				}
 				if (value.money.length == 0) return this.$util.Tips({
-					title: '请填写提现金额'
+					title: 'Xin vui lòng điền vào số tiền rút tiền'
 				});
 				if (value.money < that.minPrice) return this.$util.Tips({
-					title: '提现金额不能低于' + that.minPrice
+					title: 'Không thể rút tiền ít hơn' + that.minPrice
 				});
 				extractCash(value).then(res => {
 					that.getUserInfo();

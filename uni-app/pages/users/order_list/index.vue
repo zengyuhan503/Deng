@@ -4,8 +4,8 @@
 			<view class='header bg-color'>
 				<view class='picTxt acea-row row-between-wrapper'>
 					<view class='text'>
-						<view class='name'>订单信息</view>
-						<view>消费订单：{{orderData.order_count || 0}} 总消费：￥{{orderData.sum_price || 0}}</view>
+						<view class='name'>Thông tin đơn đặt hàng</view>
+						<view>Tiêu thụ đơn đặt hàng：{{orderData.order_count || 0}} Tổng số tiêu thụ：￥{{orderData.sum_price || 0}}</view>
 					</view>
 					<view class='pictrue'>
 						<image src='../../../static/images/orderTime.png'></image>
@@ -14,23 +14,23 @@
 			</view>
 			<view class='nav acea-row row-around'>
 				<view class='item' :class='orderStatus==0 ? "on": ""' @click="statusClick(0)">
-					<view>待付款</view>
+					<view>Để thanh toán</view>
 					<view class='num'>{{orderData.unpaid_count || 0}}</view>
 				</view>
 				<view class='item' :class='orderStatus==1 ? "on": ""' @click="statusClick(1)">
-					<view>待发货</view>
+					<view>Sẵn sàng để phát hành</view>
 					<view class='num'>{{orderData.unshipped_count || 0}}</view>
 				</view>
 				<view class='item' :class='orderStatus==2 ? "on": ""' @click="statusClick(2)">
-					<view>待收货</view>
+					<view>Nhận được</view>
 					<view class='num '>{{orderData.received_count || 0}}</view>
 				</view>
 				<view class='item' :class='orderStatus==3 ? "on": ""' @click="statusClick(3)">
-					<view>待评价</view>
+					<view>Để đánh giá</view>
 					<view class='num'>{{orderData.evaluated_count || 0}}</view>
 				</view>
 				<view class='item' :class='orderStatus==4 ? "on": ""' @click="statusClick(4)">
-					<view>已完成</view>
+					<view>Đã hoàn thành</view>
 					<view class='num'>{{orderData.complete_count || 0}}</view>
 				</view>
 			</view>
@@ -39,17 +39,17 @@
 					<view @click='goOrderDetails(item.order_id)'>
 						<view class='title acea-row row-between-wrapper'>
 							<view class="acea-row row-middle">
-								<text class="sign cart-color acea-row row-center-wrapper" v-if="item.bargain_id != 0">砍价</text>
-								<text class="sign cart-color acea-row row-center-wrapper" v-else-if="item.combination_id != 0">拼团</text>
-								<text class="sign cart-color acea-row row-center-wrapper" v-else-if="item.seckill_id != 0">秒杀</text>
+								<text class="sign cart-color acea-row row-center-wrapper" v-if="item.bargain_id != 0">KanJia</text>
+								<text class="sign cart-color acea-row row-center-wrapper" v-else-if="item.combination_id != 0">Đánh vần</text>
+								<text class="sign cart-color acea-row row-center-wrapper" v-else-if="item.seckill_id != 0">Giây giết</text>
 								<view>{{item._add_time}}</view>
 							</view>
-							<view v-if="item._status._type == 0" class='font-color'>待付款</view>
-							<view v-else-if="item._status._type == 1&& item.shipping_type==1" class='font-color'>待发货</view>
-							<view v-else-if="item._status._type == 2 && item.shipping_type==1" class='font-color'>待收货</view>
-							<view v-else-if="item._status._type == 3 && item.shipping_type==1" class='font-color'>待评价</view>
-							<view v-else-if="item._status._type == 4 && item.shipping_type==1" class='font-color'>已完成</view>
-							<view v-else-if="item.shipping_type==2" class='font-color'>待核销</view>
+							<view v-if="item._status._type == 0" class='font-color'>Để thanh toán</view>
+							<view v-else-if="item._status._type == 1&& item.shipping_type==1" class='font-color'>Sẵn sàng để phát hành</view>
+							<view v-else-if="item._status._type == 2 && item.shipping_type==1" class='font-color'>Nhận được</view>
+							<view v-else-if="item._status._type == 3 && item.shipping_type==1" class='font-color'>Để đánh giá</view>
+							<view v-else-if="item._status._type == 4 && item.shipping_type==1" class='font-color'>Đã hoàn thành</view>
+							<view v-else-if="item.shipping_type==2" class='font-color'>Để được viết ra</view>
 						</view>
 						<view class='item-info acea-row row-between row-top' v-for="(item,index) in item.cartInfo" :key="index">
 							<view class='pictrue'>
@@ -64,19 +64,19 @@
 								</view>
 							</view>
 						</view>
-						<view class='totalPrice'>共{{item.cartInfo.length || 0}}件商品，总金额
+						<view class='totalPrice'>共{{item.cartInfo.length || 0}}hàng hóa, tổng số tiền
 							<text class='money font-color'>￥{{item.pay_price}}</text>
 						</view>
 					</view>
 					<view class='bottom acea-row row-right row-middle'>
-						<view class='bnt cancelBnt' v-if="item._status._type==0 || item._status._type == 9" @click='cancelOrder(index,item.order_id)'>取消订单</view>
-						<view class='bnt bg-color' v-if="item._status._type == 0" @click='goPay(item.pay_price,item.order_id)'>立即付款</view>
-						<view class='bnt bg-color' v-else-if="item._status._type == 1 || item._status._type == 9" @click='goOrderDetails(item.order_id)'>查看详情</view>
-						<view class='bnt bg-color' v-else-if="item._status._type == 2 && item.delivery_type" @click='goOrderDetails(item.order_id)'>查看详情</view>
-						<view class='bnt bg-color' v-else-if="item._status._type == 3" @click='goOrderDetails(item.order_id)'>去评价</view>
+						<view class='bnt cancelBnt' v-if="item._status._type==0 || item._status._type == 9" @click='cancelOrder(index,item.order_id)'>Hủy bỏ đơn đặt hàng</view>
+						<view class='bnt bg-color' v-if="item._status._type == 0" @click='goPay(item.pay_price,item.order_id)'>Thanh toán ngay lập tức</view>
+						<view class='bnt bg-color' v-else-if="item._status._type == 1 || item._status._type == 9" @click='goOrderDetails(item.order_id)'>Xem chi tiết</view>
+						<view class='bnt bg-color' v-else-if="item._status._type == 2 && item.delivery_type" @click='goOrderDetails(item.order_id)'>Xem chi tiết</view>
+						<view class='bnt bg-color' v-else-if="item._status._type == 3" @click='goOrderDetails(item.order_id)'>Để đánh giá</view>
 						<view class='bnt bg-color' v-else-if="item.seckill_id < 1 && item.bargain_id < 1 && item.combination_id < 1 && item._status._type == 4"
-						 @click='goOrderDetails(item.order_id)'>再次购买</view>
-						<view class='bnt cancelBnt' v-if="item._status._type == 4" @click='delOrder(item.order_id,index)'>删除订单</view>
+						 @click='goOrderDetails(item.order_id)'>Mua lại</view>
+						<view class='bnt cancelBnt' v-if="item._status._type == 4" @click='delOrder(item.order_id,index)'>Loại bỏ đơn đặt hàng</view>
 					</view>
 				</view>
 			</view>
@@ -84,7 +84,7 @@
 				<text class='loading iconfont icon-jiazai' :hidden='loading==false'></text>{{loadTitle}}
 			</view>
 			<view v-if="orderList.length == 0">
-				<emptyPage title="暂无订单~"></emptyPage>
+				<emptyPage title="Không có đơn đặt hàng~"></emptyPage>
 			</view>
 		</view>
 		<view class='noCart' v-if="orderList.length == 0 && page > 1">
@@ -147,23 +147,23 @@
 				limit: 20,
 				payMode: [
 					{
-						name: "微信支付",
+						name: "Vi-thanh toán",
 						icon: "icon-weixinzhifu",
 						value: 'weixin',
-						title: '微信快捷支付'
+						title: 'Ứng dụng thanh toán nhanh'
 					},
 					{
-						name: "余额支付",
+						name: "Thanh toán cân bằng",
 						icon: "icon-yuezhifu",
 						value: 'yue',
-						title: '可用余额:',
+						title: 'Số dư có sẵn:',
 						number: 0
 					},
 					{
-						"name": "线上支付",
+						"name": "Thanh toán trực tuyến",
 						"icon": "icon-yinhangqia",
 						value: 'vnpays',
-						title: '线上支付',
+						title: 'Thanh toán trực tuyến',
 					},
 				],
 				pay_close: false,
@@ -250,7 +250,7 @@
 			cancelOrder: function(index, order_id) {
 				let that = this;
 				if (!order_id) return that.$util.Tips({
-					title: '缺少订单号无法取消订单'
+					title: 'Thiếu số thứ tự không thể hủy bỏ đơn đặt hàng'
 				});
 				orderCancel(order_id).then(res => {
 					return that.$util.Tips({
@@ -303,11 +303,11 @@
 			 */
 			goOrderDetails: function(order_id) {
 				if (!order_id) return that.$util.Tips({
-					title: '缺少订单号无法查看订单详情'
+					title: 'Thiếu số thứ tự không thể xem chi tiết đơn đặt hàng'
 				});
 				// #ifdef MP
 				uni.showLoading({
-					title: '正在加载',
+					title: 'Đang tải',
 				})
 				openOrderSubscribe().then(() => {
 					uni.hideLoading();
@@ -343,7 +343,7 @@
 				if (that.loadend) return;
 				if (that.loading) return;
 				that.loading = true;
-				that.loadTitle = "加载更多";
+				that.loadTitle = "Đang tải";
 				getOrderList({
 					type: that.orderStatus,
 					page: that.page,
@@ -355,11 +355,11 @@
 					that.$set(that, 'orderList', that.orderList);
 					that.loadend = loadend;
 					that.loading = false;
-					that.loadTitle = loadend ? "我也是有底线的" : '加载更多';
+					that.loadTitle = loadend ? "Tôi cũng có giới hạn" : 'Đang tải';
 					that.page = that.page + 1;
 				}).catch(err => {
 					that.loading = false;
-					that.loadTitle = "加载更多";
+					that.loadTitle = "Đang tải";
 				})
 			},
 
@@ -374,7 +374,7 @@
 					that.$set(that.orderData, 'unpaid_count', that.orderData.unpaid_count - 1);
 					that.getOrderData();
 					return that.$util.Tips({
-						title: '删除成功',
+						title: 'Loại bỏ thành công',
 						icon: 'success'
 					});
 				}).catch(err => {

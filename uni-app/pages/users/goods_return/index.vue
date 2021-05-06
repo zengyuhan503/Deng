@@ -18,15 +18,15 @@
 		    </view>
 		    <view class='list'>
 		        <view class='item acea-row row-between-wrapper'>
-		          <view>退货件数</view>
+		          <view>Số lượng trở lại</view>
 		          <view class='num'>{{orderInfo.total_num}}</view>
 		        </view>
 		        <view class='item acea-row row-between-wrapper'>
-		          <view>退款金额</view>
+		          <view>Giá trị</view>
 		          <view class='num'>￥{{orderInfo.pay_price}}</view>
 		        </view>
 		        <view class='item acea-row row-between-wrapper' @tap="toggleTab('region')">
-		          <view>退款原因</view>
+		          <view>Lý do</view>
 		          <picker class='num' @change="bindPickerChange" :value="index" :range="RefundArray">
 		              <view class="picker acea-row row-between-wrapper">
 		                <view class='reason'>{{RefundArray[index]}}</view>
@@ -35,13 +35,13 @@
 		          </picker>
 		        </view>
 		        <view class='item textarea acea-row row-between'>
-		          <view>备注说明</view>
-		          <textarea placeholder='填写备注信息，100字以内' class='num' name="refund_reason_wap_explain" placeholder-class='填写备注信息，100字以内'></textarea>
+		          <view>Từng dùng</view>
+		          <textarea placeholder='Điền thông tin lưu ý, ít hơn 100 từ' class='num' name="refund_reason_wap_explain" placeholder-class='Điền thông tin lưu ý, ít hơn 100 từ'></textarea>
 		        </view>
 		        <view class='item acea-row row-between'>
 		          <view class='title acea-row row-between-wrapper'>
-		              <view>上传凭证</view>
-		              <view class='tip'>( 最多可上传3张 )</view>
+		              <view>Tải lên chứng từ</view>
+		              <view class='tip'>( Có thể tải lên đến 3 )</view>
 		          </view>
 		          <view class='upload acea-row row-middle'>
 		              <view class='pictrue' v-for="(item,index) in refund_reason_wap_img" :key="index">
@@ -50,12 +50,12 @@
 		              </view>
 		              <view class='pictrue acea-row row-center-wrapper row-column' @tap='uploadpic' v-if="refund_reason_wap_img.length < 3">
 		                <text class='iconfont icon-icon25201'></text>
-		                <view>上传凭证</view>
+		                <view>Tải lên chứng từ</view>
 		              </view>
 		          </view>
 		        </view>
 		    </view>
-		    <button class='returnBnt bg-color' form-type="submit">申请退款</button>
+		    <button class='returnBnt bg-color' form-type="submit">Nộp đơn</button>
 		  </view>
 		</form>
 		<!-- #ifdef MP -->

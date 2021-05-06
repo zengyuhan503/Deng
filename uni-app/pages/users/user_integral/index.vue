@@ -2,7 +2,7 @@
 	<view>
 		<view class='integral-details'>
 			<view class='header'>
-				<view class='currentScore'>当前积分</view>
+				<view class='currentScore'>Điểm hiện tại</view>
 				<view class="scoreNum">{{userInfo.integral}}</view>
 				<view class='line'></view>
 				<view class='nav acea-row'>
@@ -12,11 +12,11 @@
 					</view>
 					<view class='item'>
 						<view class='num'>{{userInfo.deduction_integral}}</view>
-						<view>累计消费</view>
+						<view>Tích lũy điểm</view>
 					</view>
 					<view class='item'>
 						<view class='num'>{{userInfo.today_integral}}</view>
-						<view>今日获得</view>
+						<view>Hôm nay</view>
 					</view>
 				</view>
 			</view>
@@ -26,7 +26,7 @@
 					 @click='nav(index)'><text class='iconfont' :class="item.icon"></text>{{item.name}}</view>
 				</view>
 				<view class='list' :hidden='current!=0'>
-					<view class='tip acea-row row-middle'><text class='iconfont icon-shuoming'></text>提示：积分数值的高低会直接影响您的会员等级</view>
+					<view class='tip acea-row row-middle'><text class='iconfont icon-shuoming'></text>Gợi ý: giá trị của điểm trực tiếp ảnh hưởng đến mức độ thành viên của bạn</view>
 					<view class='item acea-row row-between-wrapper' v-for="(item,index) in integralList" :key="index">
 						<view>
 							<view class='state'>{{item.mark}}</view>
@@ -39,7 +39,7 @@
 						<text class='loading iconfont icon-jiazai' :hidden='loading==false'></text>{{loadTitle}}
 					</view>
 					<view v-if="integralList.length == 0">
-						<emptyPage title="暂无积分记录哦～"></emptyPage>
+						<emptyPage title="Không ghi điểm～"></emptyPage>
 					</view>
 				</view>
 				<view class='list2' :hidden='current!=1'>
@@ -47,15 +47,15 @@
 						<view class='pictrue'>
 							<image src='../../../static/images/score.png'></image>
 						</view>
-						<view class='name'>购买商品可获得积分奖励</view>
-						<view class='earn'>赚积分</view>
+						<view class='name'>Điểm thưởng khi mua hàng</view>
+						<view class='earn'>Kiếm được điểm</view>
 					</navigator>
 					<navigator class='item acea-row row-between-wrapper' hover-class='none' url='/pages/users/user_sgin/index'>
 						<view class='pictrue'>
 							<image src='../../../static/images/score.png'></image>
 						</view>
-						<view class='name'>每日签到可获得积分奖励</view>
-						<view class='earn'>赚积分</view>
+						<view class='name'>Đăng ký hàng ngày sẽ được thưởng điểm</view>
+						<view class='earn'>Kiếm được điểm</view>
 					</navigator>
 				</view>
 			</view>
@@ -88,11 +88,11 @@
 		data() {
 			return {
 				navList: [{
-						'name': '分值明细',
+						'name': 'Điểm điểm chi tiết',
 						'icon': 'icon-mingxi'
 					},
 					{
-						'name': '分值提升',
+						'name': 'Điểm nâng cao',
 						'icon': 'icon-tishengfenzhi'
 					}
 				],
@@ -103,7 +103,7 @@
 				userInfo:{},
 				loadend: false,
 				loading: false,
-				loadTitle: '加载更多',
+				loadTitle: 'Nạp thêm đạn',
 				isAuto: false, //没有授权的不会自动授权
 				isShowAuth: false //是否隐藏授权
 			};
@@ -172,10 +172,10 @@
 					that.page = that.page + 1;
 					that.loading = false;
 					that.loadend = loadend;
-					that.loadTitle = loadend ? '哼~😕我也是有底线的~' : "加载更多";
+					that.loadTitle = loadend ? '~😕Tôi cũng có giới hạn~' : "Nạp thêm đạn";
 				}, function(res) {
 					this.loading = false;
-					that.loadTitle = '加载更多';
+					that.loadTitle = 'Nạp thêm đạn';
 				});
 			},
 			nav: function(current) {

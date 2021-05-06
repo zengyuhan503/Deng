@@ -123,8 +123,6 @@
 			   </scroll-view>
 			</view>
 		<view class='footer acea-row row-between-wrapper'>
-			<!-- #ifdef MP -->
-			
 			<navigator open-type='switchTab' class="animated item" :class="animated==true?'bounceIn':''" url='/pages/order_addcart/order_addcart'
 			 hover-class="none">
 				<view class='iconfont icon-gouwuche1'>

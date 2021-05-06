@@ -7,23 +7,23 @@
 			<radio-group class="radio-group" @change="radioChange" v-if="addressList.length">
 				<view class='item' v-for="(item,index) in addressList" :key="index">
 					<view class='address' @click='goOrder(item.id)'>
-						<view class='consignee'>收货人：{{item.real_name}}<text class='phone'>{{item.phone}}</text></view>
-						<view>收货地址：{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</view>
+						<view class='consignee'>Người nhận hàng：{{item.real_name}}<text class='phone'>{{item.phone}}</text></view>
+						<view>Địa chỉ giao hàng：{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</view>
 					</view>
 					<view class='operation acea-row row-between-wrapper'>
 						<!-- #ifndef MP -->
 						<radio class="radio" :value="index.toString()" :checked="item.is_default ? true : false">
-							<text>设为默认</text>
+							<text>Mặc định</text>
 						</radio>
 						<!-- #endif -->
 						<!-- #ifdef MP -->
 						<radio class="radio" :value="index" :checked="item.is_default ? true : false">
-							<text>设为默认</text>
+							<text>Mặc định</text>
 						</radio>
 						<!-- #endif -->
 						<view class='acea-row row-middle'>
-							<view @click='editAddress(item.id)'><text class='iconfont icon-bianji'></text>编辑</view>
-							<view @click='delAddress(index)'><text class='iconfont icon-shanchu'></text>删除</view>
+							<view @click='editAddress(item.id)'><text class='iconfont icon-bianji'></text>Biên tập</view>
+							<view @click='delAddress(index)'><text class='iconfont icon-shanchu'></text>Xoá bỏ</view>
 						</view>
 					</view>
 				</view>
@@ -39,15 +39,15 @@
 			<view style='height:120rpx;'></view>
 			<view class='footer acea-row row-between-wrapper'>
 				<!-- #ifdef APP-PLUS -->
-				<view class='addressBnt bg-color on' @click='addAddress'><text class='iconfont icon-tianjiadizhi'></text>添加新地址</view>
+				<view class='addressBnt bg-color on' @click='addAddress'><text class='iconfont icon-tianjiadizhi'></text>Thêm một địa chỉ mới</view>
 				<!-- #endif -->
 				<!-- #ifdef MP-->
-				<view class='addressBnt bg-color' @click='addAddress'><text class='iconfont icon-tianjiadizhi'></text>添加新地址</view>
-				<view class='addressBnt wxbnt' @click='getWxAddress'><text class='iconfont icon-weixin2'></text>导入微信地址</view>
+				<view class='addressBnt bg-color' @click='addAddress'><text class='iconfont icon-tianjiadizhi'></text>Thêm một địa chỉ mới</view>
+				<view class='addressBnt wxbnt' @click='getWxAddress'><text class='iconfont icon-weixin2'></text>Nhập địa chỉ ứng dụng</view>
 				<!-- #endif -->
 				<!-- #ifdef H5-->
-				<view class='addressBnt bg-color' :class="this.$wechat.isWeixin()?'':'on'" @click='addAddress'><text class='iconfont icon-tianjiadizhi'></text>添加新地址</view>
-				<view class='addressBnt wxbnt' @click='getAddress' v-if="this.$wechat.isWeixin()"><text class='iconfont icon-weixin2'></text>导入微信地址</view>
+				<view class='addressBnt bg-color' :class="this.$wechat.isWeixin()?'':'on'" @click='addAddress'><text class='iconfont icon-tianjiadizhi'></text>Thêm một địa chỉ mới</view>
+				<view class='addressBnt wxbnt' @click='getAddress' v-if="this.$wechat.isWeixin()"><text class='iconfont icon-weixin2'></text>Nhập địa chỉ ứng dụng</view>
 				<!-- #endif -->
 			</view>
 		</view>
@@ -91,7 +91,7 @@
 				couponId: 0,
 				loading: false,
 				loadend: false,
-				loadTitle: '加载更多',
+				loadTitle: 'Nạp thêm đạn',
 				page: 1,
 				limit: 20,
 				isAuto: false, //没有授权的不会自动授权
@@ -153,7 +153,7 @@
 									type: 1
 								}).then(res => {
 									that.$util.Tips({
-										title: "添加成功",
+										title: 'Thiết lập thành công',
 										icon: 'success'
 									}, function() {
 										that.getAddressList(true);
@@ -166,15 +166,15 @@
 							},
 							fail: function(res) {
 								if (res.errMsg == 'chooseAddress:cancel') return that.$util.Tips({
-									title: '取消选择'
+									title: 'Hủy bỏ sự lựa chọn'
 								});
 							},
 						})
 					},
 					fail: function(res) {
 						uni.showModal({
-							title: '您已拒绝导入微信地址权限',
-							content: '是否进入权限管理，调整授权？',
+							title: 'Bạn đã từ chối nhập khẩu quyền địa chỉ ứng dụng',
+							content: 'Tham gia quản lý quyền truy cập, điều chỉnh thẩm quyền？',
 							success(res) {
 								if (res.confirm) {
 									uni.openSetting({
@@ -184,7 +184,7 @@
 									});
 								} else if (res.cancel) {
 									return that.$util.Tips({
-										title: '已取消！'
+										title: 'Hủy bỏ'
 									});
 								}
 							}
@@ -214,7 +214,7 @@
 						})
 						.then(() => {
 							that.$util.Tips({
-								title: "添加成功",
+								title: "Thêm thành công",
 								icon: 'success'
 							}, function() {
 								close();
@@ -224,7 +224,7 @@
 						.catch(err => {
 							close();
 							return that.$util.Tips({
-								title: err || "添加失败"
+								title: err || "Thêm thất bại"
 							});
 						});
 				});
@@ -253,12 +253,12 @@
 					that.addressList = that.$util.SplitArray(list, that.addressList);
 					that.$set(that, 'addressList', that.addressList);
 					that.loadend = loadend;
-					that.loadTitle = loadend ? '我也是有底线的' : '加载更多';
+					that.loadTitle = loadend ? 'Tôi cũng có giới hạn' : 'Nạp thêm đạn';
 					that.page = that.page + 1;
 					that.loading = false;
 				}).catch(err => {
 					that.loading = false;
-					that.loadTitle = '加载更多';
+					that.loadTitle = 'Nạp thêm đạn';
 				});
 			},
 			/**
@@ -269,7 +269,7 @@
 					that = this;
 				let address = this.addressList[index];
 				if (address == undefined) return that.$util.Tips({
-					title: '您设置的默认地址不存在!'
+					title: 'Địa chỉ mặc định mà bạn đặt không tồn tại!'
 				});
 				setAddressDefault(address.id).then(res => {
 					for (let i = 0, len = that.addressList.length; i < len; i++) {
@@ -277,7 +277,7 @@
 						else that.addressList[i].is_default = false;
 					}
 					that.$util.Tips({
-						title: '设置成功',
+						title: 'Thiết lập thành công',
 						icon: 'success'
 					}, function() {
 						that.$set(that, 'addressList', that.addressList);
@@ -310,11 +310,11 @@
 				let that = this,
 					address = this.addressList[index];
 				if (address == undefined) return that.$util.Tips({
-					title: '您删除的地址不存在!'
+					title: 'Địa chỉ bạn đã xóa không tồn tại!'
 				});
 				delAddress(address.id).then(res => {
 					that.$util.Tips({
-						title: '删除成功',
+						title: 'Loại bỏ thành công',
 						icon: 'success'
 					}, function() {
 						that.addressList.splice(index, 1);

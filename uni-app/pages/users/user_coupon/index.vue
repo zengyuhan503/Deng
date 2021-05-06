@@ -4,13 +4,13 @@
 			<view class='item acea-row row-center-wrapper' v-for='(item,index) in couponsList' :key="index">
 				<view class='money' :class='item._type == 0 ? "moneyGray" : ""'>
 					<view>￥<text class='num'>{{item.coupon_price}}</text></view>
-					<view class="pic-num">满{{ item.use_min_price }}元可用</view>
+					<view class="pic-num">满{{ item.use_min_price }}Nguyên có sẵn</view>
 				</view>
 				<view class='text'>
 					<view class='condition line1'>
-						<view class="line-title" :class="item._type === 0 ? 'bg-color-huic' : 'bg-color-check'" v-if="item.applicable_type === 0">通用劵</view>
-						<view class="line-title" :class="item._type === 0 ? 'bg-color-huic' : 'bg-color-check'" v-else-if="item.applicable_type === 1">品类券</view>
-						<view class="line-title" :class="item._type === 0 ? 'bg-color-huic' : 'bg-color-check'" v-else>商品券</view>
+						<view class="line-title" :class="item._type === 0 ? 'bg-color-huic' : 'bg-color-check'" v-if="item.applicable_type === 0">General coupon</view>
+						<view class="line-title" :class="item._type === 0 ? 'bg-color-huic' : 'bg-color-check'" v-else-if="item.applicable_type === 1">Phiếu giảm giá</view>
+						<view class="line-title" :class="item._type === 0 ? 'bg-color-huic' : 'bg-color-check'" v-else>Chứng từ</view>
 						<view>{{item.coupon_title}}</view>
 					</view>
 					<view class='data acea-row row-between-wrapper'>

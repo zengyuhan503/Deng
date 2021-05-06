@@ -9,10 +9,10 @@
 							<view class="memberBg" :class="swiperIndex == index ? 'active' : 'quiet'" :style='"background-image:url("+item.image+")"'
 							 mode='aspectFill'>
 								<view class='name'>{{item.name}}</view>
-								<view class='discount'>可享受商品折扣:{{item.discount}}折<text class='iconfont icon-zhekou'></text></view>
-								<view class='lock' v-if="item.grade < grade"><text class='iconfont icon-xuanzhong1'></text>已解锁更高等级</view>
+								<view class='discount'>Giảm giá hàng hóa:{{item.discount}}折<text class='iconfont icon-zhekou'></text></view>
+								<view class='lock' v-if="item.grade < grade"><text class='iconfont icon-xuanzhong1'></text>Đã mở khóa cấp cao hơn</view>
 								
-								<view class='lock' v-if="item.grade > grade"><text class='iconfont icon-quanxianguanlisuozi'></text>该会员等级尚未解锁</view>
+								<view class='lock' v-if="item.grade > grade"><text class='iconfont icon-quanxianguanlisuozi'></text>Cấp độ thành viên chưa được mở khóa</view>
 								
 								<view class='nav acea-row' v-if="grade==item.grade">
 									<view class='item' v-if="indexn <= 3" v-for="(itemn,indexn) in item.task_list" :key="indexn">
@@ -27,15 +27,15 @@
 			</view>
 			<view class='wrapper'>
 				<view class='title acea-row row-between-wrapper'>
-					<view><text class='iconfont icon-jingyanzhi'></text>会员升级要求</view>
+					<view><text class='iconfont icon-jingyanzhi'></text>Yêu cầu nâng cấp thành viên</view>
 					<view class='num'><text class='current'>{{reach_count || 0}}</text>/{{task.length || 0}}</view>
 				</view>
 				<view class='list'>
 					<view class='item' v-for="(item,index) in task" :key="index">
 						<view class='top acea-row row-between-wrapper'>
 							<view class='name' @click='opHelp(index)'>{{item.name}}<text v-if="item.illustrate" class='iconfont icon-wenti'></text></view>
-							<view v-if="item.finish">已满足条件</view>
-							<view v-else>未满足条件</view>
+							<view v-if="item.finish">Đáp ứng các điều kiện</view>
+							<view v-else>Không đáp ứng các điều kiện</view>
 						</view>
 						<view class="cu-progress">
 							<view class='bg-red' :style="'width:'+item.speed+'%;'"></view>

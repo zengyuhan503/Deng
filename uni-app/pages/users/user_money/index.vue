@@ -202,7 +202,7 @@
 				console.log(123);
 				console.log(page);
 				uni.showLoading({
-					title: '正在加载',
+					title: 'Đang tải',
 				})
 				console.log(456);
 				openRechargeSubscribe().then(res => {

@@ -21,7 +21,7 @@
 		           <text class='evaluate'>{{item.index === -1 ? "" : item.index + 1 + "分"}}</text>
 		       </view>
 		       <view class='textarea'>
-		          <textarea placeholder='商品满足你的期待么？说说你的想法，分享给想买的他们吧~' name="comment" placeholder-class='placeholder'></textarea>
+		          <textarea placeholder='Hàng hóa có đáp ứng mong đợi của bạn?Nói những gì bạn nghĩ, chia sẻ để mua chúng ~' name="comment" placeholder-class='placeholder'></textarea>
 		          <view class='list acea-row row-middle'>
 		             <view class='pictrue' v-for="(item,index) in pics" :key="index">
 		               <image :src='item'></image>
@@ -29,11 +29,11 @@
 		             </view>
 		             <view class='pictrue acea-row row-center-wrapper row-column' @click='uploadpic' v-if="pics.length < 8">
 		               <text class='iconfont icon-icon25201'></text>
-		               <view>上传图片</view>
+		               <view>Tải lên hình ảnh</view>
 		             </view>
 		          </view>
 		       </view>
-		       <button class='evaluateBnt bg-color' formType="submit">立即评价</button>
+		       <button class='evaluateBnt bg-color' formType="submit">Đánh giá ngay lập tức</button>
 		   </view>
 		</view>
 		</form>
@@ -65,12 +65,12 @@
 				 pics:[],
 				   scoreList: [
 				         {
-				           name: "商品质量",
+				           name: "Chất lượng hàng hóa",
 				           stars: ["", "", "", "", ""],
 				           index: -1
 				         },
 				         {
-				           name: "服务态度",
+				           name: "Thái độ phục vụ",
 				           stars: ["", "", "", "", ""],
 				           index: -1
 				         }
@@ -153,15 +153,15 @@
 			  formSubmit:function(e){
 			    let formId = e.detail.formId, value = e.detail.value, that = this, 
 			      product_score = that.scoreList[0].index + 1 === 0 ? "" : that.scoreList[0].index + 1, service_score = that.scoreList[1].index + 1 === 0 ? "" : that.scoreList[1].index + 1;
-			    if (!value.comment) return that.$util.Tips({ title:'请填写你对宝贝的心得！'});
+			    if (!value.comment) return that.$util.Tips({ title:'Xin điền vào những gì bạn nghĩ về em bé！'});
 			    value.product_score = product_score;
 			    value.service_score = service_score;
 			    value.pics=that.pics;
 			    value.unique = that.unique;
-			    uni.showLoading({ title: "正在发布评论……" });
+			    uni.showLoading({ title: "Đang đưa ra bình luận……" });
 			    orderComment(value).then(res=>{
 			      uni.hideLoading();
-			      return that.$util.Tips({ title: '感谢您的评价!', icon: 'success' }, '/pages/order_details/index?order_id=' + that.orderId);
+			      return that.$util.Tips({ title: 'Cảm ơn vì đã đánh giá!', icon: 'success' }, '/pages/order_details/index?order_id=' + that.orderId);
 			    }).catch(err=>{
 			      uni.hideLoading();
 			      return that.$util.Tips({ title: err });

@@ -16,7 +16,7 @@
 						<!-- <view class='setaddress'>设置收货地址</view> -->
 					</view>
 					<view class='addressCon' v-else>
-						<view class='setaddress'>设置收货地址</view>
+						<view class='setaddress'>Thiết lập địa chỉ giao hàng</view>
 					</view>
 					<view class='iconfont icon-jiantou'></view>
 				</view>
@@ -31,7 +31,7 @@
 						<view class='iconfont icon-jiantou'></view>
 					</block>
 					<block v-else>
-						<view>暂无门店信息</view>
+						<view>Không có thông tin cửa hàng</view>
 					</block>
 				</view>
 				<view class='line'>
@@ -41,15 +41,15 @@
 			<orderGoods :cartInfo="cartInfo"></orderGoods>
 			<view class='wrapper'>
 				<view class='item acea-row row-between-wrapper' @tap='couponTap' v-if="!pinkId && !BargainId && !combinationId && !seckillId">
-					<view>优惠券</view>
+					<view>Phiếu giảm giá</view>
 					<view class='discount'>{{couponTitle}}
 						<text class='iconfont icon-jiantou'></text>
 					</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="!pinkId && !BargainId && !combinationId && !seckillId">
-					<view>积分抵扣</view>
+					<view>Tích hợp khấu trừ</view>
 					<view class='discount acea-row row-middle'>
-						<view> {{useIntegral ? "剩余积分":"当前积分"}}
+						<view> {{useIntegral ? "Điểm còn lại":"Điểm hiện tại"}}
 							<text class='num font-color'>{{integral || 0}}</text>
 						</view>
 						<checkbox-group @change="ChangeIntegral">
@@ -58,25 +58,25 @@
 					</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="priceGroup.vipPrice > 0 && userInfo.vip && !pinkId && !BargainId && !combinationId && !seckillId">
-					<view>会员优惠</view>
+					<view>Thành viên giảm giá</view>
 					<view class='discount'>-￥{{priceGroup.vipPrice}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if='shippingType==0'>
-					<view>快递费用</view>
+					<view>Lệ phí chuyển phát nhanh</view>
 					<view class='discount' v-if='priceGroup.storePostage > 0'>+￥{{priceGroup.storePostage}}</view>
-					<view class='discount' v-else>免运费</view>
+					<view class='discount' v-else>Miễn phí vận chuyển</view>
 				</view>
 				<view v-else>
 					<view class="item acea-row row-between-wrapper">
-						<view>联系人</view>
+						<view>Người liên lạc</view>
 						<view class="discount">
-							<input type="text" placeholder="请填写您的联系姓名" placeholder-class="placeholder" @blur='realName'></input>
+							<input type="text" placeholder="Xin vui lòng điền tên liên lạc của bạn" placeholder-class="placeholder" @blur='realName'></input>
 						</view>
 					</view>
 					<view class="item acea-row row-between-wrapper">
-						<view>联系电话</view>
+						<view>Số liên lạc</view>
 						<view class="discount">
-							<input type="text" placeholder="请填写您的联系电话" placeholder-class="placeholder" @blur='phone'></input>
+							<input type="text" placeholder="Xin vui lòng điền vào số liên lạc của bạn" placeholder-class="placeholder" @blur='phone'></input>
 						</view>
 					</view>
 				</view>
@@ -85,14 +85,14 @@
 		      <view class='discount'>{{system_store.name}}</view>
 		    </view> -->
 				<view class='item' v-if="textareaStatus">
-					<view>备注信息</view>
+					<view>Từng dùng</view>
 					<textarea v-if="coupon.coupon===false" placeholder-class='placeholder' @input='bindHideKeyboard' value="" name="mark"
-					 placeholder='请添加备注（150字以内）'></textarea>
+					 placeholder='Xin vui lòng thêm ghi chú (ít hơn 150 từ)'></textarea>
 				</view>
 			</view>
 			<view class='wrapper'>
 				<view class='item'>
-					<view>支付方式</view>
+					<view>Trả tiền</view>
 					<view class='list'>
 						<view class='payItem acea-row row-middle' :class='active==index ?"on":""' @tap='payItem(index)' v-for="(item,index) in cartArr"
 						 :key='index' v-if="item.payStatus==1">
@@ -128,25 +128,25 @@
 			</view>
 			<view class='moneyList'>
 				<view class='item acea-row row-between-wrapper'>
-					<view>商品总价：</view>
+					<view>Tổng giá hàng hóa：</view>
 					<view class='money'>￥{{priceGroup.totalPrice}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="coupon_price > 0">
-					<view>优惠券抵扣：</view>
+					<view>Phiếu giảm giá：</view>
 					<view class='money'>-￥{{coupon_price}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="integral_price > 0">
-					<view>积分抵扣：</view>
+					<view>Tích hợp khấu trừ：</view>
 					<view class='money'>-￥{{integral_price}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="priceGroup.storePostage > 0">
-					<view>运费：</view>
+					<view>Chưa kể：</view>
 					<view class='money'>+￥{{priceGroup.storePostage}}</view>
 				</view>
 			</view>
 			<view style='height:120rpx;'></view>
 			<view class='footer acea-row row-between-wrapper'>
-				<view>合计:
+				<view>Giá trị:
 					<text class='font-color'>￥{{totalPrice || 0}}</text>
 				</view>
 				<view class='settlement' style='z-index:100' @tap="SubOrder">立即结算</view>
@@ -154,31 +154,31 @@
 			<view class="vnPayModal" v-show='vnpayActive'>
 				<view class="Modalbody">
 					<view class="modalBody_title">
-						支付结果
+						Thanh toán kết quả
 						<view class="modal_close"  @click="handleVnpaycallback">
 								X
 						</view>
 					</view>
 					<view class="Orderinfo">
 						<view class="infoTxt">
-							下单用户：{{contactsTel}}
+							Người dùng duy nhất：{{contactsTel}}
 						</view>
 						<view class="infoTxt">
-							订单号：{{vnplayInfo.orderid}}
+							Số thứ tự：{{vnplayInfo.orderid}}
 						</view>
 						<view class="">
-							总价格：	<text class='font-color'>￥{{totalPrice || 0}}</text>
+							Tổng giá：	<text class='font-color'>￥{{totalPrice || 0}}</text>
 						</view>
 						<view class="">
-							支付方式：线上支付
+							Thanh toán: thanh toán trực tuyến
 						</view>
 					</view>
 					<view class="orderBtn">
 						<view class="clear">
-							 <button type="default"  @click="handleVnpaycallback" >取消</button>
+							 <button type="default"  @click="handleVnpaycallback" >Hủy bỏ</button>
 						</view>
 						<view class="payResult">
-							 <button type="default" @click="handleVnpaycallback">已经完成支付</button>
+							 <button type="default" @click="handleVnpaycallback">Đã hoàn thành thanh toán</button>
 						</view>
 					</view>
 				</view>
@@ -246,63 +246,63 @@
 				vnpay:"momo",
 				 items: [{
 											value: 'zalo',
-											name: 'ZALO支付'
+											name: 'ZALO Trả tiền'
 									},
 									{
 											value: 'momo',
-											name: 'MOMO支付',
+											name: 'MOMOTrả tiền',
 											checked: 'momo'
 									},
 									{
 											value: 'vietcombank',
-											name: 'VietCombank支付'
+											name: 'VietCombank Trả tiền'
 									},
 									{
 											value: 'vietinbankipay',
-											name: 'VietInbankiPay支付'
+											name: 'VietInbankiPay Trả tiền'
 									},
 									{
 											value: 'vtpay',
-											name: 'VTpay支付'
+											name: 'VTpay Trả tiền'
 									},
 									{
 											value: 'tpbank',
-											name: 'TPBANK支付'
+											name: 'TPBANK Trả tiền'
 									},
 									{
 											value: 'acbbank',
-											name: 'ACBbank支付'
+											name: 'ACBbank Trả tiền'
 									}
 							],
 				textareaStatus: true,
 				//支付方式
 				cartArr: [
 					{
-						"name": "微信支付",
+						"name": "Vi-thanh toán",
 						"icon": "icon-weixin2",
 						value: 'weixin',
-						title: '微信快捷支付',
+						title: 'Ứng dụng thanh toán nhanh',
 						payStatus: 1,
 					},
 				
 					{
-						"name": "余额支付",
+						"name": "Thanh toán cân bằng",
 						"icon": "icon-icon-test",
 						value: 'yue',
-						title: '可用余额:',
+						title: 'Số dư có sẵn:',
 						payStatus: 1,
 					},
 					{
-						"name": "线下支付",
+						"name": "Thanh toán trực tuyến",
 						"icon": "icon-yinhangqia",
 						value: 'offline',
-						title: '线下支付',
+						title: 'Thanh toán trực tuyến',
 						payStatus: 1,
 					},	{
-						"name": "线上支付",
+						"name": "Thanh toán trực tuyến",
 						"icon": "icon-yinhangqia",
 						value: 'vnpay',
-						title: '线上支付',
+						title: 'Thanh toán trực tuyến',
 						payStatus: 1,
 					},
 				],
@@ -312,7 +312,7 @@
 				coupon: {
 					coupon: false,
 					list: [],
-					statusTile: '立即使用'
+					statusTile: 'Sử dụng ngay lập tức'
 				}, //优惠券组件
 				address: {
 					address: false
@@ -327,7 +327,7 @@
 				seckillId: 0,
 				userInfo: {}, //用户信息
 				mark: '', //备注信息
-				couponTitle: '请选择', //优惠券
+				couponTitle: 'Hãy chọn', //优惠券
 				coupon_price: 0, //优惠券抵扣金额
 				useIntegral: false, //是否使用积分
 				integral_price: 0, //积分抵扣金额
@@ -368,7 +368,7 @@
 			this.from = 'routine'
 			// #endif
 			if (!options.cartId) return this.$util.Tips({
-				title: '请选择要购买的商品'
+				title: 'Hãy chọn hàng hóa cần mua'
 			}, {
 				tab: 3,
 				url: 1
@@ -555,7 +555,7 @@
 				// this.coupon.coupon = false
 				let index = e,
 					list = this.coupon.list,
-					couponTitle = '请选择',
+					couponTitle = 'Hãy chọn',
 					couponId = 0;
 				for (let i = 0, len = list.length; i < len; i++) {
 					if (i != index) {
@@ -569,7 +569,7 @@
 					list[index].is_use = 0;
 				} else {
 					//使用优惠券
-					list[index].use_title = '不使用';
+					list[index].use_title = 'Không sử dụng';
 					list[index].is_use = 1;
 					couponTitle = list[index].coupon_title;
 					couponId = list[index].id;
@@ -631,7 +631,7 @@
 					// }
 					// that.$set(that, 'usableCoupon', res.data.usableCoupon);
 					that.$set(that, 'store_self_mention', res.data.store_self_mention);
-					that.cartArr[1].title = '可用余额:' + res.data.userInfo.now_money;
+					that.cartArr[1].title = 'Số dư có sẵn:' + res.data.userInfo.now_money;
 					that.cartArr[0].payStatus = res.data.pay_weixin_open || 0
 					that.cartArr[1].payStatus = res.data.yue_pay_status || 0
 					if (res.data.offline_pay_status == 2){
@@ -792,14 +792,14 @@
 									uni.hideLoading();
 									if (that.BargainId || that.combinationId || that.pinkId || that.seckillId)
 										return that.$util.Tips({
-											title: '支付成功',
+											title: 'Thanh toán thành công',
 											icon: 'success'
 										}, {
 											tab: 4,
 											url: goPages
 										});
 									return that.$util.Tips({
-										title: '支付成功',
+										title: 'Thanh toán thành công',
 										icon: 'success'
 									}, {
 										tab: 5,
@@ -809,7 +809,7 @@
 								fail: function(e) {
 									uni.hideLoading();
 									return that.$util.Tips({
-										title: '取消支付'
+										title: 'Hủy bỏ thanh toán'
 									}, {
 										tab: 5,
 										url: goPages + '&status=0'
@@ -819,7 +819,7 @@
 									uni.hideLoading();
 									//关闭当前页面跳转至订单状态
 									if (res.errMsg == 'requestPayment:cancel') return that.$util.Tips({
-										title: '取消支付'
+										title: 'Hủy bỏ thanh toán'
 									}, {
 										tab: 5,
 										url: goPages + '&status=0'
@@ -831,7 +831,7 @@
 							console.log('公众号支付')
 							this.$wechat.pay(res.data.result.jsConfig).then(res => {
 								return that.$util.Tips({
-									title: '支付成功',
+									title: 'Thanh toán thành công',
 									icon: 'success'
 								}, {
 									tab: 5,
@@ -839,7 +839,7 @@
 								});
 							}).cache(res => {
 								if (res.errMsg == 'requestPayment:cancel') return that.$util.Tips({
-									title: '取消支付'
+									title: 'Hủy bỏ thanh toán'
 								}, {
 									tab: 5,
 									url: goPages + '&status=0'
@@ -885,7 +885,7 @@
 					data = {};
 				
 				if (!that.payType) return that.$util.Tips({
-					title: '请选择支付方式'
+					title: 'Hãy chọn phương thức thanh toán'
 				});
 				// if (!that.addressId && !that.shippingType) return that.$util.Tips({
 				// 	title: '请选择收货地址'
@@ -893,21 +893,21 @@
 				if (that.shippingType == 1) {
 					if (that.contacts == "" || that.contactsTel == "") {
 						return that.$util.Tips({
-							title: '请填写联系人或联系人电话'
+							title: 'Xin vui lòng điền số liên lạc hoặc số liên lạc'
 						});
 					}
 					if (!/^1(3|4|5|7|8|9|6)\d{9}$/.test(that.contactsTel)) {
 						return that.$util.Tips({
-							title: '请填写正确的手机号'
+							title: 'Xin vui lòng điền vào số điện thoại'
 						});
 					}
 					if (!/^[\u4e00-\u9fa5\w]{2,16}$/.test(that.contacts)) {
 						return that.$util.Tips({
-							title: '请填写您的真实姓名'
+							title: 'Xin vui lòng điền tên thật của bạn'
 						});
 					}
 					if(that.storeList.length == 0) return that.$util.Tips({
-						title: '暂无门店,请选择其他方式'
+						title: 'Không có cửa hàng, hãy chọn cách khác'
 					});
 				}
 				data = {
@@ -932,10 +932,10 @@
 				}
 				console.log(data);
 				if (data.payType == 'yue' && parseFloat(that.userInfo.now_money) < parseFloat(that.totalPrice)) return that.$util.Tips({
-					title: '余额不足！'
+					title: 'Số dư là không đủ！'
 				});
 				uni.showLoading({
-					title: '订单支付中'
+					title: 'Thứ tự thanh toán'
 				});
 				// #ifdef MP
 				openPaySubscribe().then(() => {

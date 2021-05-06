@@ -2,7 +2,7 @@
 	<view>
 		<form @submit="submitSub" report-submit='true'>
 			<view class="payment-top acea-row row-column row-center-wrapper">
-				<span class="name">我的余额</span>
+				<span class="name">Số dư của tôi</span>
 				<view class="pic">
 					￥<span class="pic-font">{{ userinfo.now_money || 0 }}</span>
 				</view>
@@ -15,16 +15,16 @@
 					<view class="pic-box pic-box-color acea-row row-center-wrapper row-column" :class="activePic == index ? 'pic-box-color-active' : ''"
 					 v-for="(item, index) in picList" :key="index" @click="picCharge(index, item)">
 						<view class="pic-number-pic">
-							{{ item.price }}<span class="pic-number"> 元</span>
+							{{ item.price }}<span class="pic-number"> Đô la</span>
 						</view>
-						<view class="pic-number">赠送：{{ item.give_money }} 元</view>
+						<view class="pic-number">Malta：{{ item.give_money }} Đô la</view>
 					</view>
 					<view class="pic-box pic-box-color acea-row row-center-wrapper" :class="activePic == picList.length ? 'pic-box-color-active' : ''"
 					 @click="picCharge(picList.length)">
 						<input type="number" placeholder="其他" v-model="money" class="pic-box-money pic-number-pic" :class="activePic == picList.length ? 'pic-box-color-active' : ''" />
 					</view>
 					<view class="tips-box">
-						<view class="tips mt-30">注意事项：</view>
+						<view class="tips mt-30">Lưu ý：</view>
 						<view class="tips-samll" v-for="item in rechargeAttention" :key="item">
 							{{ item }}
 						</view>
@@ -34,17 +34,17 @@
 				<view class="tip" v-else>
 					<view class='input'><text>￥</text><input placeholder="0.00" type='number' placeholder-class='placeholder' :value="number" name="number"></input></view>
 					<view class="tips-title">
-						<view style="font-weight: bold; font-size: 26rpx;">提示：</view>
-						<view style="margin-top: 10rpx;">当前佣金为 <text class='font-color'>￥{{userinfo.brokerage_price || 0}}</text></view>
+						<view style="font-weight: bold; font-size: 26rpx;">Gợi ý：</view>
+						<view style="margin-top: 10rpx;">Ủy ban hiện tại là <text class='font-color'>￥{{userinfo.brokerage_price || 0}}</text></view>
 					</view>
 					<view class="tips-box">
-						<view class="tips mt-30">注意事项：</view>
+						<view class="tips mt-30">Lưu ý：</view>
 						<view class="tips-samll" v-for="item in rechargeAttention" :key="item">
 							{{ item }}
 						</view>
 					</view>
 				</view>
-				<button class='but bg-color' formType="submit"> {{active ? '立即转入': '立即充值' }}</button>
+				<button class='but bg-color' formType="submit"> {{active ? 'Lập tức chuyển sang': 'Nạp tiền ngay lập tức' }}</button>
 			</view>
 		</form>
 		<!-- #ifdef MP -->
@@ -82,7 +82,7 @@
 			let that = this;
 			return {
 				now_money: 0,
-				navRecharge: ['账户充值', '佣金转入'],
+				navRecharge: ['Nạp tiền tài khoản', 'Hoa hồng chuyển'],
 				active: 0,
 				number: '',
 				userinfo: {},
@@ -184,12 +184,12 @@
 				if (that.active) {
 					if (parseFloat(value) < 0 || parseFloat(value) == NaN || value == undefined || value == "") {
 						return that.$util.Tips({
-							title: '请输入金额'
+							title: 'Xin vui lòng nhập số tiền'
 						});
 					}
 					uni.showModal({
-						title: '转入余额',
-						content: '转入余额后无法再次转出，确认是否转入余额',
+						title: 'Chuyển sang số dư',
+						content: 'Không thể chuyển ra sau khi chuyển số dư',
 						success(res) {
 							if (res.confirm) {
 								// #ifdef MP || APP-PLUS
@@ -208,7 +208,7 @@
 									.then(res => {
 										// that.$set(that, 'userinfo.now_money', that.$util.$h.Add(value, that.userinfo.now_money))
 										return that.$util.Tips({
-											title: '转入成功',
+											title: 'Chuyển thành công',
 											icon: 'success'
 										}, {
 											tab: 5,
@@ -228,16 +228,16 @@
 					})
 				} else {
 					uni.showLoading({
-						title: '正在支付',
+						title: 'Đang trả tiền',
 					})
 					// #ifdef MP || APP-PLUS
 					let money = parseFloat(this.money);
 					if( this.rechar_id == 0){
 						if(Number.isNaN(money)){
-							return that.$util.Tips({title: '充值金额必须为数字'});
+							return that.$util.Tips({title: 'Nạp tiền phải là một số'});
 						}
 						if(money <= 0){
-							return that.$util.Tips({title: '充值金额不能为0'});
+							return that.$util.Tips({title: 'Nạp tiền không thể0'});
 						}
 					}else{
 						money = this.numberPic
@@ -259,7 +259,7 @@
 							success: function(res) {
 								that.$set(that, 'userinfo.now_money', that.$util.$h.Add(value, that.userinfo.now_money));
 								return that.$util.Tips({
-									title: '支付成功',
+									title: 'Thanh toán thành công',
 									icon: 'success'
 								}, {
 									tab: 5,
@@ -268,12 +268,12 @@
 							},
 							fail: function() {
 								return that.$util.Tips({
-									title: '支付失败'
+									title: 'Thanh toán thất bại'
 								});
 							},
 							complete: function(res) {
 								if (res.errMsg == 'requestPayment:cancel') return that.$util.Tips({
-									title: '取消支付'
+									title: 'Hủy bỏ thanh toán'
 								});
 							}
 						})
@@ -294,7 +294,7 @@
 						if (data.type == "weixinh5") {
 							location.replace(data.data.mweb_url);
 							return that.$util.Tips({
-								title: '支付成功',
+								title: 'Thanh toán thành công',
 								icon: 'success'
 							}, {
 								tab: 5,
@@ -305,7 +305,7 @@
 								.finally(() => {
 									that.$set(that, 'userinfo.now_money', that.$util.$h.Add(value, that.userinfo.now_money));
 									return that.$util.Tips({
-										title: '支付成功',
+										title: 'Thanh toán thành công',
 										icon: 'success'
 									}, {
 										tab: 5,
@@ -314,7 +314,7 @@
 								})
 								.catch(function() {
 									return that.$util.Tips({
-										title: '支付失败'
+										title: 'Thanh toán thất bại'
 									});
 								});
 						}

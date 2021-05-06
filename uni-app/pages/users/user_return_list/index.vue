@@ -4,7 +4,7 @@
 			<view class='goodWrapper' v-for="(item,index) in orderList" :key="index" @click='goOrderDetails(item.order_id)'>
 				<view class='iconfont icon-tuikuanzhong powder' v-if="item._status._type==-1"></view>
 				<view class='iconfont icon-yituikuan' v-if="item._status._type==-2"></view>
-				<view class='orderNum'>订单号：{{item.order_id}}</view>
+				<view class='orderNum'>Số thứ tự：{{item.order_id}}</view>
 				<view class='item acea-row row-between-wrapper' v-for="(item,index) in item.cartInfo" :key="index">
 					<view class='pictrue'>
 						<image :src='item.productInfo.image'></image>
@@ -19,7 +19,7 @@
 						<view class='money'>￥{{item.productInfo.price}}</view>
 					</view>
 				</view>
-				<view class='totalSum'>共{{item.cartInfo.length || 0}}件商品，总金额 <text class='font-color price'>￥{{item.pay_price}}</text></view>
+				<view class='totalSum'>chuvash{{item.cartInfo.length || 0}}Hàng hóa, tổng số tiền <text class='font-color price'>￥{{item.pay_price}}</text></view>
 			</view>
 		</view>
 		<view class='loadingicon acea-row row-center-wrapper'>
@@ -57,7 +57,7 @@
 			return {
 				loading: false,
 				loadend: false,
-				loadTitle: '加载更多', //提示语
+				loadTitle: 'Nạp thêm đạn', //提示语
 				orderList: [], //订单数组
 				orderStatus: -3, //订单状态
 				page: 1,
@@ -99,7 +99,7 @@
 			 */
 			goOrderDetails: function(order_id) {
 				if (!order_id) return that.$util.Tips({
-					title: '缺少订单号无法查看订单详情'
+					title: 'Thiếu số thứ tự không thể xem chi tiết đơn đặt hàng'
 				});
 				uni.navigateTo({
 					url: '/pages/order_details/index?order_id=' + order_id + '&isReturen=1'
@@ -126,11 +126,11 @@
 					that.$set(that,'orderList',that.orderList);
 					that.loadend = loadend;
 					that.loading = false;
-					that.loadTitle = loadend ? "我也是有底线的" : '加载更多';
+					that.loadTitle = loadend ? "Tôi cũng có giới hạn" : 'Nạp thêm đạn';
 					that.page = that.page + 1;
 				}).catch(err => {
 					that.loading = false;
-					that.loadTitle = "加载更多";
+					that.loadTitle = "Nạp thêm đạn";
 				});
 			}
 		}

@@ -32,7 +32,7 @@
 					</view>
 				</block>
 				<view v-if="recordList.length == 0">
-					<emptyPage title='暂无提现记录~'></emptyPage>
+					<emptyPage title='Không có hồ sơ rút tiền~'></emptyPage>
 				</view>
 			</view>
 		</view>

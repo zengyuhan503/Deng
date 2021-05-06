@@ -7,12 +7,12 @@
 		             <view class='pictrue'><image :src='userInfo.avatar'></image></view>
 		             <view class='text'>
 		                 <view class='line1'>{{userInfo.nickname}}</view>
-		                 <view class='integral acea-row'><text>积分: {{userInfo.integral}}</text></view>
+		                 <view class='integral acea-row'><text>Xác nhận: {{userInfo.integral}}</text></view>
 		             </view>
 		          </view>
 		          <navigator class='right acea-row row-middle' hover-class='none' url='/pages/users/user_sgin_list/index'>
 		             <view class='iconfont icon-caidan'></view>
-		             <view>明细</view>
+		             <view>Chi tiết</view>
 		          </navigator>
 		       </view>
 		   </view>
@@ -24,22 +24,22 @@
 		            <view class='num' :class='item.is_sgin ? "on" : ""'>+{{item.sign_num}}</view>
 		         </view>
 		      </view>
-		      <button class='but bg-color on' v-if="userInfo.is_day_sgin">已签到</button>
+		      <button class='but bg-color on' v-if="userInfo.is_day_sgin">Đã đăng ký</button>
 		      <form @submit="goSign" report-submit='true' v-else>
-		        <button class='but bg-color' formType="submit">立即签到</button>
+		        <button class='but bg-color' formType="submit">Đăng ký ngay lập tức</button>
 		      </form>
 		      <view class='lock'></view>
 		   </view>
 		   <view class='wrapper wrapper2'>
-		      <view class='tip'>已累计签到</view>
+		      <view class='tip'>Đã đăng ký tích lũy</view>
 		      <view class='list2 acea-row row-center row-bottom'>
 		         <view class='item'>{{signCount[0] || 0}}</view>
 		         <view class='item'>{{signCount[1] || 0}}</view>
 		         <view class='item'>{{signCount[2] || 0}}</view>
 		         <view class='item'>{{signCount[3] || 0}}</view>
-		         <view class='data'>天</view>
+		         <view class='data'>Chúa ơi</view>
 		      </view>
-		      <view class='tip2'>据说连续签到第{{day}}天可获得超额积分，一定要坚持签到哦~~~</view>
+		      <view class='tip2'>Được cho là đăng ký liên tục vào ngày {{day}} có thể nhận được nhiều điểm, hãy chắc chắn để đăng nhập~~~</view>
 		      <view class='list3'>
 		         <view class='item acea-row' v-for="(item,index) in signList" :key="index">
 		            <view>
@@ -48,15 +48,15 @@
 		            </view>
 		            <view class='num font-color'>+{{item.number}}</view>
 		         </view>
-		         <view class='loading' @click='goSignList' v-if="signList.length >= 3">点击加载更多<text class='iconfont icon-xiangyou'></text></view>
+		         <view class='loading' @click='goSignList' v-if="signList.length >= 3">Nhấp vào để tải thêm<text class='iconfont icon-xiangyou'></text></view>
 		      </view>
 		   </view>
 		   <view class='signTip acea-row row-center-wrapper' :class='active==true?"on":""'>
 		      <view class='signTipLight loadingpic'></view>
 		      <view class='signTipCon'>
-		        <view class='state'>签到成功</view>
-		        <view class='integral'>获得{{integral}}积分</view>
-		        <view class='signTipBnt' @click='close'>好的</view>
+		        <view class='state'>Đăng nhập thành công</view>
+		        <view class='integral'>Đạt được{{integral}}Xác nhận</view>
+		        <view class='signTipBnt' @click='close'>Được rồi</view>
 		      </view>
 		   </view>
 		   <view class='mask' @touchmove.stop.prevent="false" :hidden='active==false'></view>
@@ -193,7 +193,7 @@
 			    */
 			    goSign:function(e){
 			      let that = this, sum_sgin_day = that.userInfo.sum_sgin_day;
-			      if (that.userInfo.is_day_sgin) return this.$util.Tips({title:'您今日已签到!'});
+			      if (that.userInfo.is_day_sgin) return this.$util.Tips({title:'Anh đã đăng ký hôm nay!'});
 			      setSignIntegral().then(res=>{
 					  that.active = true;
 					  that.integral = res.data.integral;

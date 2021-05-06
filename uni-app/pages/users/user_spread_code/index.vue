@@ -20,7 +20,7 @@
 			<!-- #ifndef MP -->
 			<div class="preserve acea-row row-center-wrapper">
 				<div class="line"></div>
-				<div class="tip">长按保存图片</div>
+				<div class="tip">Giữ hình ảnh dài</div>
 				<div class="line"></div>
 			</div>
 			<!-- #endif -->
@@ -141,8 +141,8 @@
 											},
 											fail() {
 												uni.showModal({
-													title: '您已拒绝获取相册权限',
-													content: '是否进入权限管理，调整授权？',
+													title: 'Bạn đã từ chối truy cập tập ảnh',
+													content: 'Tham gia quản lý quyền truy cập, điều chỉnh thẩm quyền？',
 													success(res) {
 														if (res.confirm) {
 															uni.openSetting({

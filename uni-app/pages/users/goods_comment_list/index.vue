@@ -3,16 +3,16 @@
 		<view class='evaluate-list'>
 			<view class='generalComment acea-row row-between-wrapper'>
 				<view class='acea-row row-middle font-color'>
-					<view class='evaluate'>评分</view>
+					<view class='evaluate'>Điểm này</view>
 					<view class='start' :class="'star'+replyData.reply_star"></view>
 				</view>
-				<view><text class='font-color'>{{replyData.reply_chance}}%</text>好评率</view>
+				<view><text class='font-color'>{{replyData.reply_chance}}%</text>Tỷ lệ khen ngợi</view>
 			</view>
 			<view class='nav acea-row row-middle'>
-				<view class='item' :class='type==0 ? "bg-color":""' @click='changeType(0)'>全部({{replyData.sum_count}})</view>
-				<view class='item' :class='type==1 ? "bg-color":""' @click='changeType(1)'>好评({{replyData.good_count}})</view>
-				<view class='item' :class='type==2 ? "bg-color":""' @click='changeType(2)'>中评({{replyData.in_count}})</view>
-				<view class='item' :class='type==3 ? "bg-color":""' @click='changeType(3)'>差评({{replyData.poor_count}})</view>
+				<view class='item' :class='type==0 ? "bg-color":""' @click='changeType(0)'>Tất cả({{replyData.sum_count}})</view>
+				<view class='item' :class='type==1 ? "bg-color":""' @click='changeType(1)'>Lời khen ngợi({{replyData.good_count}})</view>
+				<view class='item' :class='type==2 ? "bg-color":""' @click='changeType(2)'>Trong đó lớn nhất({{replyData.in_count}})</view>
+				<view class='item' :class='type==3 ? "bg-color":""' @click='changeType(3)'>Tệ lớn nhất({{replyData.poor_count}})</view>
 			</view>
 			<userEvaluation :reply="reply"></userEvaluation>
 			<view class='loadingicon acea-row row-center-wrapper'>
@@ -45,7 +45,7 @@
 				type: 0,
 				loading: false,
 				loadend: false,
-				loadTitle: '加载更多',
+				loadTitle: 'Nạp thêm đạn',
 				page: 1,
 				limit: 20
 			};
@@ -56,7 +56,7 @@
 		onLoad: function(options) {
 			let that = this;
 			if (!options.product_id) return that.$util.Tips({
-				title: '缺少参数'
+				title: 'Thiếu thông số'
 			}, {
 				tab: 3,
 				url: 1
@@ -98,11 +98,11 @@
 					that.$set(that,'reply',that.reply);
 					that.loading = false;
 					that.loadend = loadend;
-					that.loadTitle = loadend ? "😕人家是有底线的~~" : "加载更多";
+					that.loadTitle = loadend ? "😕Họ có một dòng~~" : "Nạp thêm đạn";
 					that.page = that.page + 1;
 				}).catch(err => {
 					that.loading = false,
-					that.loadTitle = '加载更多'
+					that.loadTitle = 'Nạp thêm đạn'
 				});
 			},
 			/*

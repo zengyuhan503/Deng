@@ -77,7 +77,7 @@
 		},
 		data() {
 			return {
-				navList: ["周榜", "月榜"],
+				navList: ["Zhou Bang", "Mỗi tháng"],
 				active: 0,
 				page: 1,
 				limit: 10,

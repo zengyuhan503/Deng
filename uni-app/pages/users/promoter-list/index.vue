@@ -4,15 +4,15 @@
 			<view class='promoterHeader bg-color'>
 				<view class='headerCon acea-row row-between-wrapper'>
 					<view>
-						<view class='name'>推广人数</view>
+						<view class='name'>Số lượng quảng cáo</view>
 						<view><text class='num'>{{teamCount}}</text>人</view>
 					</view>
 					<view class='iconfont icon-tuandui'></view>
 				</view>
 			</view>
 			<view class='nav acea-row row-around'>
-				<view :class="grade == 0 ? 'item on' : 'item'" @click='setType(0)'>一级({{total}})</view>
-				<view :class="grade == 1 ? 'item on' : 'item'" @click='setType(1)'>二级({{totalLevel}})</view>
+				<view :class="grade == 0 ? 'item on' : 'item'" @click='setType(0)'>Địa phương({{total}})</view>
+				<view :class="grade == 1 ? 'item on' : 'item'" @click='setType(1)'>Độ 2({{totalLevel}})</view>
 			</view>
 		<!-- 	<form @submit.prevent="submitForm">
 				
@@ -23,31 +23,31 @@
 			</view>
 			<view class='list'>
 				<view class="sortNav acea-row row-middle">
-					<view class="sortItem" @click='setSort("childCount ASC")' v-if="sort == 'childCount DESC'">团队排序
+					<view class="sortItem" @click='setSort("childCount ASC")' v-if="sort == 'childCount DESC'">Nhóm sắp xếp
 						<image src='/static/images/sort1.png'></image>
 					</view>
-					<view class="sortItem" @click='setSort("")' v-else-if="sort == 'childCount ASC'">团队排序
+					<view class="sortItem" @click='setSort("")' v-else-if="sort == 'childCount ASC'">Nhóm sắp xếp
 						<image src='/static/images/sort3.png'></image>
 					</view>
-					<view class="sortItem" @click='setSort("childCount DESC")' v-else>团队排序
+					<view class="sortItem" @click='setSort("childCount DESC")' v-else>Nhóm sắp xếp
 						<image src='/static/images/sort2.png'></image>
 					</view>
-					<view class="sortItem" @click='setSort("numberCount ASC")' v-if="sort == 'numberCount DESC'">金额排序
+					<view class="sortItem" @click='setSort("numberCount ASC")' v-if="sort == 'numberCount DESC'">Sắp xếp số tiền
 						<image src='/static/images/sort1.png'></image>
 					</view>
-					<view class="sortItem" @click='setSort("")' v-else-if="sort == 'numberCount ASC'">金额排序
+					<view class="sortItem" @click='setSort("")' v-else-if="sort == 'numberCount ASC'">Sắp xếp số tiền
 						<image src='/static/images/sort3.png'></image>
 					</view>
-					<view class="sortItem" @click='setSort("numberCount DESC")' v-else>金额排序
+					<view class="sortItem" @click='setSort("numberCount DESC")' v-else>Sắp xếp số tiền
 						<image src='/static/images/sort2.png'></image>
 					</view>
-					<view class="sortItem" @click='setSort("orderCount ASC")' v-if="sort == 'orderCount DESC'">订单排序
+					<view class="sortItem" @click='setSort("orderCount ASC")' v-if="sort == 'orderCount DESC'">Sắp xếp thứ tự
 						<image src='/static/images/sort1.png'></image>
 					</view>
-					<view class="sortItem" @click='setSort("")' v-else-if="sort == 'orderCount ASC'">订单排序
+					<view class="sortItem" @click='setSort("")' v-else-if="sort == 'orderCount ASC'">Sắp xếp thứ tự
 						<image src='/static/images/sort3.png'></image>
 					</view>
-					<view class="sortItem" @click='setSort("orderCount DESC")' v-else>订单排序
+					<view class="sortItem" @click='setSort("orderCount DESC")' v-else>Sắp xếp thứ tự
 						<image src='/static/images/sort2.png'></image>
 					</view>
 				</view>
@@ -59,7 +59,7 @@
 							</view>
 							<view class='text'>
 								<view class='name line1'>{{item.nickname}}</view>
-								<view>加入时间: {{item.time}}</view>
+								<view>Thêm thời gian: {{item.time}}</view>
 							</view>
 						</view>
 						<view class="right">

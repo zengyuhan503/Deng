@@ -18,31 +18,31 @@
 					<div class="item">
 						<div class="acea-row row-middle">
 							<image src="/static/images/phone_1.png"></image>
-							<input type="text" placeholder="输入手机号码" v-model="account" required />
+							<input type="text" placeholder="Nhập số điện thoại di động" v-model="account" required />
 						</div>
 					</div>
 					<div class="item">
 						<div class="acea-row row-middle">
 							<image src="/static/images/code_2.png"></image>
-							<input type="password" placeholder="填写登录密码" v-model="password" required />
+							<input type="password" placeholder="Điền vào mật khẩu đăng nhập" v-model="password" required />
 						</div>
 					</div>
 				</form>
 				<navigator class="forgetPwd" hover-class="none" url="/pages/customer_list/index">
-					<span class="iconfont icon-wenti"></span>联系客服
+					<span class="iconfont icon-wenti"></span>Trả lời
 				</navigator>
 			</div>
 			<div class="list" :hidden="true">
 				<div class="item">
 					<div class="acea-row row-middle">
 						<image src="/static/images/phone_1.png"></image>
-						<input type="text" placeholder="输入手机号码" v-model="account" />
+						<input type="text" placeholder="Nhập số điện thoại di động" v-model="account" />
 					</div>
 				</div>
 				<div class="item"  v-if="false">
 					<div class="acea-row row-middle">
 						<image src="/static/images/code_2.png"></image>
-						<input type="text" placeholder="填写验证码" class="codeIput" v-model="captcha" />
+						<input type="text" placeholder="Điền vào mã xác minh" class="codeIput" v-model="captcha" />
 						<button class="code" :disabled="disabled" :class="disabled === true ? 'on' : ''" @click="code">
 							{{ text }}
 						</button>
@@ -56,26 +56,26 @@
 					</div>
 				</div>
 			</div>
-			<div class="logon" @click="loginMobile" :hidden="current !== 1">登录</div>
-			<div class="logon" @click="submit" :hidden="current === 1">登录</div>
+			<div class="logon" @click="loginMobile" :hidden="current !== 1">Đăng nhập</div>
+			<div class="logon" @click="submit" :hidden="current === 1">Đăng nhập</div>
 			<div class="tip">
-				没有账号?
-				<span @click="formItem = 2" class="font-color-red">立即注册</span>
+				Không có tài khoản?
+				<span @click="formItem = 2" class="font-color-red">Đăng ký ngay lập tức</span>
 			</div>
 		</div>
 		<div class="whiteBg" v-else>
-			<div class="title">注册账号</div>
+			<div class="title">Đăng ký tài khoản</div>
 			<div class="list">
 				<div class="item">
 					<div class="acea-row row-middle">
 						<image src="/static/images/phone_1.png"></image>
-						<input type="text" placeholder="输入手机号码" v-model="account" />
+						<input type="text" placeholder="Nhập số điện thoại di động" v-model="account" />
 					</div>
 				</div>
 				<div class="item" v-if='false'>
 					<div class="acea-row row-middle">
 						<image src="/static/images/code_2.png"></image>
-						<input type="text" placeholder="填写验证码" class="codeIput" v-model="captcha" />
+						<input type="text" placeholder="Điền vào mã xác minh" class="codeIput" v-model="captcha" />
 						<button class="code" :disabled="disabled" :class="disabled === true ? 'on' : ''" @click="code">
 							{{ text }}
 						</button>
@@ -84,21 +84,21 @@
 				<div class="item">
 					<div class="acea-row row-middle">
 						<image src="/static/images/code_1.png"></image>
-						<input type="password" placeholder="填写您的登录密码" v-model="password" />
+						<input type="password" placeholder="Mật khẩu đăng nhập" v-model="password" />
 					</div>
 				</div>
 				<div class="item" v-if="false">
 					<div class="acea-row row-middle">
 						<image src="/static/images/code_2.png"></image>
-						<input type="text" placeholder="填写验证码" class="codeIput" v-model="codeVal" />
+						<input type="text" placeholder="Điền vào mã xác minh" class="codeIput" v-model="codeVal" />
 						<div class="code" @click="again"><img :src="codeUrl" /></div>
 					</div>
 				</div>
 			</div>
-			<div class="logon" @click="register">注册</div>
+			<div class="logon" @click="register">Đăng ký</div>
 			<div class="tip">
-				已有账号?
-				<span @click="formItem = 1" class="font-color-red">立即登录</span>
+				Tài khoản có sẵn?
+				<span @click="formItem = 1" class="font-color-red">Lập tức đăng nhập</span>
 			</div>
 		</div>
 		<div class="bottom"></div>
@@ -138,7 +138,7 @@
 		mixins: [sendVerifyCode],
 		data: function() {
 			return {
-				navList: ["账号登录"],
+				navList: ["Đăng nhập tài khoản"],
 				current: 1,
 				account: "",
 				password: "",
@@ -195,10 +195,10 @@
 			async loginMobile() {
 				let that = this;
 				if (!that.account) return that.$util.Tips({
-					title: '请填写手机号码'
+					title: 'Xin vui lòng điền vào số điện thoại di động'
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: '请输入正确的手机号码'
+					title: 'Vui lòng nhập đúng số điện thoại'
 				});
 				// if (!that.captcha) return that.$util.Tips({
 				// 	title: '请填写验证码'
@@ -245,10 +245,10 @@
 			async register() {
 				let that = this;
 				if (!that.account) return that.$util.Tips({
-					title: '请填写手机号码'
+					title: 'Xin vui lòng điền vào số điện thoại di động'
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: '请输入正确的手机号码'
+					title: 'Vui lòng nhập đúng số điện thoại'
 				});
 				// if (!that.captcha) return that.$util.Tips({
 				// 	title: '请填写验证码'
@@ -257,7 +257,7 @@
 				// 	title: '请输入正确的验证码'
 				// });
 				if (!that.password) return that.$util.Tips({
-					title: '请填写密码'
+					title: 'Xin vui lòng điền vào mật khẩu'
 				});
 				// if (!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/i.test(that.password)) return that.$util.Tips({
 				// 	title: '您输入的密码过于简单'
@@ -283,10 +283,10 @@
 			async code() {
 				let that = this;
 				if (!that.account) return that.$util.Tips({
-					title: '请填写手机号码'
+					title: 'Xin vui lòng điền vào mật khẩu'
 				});
 				if (!/^1(3|4|5|7|8|9|6)\d{9}$/i.test(that.account)) return that.$util.Tips({
-					title: '请输入正确的手机号码'
+					title: 'Vui lòng nhập đúng số điện thoại'
 				});
 				if (that.formItem == 2) that.type = "register";
 				
@@ -315,13 +315,13 @@
 			async submit() {
 				let that = this;
 				if (!that.account) return that.$util.Tips({
-					title: '请填写账号'
+					title: 'Xin vui lòng điền vào tài khoản'
 				});
 				if (!/^[\w\d]{5,16}$/i.test(that.account)) return that.$util.Tips({
-					title: '请输入正确的账号'
+					title: 'Vui lòng nhập đúng tài khoản'
 				});
 				if (!that.password) return that.$util.Tips({
-					title: '请填写密码'
+					title: 'Xin vui lòng điền vào mật khẩu'
 				});
 				loginH5({
 						account: that.account,
