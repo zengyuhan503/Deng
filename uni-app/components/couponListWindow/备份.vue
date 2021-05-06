@@ -7,7 +7,7 @@
 				 :key='index'>
 					<view class='money'>
 						<div>
-							￥<span class="num">{{ item.coupon_price }}</span>
+							₫<span class="num">{{ item.coupon_price }}</span>
 						</div>
 						<div class="pic-num">满{{ item.use_min_price }}元可用</div>
 					</view>

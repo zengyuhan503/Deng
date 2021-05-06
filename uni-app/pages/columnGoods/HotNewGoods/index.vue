@@ -21,8 +21,8 @@
     </div>
 		<view class="wrapper">
 			<GoodList  :bastList="goodsList" :is-sort="false"></GoodList>
-			<view class="txt-bar" v-if="goodsList.length>0 && !isScroll">我是有底线的~</view>
-			<emptyPage v-if="goodsList.length==0 && !isScroll" title="暂无数据~"></emptyPage>
+			<view class="txt-bar" v-if="goodsList.length>0 && !isScroll">Tôi có giới hạn~</view>
+			<emptyPage v-if="goodsList.length==0 && !isScroll" title="Không có dữ liệu~"></emptyPage>
 		</view>
   </div>
 </template>

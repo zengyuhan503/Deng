@@ -19,7 +19,7 @@
 				<view id="past0">
 					<productConSwiper :imgUrls='imgUrls'></productConSwiper>
 					<view class='nav acea-row row-between-wrapper'>
-						<view class='money'>￥<text class='num'>{{storeInfo.price}}</text><text class='y-money'>￥{{storeInfo.ot_price}}</text></view>
+						<view class='money'>₫<text class='num'>{{storeInfo.price}}</text><text class='y-money'>₫{{storeInfo.ot_price}}</text></view>
 						<view class='acea-row row-middle'>
 							<view class='time' v-if="status == 1">
 								<view>距秒杀结束仅剩</view>

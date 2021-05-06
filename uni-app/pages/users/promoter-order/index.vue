@@ -27,8 +27,8 @@
 											</view>
 											<view class='text line1'>{{child.nickname}}</view>
 										</view>
-										<view class='money' v-if="child.type == 'brokerage'">Tàn quay Yong：<text class='font-color'>￥{{child.number}}</text></view>
-										<view class='money' v-else>Tạm thời không trở về：<text class='font-color'>￥{{child.number}}</text></view>
+										<view class='money' v-if="child.type == 'brokerage'">Tàn quay Yong：<text class='font-color'>₫{{child.number}}</text></view>
+										<view class='money' v-else>Tạm thời không trở về：<text class='font-color'>₫{{child.number}}</text></view>
 									</view>
 									<view class='bottom'>
 										<view><text class='name'>Số thứ tự：</text>{{child.order_id}}</view>

@@ -14,11 +14,11 @@
 			<view v-if="isGoodsReturn==false">
 				<view class='nav'>
 					<view class='navCon acea-row row-between-wrapper'>
-						<view :class="status.type == 0 || status.type == -9 ? 'on':''">待付款</view>
-						<view :class="status.type == 1 ? 'on':''">{{orderInfo.shipping_type==1 ? '待发货':'待核销'}}</view>
-						<view :class="status.type == 2 ? 'on':''" v-if="orderInfo.shipping_type == 1">待收货</view>
-						<view :class="status.type == 3 ? 'on':''">待评价</view>
-						<view :class="status.type == 4 ? 'on':''">已完成</view>
+						<view :class="status.type == 0 || status.type == -9 ? 'on':''">Để thanh toán</view>
+						<view :class="status.type == 1 ? 'on':''">{{orderInfo.shipping_type==1 ? 'Để thanh toán':'Để được viết ra'}}</view>
+						<view :class="status.type == 2 ? 'on':''" v-if="orderInfo.shipping_type == 1">Nhận được</view>
+						<view :class="status.type == 3 ? 'on':''">Để đánh giá</view>
+						<view :class="status.type == 4 ? 'on':''">Đã hoàn thành</view>
 					</view>
 					<view class='progress acea-row row-between-wrapper'>
 						<view class='iconfont' :class='(status.type == 0 || status.type == -9  ? "icon-webicon318":"icon-yuandianxiao") + " " + (status.type >= 0 ? "font-color":"")'></view>
@@ -37,12 +37,12 @@
 				<view class="refund" v-if="orderInfo.refund_reason">
 					<view class="title">
 						<image src="/static/images/shuoming.png" mode=""></image>
-						商家拒绝退款
+						Các doanh nghiệp từ chối hoàn lại tiền
 					</view>
-					<view class="con">拒绝原因：{{orderInfo.refund_reason}}</view>
+					<view class="con">Lý do từ chối：{{orderInfo.refund_reason}}</view>
 				</view>
 				<view class="writeOff" v-if="orderInfo.shipping_type == 2 && orderInfo.paid">
-					<view class="title">核销信息</view>
+					<view class="title">Thông tin thanh toán</view>
 					<view class="grayBg">
 						<view class="pictrue">
 							<image :src="orderInfo.code"></image>
@@ -55,24 +55,24 @@
 					<view class="rules">
 						<view class="item">
 							<view class="rulesTitle acea-row row-middle">
-								<text class="iconfont icon-shijian"></text>核销时间
+								<text class="iconfont icon-shijian"></text>Thời gian thanh toán
 							</view>
 							<view class="info">
-								每日：<text class="time">{{orderInfo.system_store.day_time}}</text>
+								Mỗi ngày：<text class="time">{{orderInfo.system_store.day_time}}</text>
 							</view>
 						</view>
 						<view class="item">
 							<view class="rulesTitle acea-row row-middle">
-								<text class="iconfont icon-shuoming1"></text>使用说明
+								<text class="iconfont icon-shuoming1"></text>Hướng dẫn sử dụng
 							</view>
-							<view class="info">可将二维码出示给店员扫描或提供数字核销码</view>
+							<view class="info">Có thể hiển thị mã qr cho người bán hàng quét hoặc cung cấp mã pin kỹ thuật số</view>
 						</view>
 					</view>
 				</view>
 				<view class="map acea-row row-between-wrapper" v-if="orderInfo.shipping_type == 2">
-					<view>自提地址信息</view>
+					<view>Thông tin địa chỉ tự đề cập</view>
 					<view class="place cart-color acea-row row-center-wrapper" @tap="showMaoLocation">
-						<text class="iconfont icon-weizhi"></text>查看位置
+						<text class="iconfont icon-weizhi"></text>Xem vị trí
 					</view>
 				</view>
 				<view class='address' v-if="orderInfo.shipping_type === 1">
@@ -91,132 +91,132 @@
 			<orderGoods :evaluate='evaluate' :orderId="order_id" :cartInfo="cartInfo" :jump="true"></orderGoods>
 			<div class="goodCall" @click="goGoodCall">
 				<!-- #ifdef H5 -->
-				<span class="iconfont icon-kefu"></span><span>联系客服</span>
+				<span class="iconfont icon-kefu"></span><span>Trả lời</span>
 				<!-- #endif -->
 				<!-- #ifdef MP -->
 				<button open-type='contact' hover-class='none'>
-					<span class="iconfont icon-kefu"></span><span>联系客服</span>
+					<span class="iconfont icon-kefu"></span><span>Trả lời</span>
 				</button>
 				<!-- #endif -->
 			</div>
 			<view class='wrapper'>
 				<view class='item acea-row row-between'>
-					<view>订单编号：</view>
+					<view>Số thứ tự：</view>
 					<view class='conter acea-row row-middle row-right'>{{orderInfo.order_id}}
 						<!-- #ifndef H5 -->
-						<text class='copy' @tap='copy'>复制</text>
+						<text class='copy' @tap='copy'>SAO chép</text>
 						<!-- #endif -->
 						<!-- #ifdef H5 -->
-						<text class='copy copy-data' :data-clipboard-text="orderInfo.order_id">复制</text>
+						<text class='copy copy-data' :data-clipboard-text="orderInfo.order_id">SAO chép</text>
 						<!-- #endif -->
 					</view>
 				</view>
 				<view class='item acea-row row-between'>
-					<view>下单时间：</view>
+					<view>Thời gian duy nhất：</view>
 					<view class='conter'>{{(orderInfo.add_time_y || '') +' '+(orderInfo.add_time_h || 0)}}</view>
 				</view>
 				<view class='item acea-row row-between'>
-					<view>支付状态：</view>
-					<view class='conter' v-if="orderInfo.paid">已支付</view>
-					<view class='conter' v-else>未支付</view>
+					<view>Tình trạng thanh toán：</view>
+					<view class='conter' v-if="orderInfo.paid">Đã được thanh toán</view>
+					<view class='conter' v-else>Không được thanh toán</view>
 				</view>
 				<view class='item acea-row row-between'>
-					<view>支付方式：</view>
+					<view>Phương thức thanh toán：</view>
 					<view class='conter'>{{orderInfo._status._payType}}</view>
 				</view>
 				<view class='item acea-row row-between' v-if="orderInfo.mark">
-					<view>买家留言：</view>
+					<view>Người mua tin nhắn：</view>
 					<view class='conter'>{{orderInfo.mark}}</view>
 				</view>
 			</view>
 			<!-- 退款订单详情 -->
 			<view class='wrapper' v-if="isGoodsReturn">
 				<view class='item acea-row row-between'>
-					<view>收货人：</view>
+					<view>Người nhận hàng：</view>
 					<view class='conter'>{{orderInfo.real_name}}</view>
 				</view>
 				<view class='item acea-row row-between'>
-					<view>联系电话：</view>
+					<view>Số liên lạc：</view>
 					<view class='conter'>{{orderInfo.user_phone}}</view>
 				</view>
 				<view class='item acea-row row-between'>
-					<view>收货地址：</view>
+					<view>Địa chỉ giao hàng：</view>
 					<view class='conter'>{{orderInfo.user_address}}</view>
 				</view>
 			</view>
 			<view v-if="orderInfo.status!=0">
 				<view class='wrapper' v-if='orderInfo.delivery_type=="express"'>
 					<view class='item acea-row row-between'>
-						<view>配送方式：</view>
-						<view class='conter'>发货</view>
+						<view>Phương pháp phân phối：</view>
+						<view class='conter'>Ngày cyber</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>快递公司：</view>
+						<view>Công ty chuyển phát nhanh：</view>
 						<view class='conter'>{{orderInfo.delivery_name || ''}}</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>快递号：</view>
+						<view>Nhận số：</view>
 						<view class='conter'>{{orderInfo.delivery_id || ''}}</view>
 					</view>
 				</view>
 				<view class='wrapper' v-else-if='orderInfo.delivery_type=="send"'>
 					<view class='item acea-row row-between'>
-						<view>配送方式：：</view>
+						<view>Phương pháp phân phối：：</view>
 						<view class='conter'>送货</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>配送人姓名：</view>
+						<view>	Phân phối tên：</view>
 						<view class='conter'>{{orderInfo.delivery_name || ''}}</view>
 					</view>
 					<view class='item acea-row row-between'>
-						<view>联系电话：</view>
-						<view class='conter acea-row row-middle row-right'>{{orderInfo.delivery_id || ''}}<text class='copy' @tap='goTel'>拨打</text></view>
+						<view>Số liên lạc：</view>
+						<view class='conter acea-row row-middle row-right'>{{orderInfo.delivery_id || ''}}<text class='copy' @tap='goTel'>gọi</text></view>
 					</view>
 				</view>
 				<view class='wrapper' v-else-if='orderInfo.delivery_type=="fictitious"'>
 					<view class='item acea-row row-between'>
-						<view>虚拟发货：</view>
-						<view class='conter'>已发货，请注意查收</view>
+						<view>Vận chuyển ảo：</view>
+						<view class='conter'>Đã được vận chuyển, xin vui lòng kiểm tra</view>
 					</view>
 				</view>
 			</view>
 			<view class='wrapper'>
 				<view class='item acea-row row-between'>
-					<view>支付金额：</view>
-					<view class='conter'>￥{{orderInfo.total_price}}</view>
+					<view>Số tiền thanh toán：</view>
+					<view class='conter'>₫{{orderInfo.total_price}}</view>
 				</view>
 				<view class='item acea-row row-between' v-if='orderInfo.coupon_id'>
-					<view>优惠券抵扣：</view>
-					<view class='conter'>-￥{{orderInfo.coupon_price}}</view>
+					<view>Giảm giá phiếu giảm giá：</view>
+					<view class='conter'>-₫{{orderInfo.coupon_price}}</view>
 				</view>
 				<view class='item acea-row row-between' v-if="orderInfo.use_integral > 0">
-					<view>积分抵扣：</view>
-					<view class='conter'>-￥{{orderInfo.deduction_price}}</view>
+					<view>	Tích hợp khấu trừ：</view>
+					<view class='conter'>-₫{{orderInfo.deduction_price}}</view>
 				</view>
 				<view class='item acea-row row-between' v-if="orderInfo.pay_postage > 0">
-					<view>运费：</view>
-					<view class='conter'>￥{{orderInfo.pay_postage}}</view>
+					<view>Chưa kể：</view>
+					<view class='conter'>₫{{orderInfo.pay_postage}}</view>
 				</view>
-				<view class='actualPay acea-row row-right'>实付款：<text class='money font-color'>￥{{orderInfo.pay_price}}</text></view>
+				<view class='actualPay acea-row row-right'>实付款：<text class='money font-color'>₫{{orderInfo.pay_price}}</text></view>
 			</view>
 			<view style='height:120rpx;'></view>
 			<view class='footer acea-row row-right row-middle' v-if="isGoodsReturn==false || status.type == 9">
-				<view class="qs-btn" v-if="status.type == 0 || status.type == -9" @click.stop="cancelOrder">取消订单</view>
-				<view class='bnt bg-color' v-if="status.type==0" @tap='pay_open(orderInfo.order_id)'>立即付款</view>
+				<view class="qs-btn" v-if="status.type == 0 || status.type == -9" @click.stop="cancelOrder">Hủy bỏ đơn đặt hàng</view>
+				<view class='bnt bg-color' v-if="status.type==0" @tap='pay_open(orderInfo.order_id)'>Thanh toán ngay lập tức</view>
 				<!-- #ifdef MP -->
 				<view @tap="openSubcribe('/pages/users/goods_return/index?orderId='+orderInfo.order_id)" class='bnt cancel'
-				 v-else-if="orderInfo.paid === 1 && orderInfo.refund_status === 0">申请退款</view>
+				 v-else-if="orderInfo.paid === 1 && orderInfo.refund_status === 0">Áp dụng cho một khoản hoàn lại</view>
 				<!-- #endif -->
 				<!-- #ifndef MP -->
 				<navigator hover-class="none" :url="'/pages/users/goods_return/index?orderId='+orderInfo.order_id" class='bnt cancel'
-				 v-else-if="orderInfo.paid === 1 && orderInfo.refund_status === 0">申请退款</navigator>
+				 v-else-if="orderInfo.paid === 1 && orderInfo.refund_status === 0">Áp dụng cho một khoản hoàn lại</navigator>
 				<!-- #endif -->
-				<view class='bnt bg-color' v-if="status.class_status==1" @tap='goJoinPink'>查看拼团</view>
+				<view class='bnt bg-color' v-if="status.class_status==1" @tap='goJoinPink'>Xem chính tả</view>
 				<navigator class='bnt cancel' v-if="orderInfo.delivery_type == 'express' && status.class_status==3 && status.type==2"
-				 hover-class='none' :url="'/pages/users/goods_logistics/index?orderId='+ orderInfo.order_id">查看物流</navigator>
-				<view class='bnt bg-color' v-if="status.class_status==3" @tap='confirmOrder'>确认收货</view>
-				<view class='bnt cancel' v-if="status.type==4" @tap='delOrder'>删除订单</view>
-				<view class='bnt bg-color' v-if="status.class_status==5" @tap='goOrderConfirm'>再次购买</view>
+				 hover-class='none' :url="'/pages/users/goods_logistics/index?orderId='+ orderInfo.order_id">Xem hậu cần</navigator>
+				<view class='bnt bg-color' v-if="status.class_status==3" @tap='confirmOrder'>Xác nhận nhận được</view>
+				<view class='bnt cancel' v-if="status.type==4" @tap='delOrder'>Loại bỏ đơn đặt hàng</view>
+				<view class='bnt bg-color' v-if="status.class_status==5" @tap='goOrderConfirm'>Mua lại</view>
 			</view>
 		</view>
 		<home></home>
@@ -630,23 +630,23 @@
 				status: {}, //订单底部按钮状态
 				isClose: false,
 				payMode: [{
-						name: "微信支付",
+						name: "Vi-thanh toán",
 						icon: "icon-weixinzhifu",
 						value: 'weixin',
-						title: '微信快捷支付'
+						title: 'Vi-thanh toán'
 					},
 					{
-						name: "余额支付",
+						name: "Thanh toán cân bằng",
 						icon: "icon-yuezhifu",
 						value: 'yue',
-						title: '可用余额:',
+						title: 'Số dư có sẵn:',
 						number: 0
 					},
 					{
-						"name": "线上支付",
+						"name": "Thanh toán trực tuyến",
 						"icon": "icon-yinhangqia",
 						value: 'vnpays',
-						title: '线上支付',
+						title: 'Thanh toán trực tuyến',
 					},
 				],
 				pay_close: false,
@@ -685,7 +685,7 @@
 				const clipboard = new ClipboardJS(".copy-data");
 				clipboard.on("success", () => {
 					this.$util.Tips({
-						title: '复制成功'
+						title: 'SAO chép thành công'
 					});
 				});
 			});
@@ -701,7 +701,7 @@
 			openSubcribe: function(e) {
 				let page = e;
 				uni.showLoading({
-					title: '正在加载',
+					title: 'Đang tải',
 				})
 				openOrderRefundSubscribe().then(res => {
 					uni.hideLoading();
@@ -808,7 +808,7 @@
 			getOrderInfo: function() {
 				let that = this;
 				uni.showLoading({
-					title: "正在加载中"
+					title: "Đang tải"
 				});
 				getOrderDetail(this.order_id).then(res => {
 					let _type = res.data._status._type;
@@ -898,13 +898,13 @@
 			confirmOrder: function() {
 				let that = this;
 				uni.showModal({
-					title: '确认收货',
-					content: '为保障权益，请收到货确认无误后，再确认收货',
+					title: 'Xác nhận nhận được',
+					content: 'Để bảo vệ quyền lợi, sau khi nhận được xác nhận của hàng hoá, sau đó xác nhận nhận được',
 					success: function(res) {
 						if (res.confirm) {
 							orderTake(that.order_id).then(res => {
 								return that.$util.Tips({
-									title: '操作成功',
+									title: 'Hoạt động thành công',
 									icon: 'success'
 								}, function() {
 									that.getOrderInfo();
@@ -926,7 +926,7 @@
 				let that = this;
 				orderDel(this.order_id).then(res => {
 					return that.$util.Tips({
-						title: '删除成功',
+						title: 'Thành công',
 						icon: 'success'
 					}, {
 						tab: 3,
@@ -941,8 +941,8 @@
 			cancelOrder() {
 				let self = this
 				uni.showModal({
-					title: '提示',
-					content: '确认取消该订单?',
+					title: 'Gợi ý',
+					content: 'Xác nhận lệnh hủy bỏ?',
 					success: function(res) {
 						if (res.confirm) {
 							orderCancel(self.orderInfo.order_id)

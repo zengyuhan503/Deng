@@ -33,7 +33,7 @@
 							<view class='input'><input :placeholder='"Số tiền rút tiền tối thiểu"+minPrice' placeholder-class='placeholder' name="money" type='digit'></input></view>
 						</view>
 						<view class='tip'>
-							Số tiền rút tiền hiện tại: <text class="price">￥{{userInfo.commissionCount}},</text>Đóng băng tiền hoa hồng：￥{{userInfo.broken_commission}}
+							Số tiền rút tiền hiện tại: <text class="price">₫{{userInfo.commissionCount}},</text>Đóng băng tiền hoa hồng：₫{{userInfo.broken_commission}}
 						</view>
 						<view class='tip'>
 						Ghi chú: thời gian đóng băng của mỗi khoản hoa hồng{{userInfo.broken_day}}Chúa ơi，Và rút tiền khi hết hạn
@@ -52,7 +52,7 @@
 							<view class='input'><input :placeholder='"DiXian"+minPrice' placeholder-class='placeholder' name="money" type='digit'></input></view>
 						</view>
 						<view class='tip'>
-							Số tiền rút tiền hiện tại: <text class="price">￥{{userInfo.commissionCount}},</text>冻结佣金：￥{{userInfo.broken_commission}}
+							Số tiền rút tiền hiện tại: <text class="price">₫{{userInfo.commissionCount}},</text>冻结佣金：₫{{userInfo.broken_commission}}
 						</view>
 						<view class='tip'>
 						Ghi chú: thời gian đóng băng của mỗi khoản hoa hồng{{userInfo.broken_day}}Chúa ơi，Và rút tiền khi hết hạn

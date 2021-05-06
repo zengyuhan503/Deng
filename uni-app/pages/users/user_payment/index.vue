@@ -4,7 +4,7 @@
 			<view class="payment-top acea-row row-column row-center-wrapper">
 				<span class="name">Số dư của tôi</span>
 				<view class="pic">
-					￥<span class="pic-font">{{ userinfo.now_money || 0 }}</span>
+					₫<span class="pic-font">{{ userinfo.now_money || 0 }}</span>
 				</view>
 			</view>
 			<view class="payment">
@@ -32,10 +32,10 @@
 
 				</view>
 				<view class="tip" v-else>
-					<view class='input'><text>￥</text><input placeholder="0.00" type='number' placeholder-class='placeholder' :value="number" name="number"></input></view>
+					<view class='input'><text>₫</text><input placeholder="0.00" type='number' placeholder-class='placeholder' :value="number" name="number"></input></view>
 					<view class="tips-title">
 						<view style="font-weight: bold; font-size: 26rpx;">Gợi ý：</view>
-						<view style="margin-top: 10rpx;">Ủy ban hiện tại là <text class='font-color'>￥{{userinfo.brokerage_price || 0}}</text></view>
+						<view style="margin-top: 10rpx;">Ủy ban hiện tại là <text class='font-color'>₫{{userinfo.brokerage_price || 0}}</text></view>
 					</view>
 					<view class="tips-box">
 						<view class="tips mt-30">Lưu ý：</view>

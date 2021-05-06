@@ -213,7 +213,7 @@ import {
  				ctx.setTextAlign('center')
  				ctx.setFontSize(48);
  				ctx.setFillStyle('red');
- 				ctx.fillText('￥' + price, WIDTH / 2, 880 + contentHh);
+ 				ctx.fillText('₫' + price, WIDTH / 2, 880 + contentHh);
  				ctx.draw(true, function() {
  					uni.canvasToTempFilePath({
  						canvasId: 'myCanvas',

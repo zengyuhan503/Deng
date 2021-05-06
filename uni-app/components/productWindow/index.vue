@@ -10,9 +10,9 @@
 						{{ attr.productSelect.store_name }}
 					</view>
 					<view class="money font-color">
-						￥<text class="num">{{ attr.productSelect.price }}</text>
-						<text class="stock" v-if='isShow'>库存: {{ attr.productSelect.stock }}</text>
-						<text class='stock' v-if="limitNum">限量: {{attr.productSelect.quota_show}}</text>
+						₫<text class="num">{{ attr.productSelect.price }}</text>
+						<text class="stock" v-if='isShow'>Tài sản lưu động: {{ attr.productSelect.stock }}</text>
+						<text class='stock' v-if="limitNum">số: {{attr.productSelect.quota_show}}</text>
 					</view>
 				</view>
 				<view class="iconfont icon-guanbi" @click="closeAttr"></view>
@@ -48,8 +48,8 @@
 					<view v-else class='item plus' :class='(attr.productSelect.cart_num >= attr.productSelect.quota_show) || (attr.productSelect.cart_num >= attr.productSelect.product_stock)? "on":""' @click='CartNumAdd'>+</view>
 				</view>
 			</view>
-			<view class="joinBnt bg-color" v-if="iSbnt && attr.productSelect.product_stock>0 &&attr.productSelect.quota>0" @click="goCat">我要参团</view>
-			<view class="joinBnt on" v-else-if="(iSbnt && attr.productSelect.quota<=0)||(iSbnt &&attr.productSelect.product_stock<=0)">已售罄</view>
+			<view class="joinBnt bg-color" v-if="iSbnt && attr.productSelect.product_stock>0 &&attr.productSelect.quota>0" @click="goCat">CanTuan</view>
+			<view class="joinBnt on" v-else-if="(iSbnt && attr.productSelect.quota<=0)||(iSbnt &&attr.productSelect.product_stock<=0)">Bán ra</view>
 		</view>
 		<view class="mask" @touchmove.prevent :hidden="attr.cartAttr === false" @click="closeAttr"></view>
 	</view>

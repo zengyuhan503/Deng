@@ -18,7 +18,7 @@
 				</view>
 			</view>
 			<view class="reply" v-if="item.merchant_reply_content">
-				<text class="font-color">店小二</text>：{{
+				<text class="font-color">Cửa hàng thứ hai</text>：{{
           item.merchant_reply_content
         }}
 			</view>

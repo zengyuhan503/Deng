@@ -11,11 +11,11 @@
 							<div class="broadcast_details_tit" v-text="productInfo.store_name"></div>
 							<div class="acea-row row-between">
 								<div class="broadcast_details_pic">
-									￥{{ productInfo.price
-									}}<span class="broadcast_details_pic_num">￥{{ productInfo.ot_price }}</span>
+									₫{{ productInfo.price
+									}}<span class="broadcast_details_pic_num">₫{{ productInfo.ot_price }}</span>
 								</div>
 								<div class="broadcast_details_btn" @click="sendProduct">
-									发送客服
+									Gửi dịch vụ khách hàng
 								</div>
 							</div>
 						</div>
@@ -29,7 +29,7 @@
 							<div class="broadcast_details_img">
 								<img :src="cartInfo.productInfo.image" />
 								<div class="broadcast_details_model">
-									{{ orderInfo.cartInfo ? orderInfo.cartInfo.length : 0 }}件商品
+									{{ orderInfo.cartInfo ? orderInfo.cartInfo.length : 0 }}Hàng hóa
 								</div>
 							</div>
 							<div class="broadcast_details_picBox">
@@ -38,11 +38,11 @@
 								</div>
 								<div class="acea-row row-between">
 									<div class="broadcast_details_pic">
-										￥{{ cartInfo.productInfo.price
-										}}<span class="broadcast_details_pic_num">￥{{ cartInfo.productInfo.ot_price }}</span>
+										₫{{ cartInfo.productInfo.price
+										}}<span class="broadcast_details_pic_num">₫{{ cartInfo.productInfo.ot_price }}</span>
 									</div>
 									<div class="broadcast_details_btn" @click="sendOrder">
-										发送客服
+										Gửi dịch vụ khách hàng
 									</div>
 								</div>
 							</div>
@@ -61,7 +61,7 @@
 										<router-link class="broadcast-details_num" :to="{
 			                path: '/pages/admin/orderDetail/index?id=' + item.orderInfo.order_id
 			              }">
-											<span>订单号：{{ item.orderInfo.order_id }}</span>
+											<span>Số thứ tự：{{ item.orderInfo.order_id }}</span>
 										</router-link>
 										<div class="conter acea-row row-middle">
 											<div class="broadcast-details_order noPad" v-for="(val, inx) in item.orderInfo.cartInfo" :key="val.id">
@@ -73,13 +73,13 @@
 			                        item.orderInfo.cartInfo
 			                          ? item.orderInfo.cartInfo.length
 			                          : 0
-			                      }}件商品
+			                      }}Hàng hóa
 														</div>
 													</div>
 													<div class="broadcast_details_picBox noPad">
 														<div class="broadcast_details_tit" v-text="val.productInfo.store_name"></div>
 														<div class="broadcast_details_pic">
-															￥{{ val.productInfo.price }}
+															₫{{ val.productInfo.price }}
 														</div>
 													</div>
 												</router-link>
@@ -96,7 +96,7 @@
 												</div>
 												<div class="broadcast_details_picBox_no noPad">
 													<div class="broadcast_details_pic">
-														￥{{ item.productInfo.price }}
+														₫{{ item.productInfo.price }}
 													</div>
 													<div class="broadcast_details_tit_no" v-text="item.productInfo.store_name"></div>
 												</div>
@@ -132,7 +132,7 @@
 			              path: '/pages/admin/orderDetail/index?id=' + item.orderInfo.order_id
 			            }">
 										<div class="broadcast-details_num">
-											<span>订单号：{{ item.orderInfo.order_id }}</span>
+											<span>Số thứ tự：{{ item.orderInfo.order_id }}</span>
 										</div>
 										<div class="conter acea-row row-middle">
 											<div class="broadcast-details_order noPad" v-for="(val, inx) in item.orderInfo.cartInfo" :key="val.id">
@@ -144,13 +144,13 @@
 			                        item.orderInfo.cartInfo
 			                          ? item.orderInfo.cartInfo.length
 			                          : 0
-			                      }}件商品
+			                      }}Hàng hóa
 														</div>
 													</div>
 													<div class="broadcast_details_picBox noPad">
 														<div class="broadcast_details_tit" v-text="val.productInfo.store_name"></div>
 														<div class="broadcast_details_pic">
-															￥{{ val.productInfo.price }}
+															₫{{ val.productInfo.price }}
 														</div>
 													</div>
 												</div>
@@ -167,7 +167,7 @@
 												</div>
 												<div class="broadcast_details_picBox_no noPad">
 													<div class="broadcast_details_pic">
-														￥{{ item.productInfo.price }}
+														₫{{ item.productInfo.price }}
 													</div>
 													<div class="broadcast_details_tit_no" v-text="item.productInfo.store_name"></div>
 												</div>
@@ -222,10 +222,10 @@
 						{{ speak }}
 					</div>
 					<!-- <p contenteditable="true" class="input" ref="input" v-show="!voice" @keydown="keydown($event)" @keyup="keyup" @focus="focus"></p> -->
-					<input type="text" placeholder="请输入内容" class="input" ref="input" v-show="!voice" @input="bindInput" @keyup="keyup"
+					<input type="text" placeholder="Xin vui lòng nhập nội dung" class="input" ref="input" v-show="!voice" @input="bindInput" @keyup="keyup"
 					 @focus="focus" cursor-spacing="20" v-model="textCon">
 					<div class="send" :class="sendColor === true ? 'font-color-red' : ''" @click="sendTest">
-						发送
+						Gửi đi
 					</div>
 				</div>
 			</form>

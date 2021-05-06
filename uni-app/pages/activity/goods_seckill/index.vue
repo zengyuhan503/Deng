@@ -28,9 +28,9 @@
 						</view>
 						<view class='text acea-row row-column-around'>
 							<view class='name line1'>{{item.title}}</view>
-							<view class='money'>￥
+							<view class='money'>₫
 								<text class='num font-color'>{{item.price}}</text>
-								<text class="y_money">￥{{item.ot_price}}</text>
+								<text class="y_money">₫{{item.ot_price}}</text>
 							</view>
 							<view class="limit">限量 <text class="limitPrice">{{item.quota}}件</text></view>
 							<view class="progress">

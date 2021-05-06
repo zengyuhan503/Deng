@@ -59,11 +59,11 @@
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="priceGroup.vipPrice > 0 && userInfo.vip && !pinkId && !BargainId && !combinationId && !seckillId">
 					<view>Thành viên giảm giá</view>
-					<view class='discount'>-￥{{priceGroup.vipPrice}}</view>
+					<view class='discount'>-₫{{priceGroup.vipPrice}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if='shippingType==0'>
 					<view>Lệ phí chuyển phát nhanh</view>
-					<view class='discount' v-if='priceGroup.storePostage > 0'>+￥{{priceGroup.storePostage}}</view>
+					<view class='discount' v-if='priceGroup.storePostage > 0'>+₫{{priceGroup.storePostage}}</view>
 					<view class='discount' v-else>Miễn phí vận chuyển</view>
 				</view>
 				<view v-else>
@@ -129,25 +129,25 @@
 			<view class='moneyList'>
 				<view class='item acea-row row-between-wrapper'>
 					<view>Tổng giá hàng hóa：</view>
-					<view class='money'>￥{{priceGroup.totalPrice}}</view>
+					<view class='money'>₫{{priceGroup.totalPrice}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="coupon_price > 0">
 					<view>Phiếu giảm giá：</view>
-					<view class='money'>-￥{{coupon_price}}</view>
+					<view class='money'>-₫{{coupon_price}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="integral_price > 0">
 					<view>Tích hợp khấu trừ：</view>
-					<view class='money'>-￥{{integral_price}}</view>
+					<view class='money'>-₫{{integral_price}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper' v-if="priceGroup.storePostage > 0">
 					<view>Chưa kể：</view>
-					<view class='money'>+￥{{priceGroup.storePostage}}</view>
+					<view class='money'>+₫{{priceGroup.storePostage}}</view>
 				</view>
 			</view>
 			<view style='height:120rpx;'></view>
 			<view class='footer acea-row row-between-wrapper'>
 				<view>Giá trị:
-					<text class='font-color'>￥{{totalPrice || 0}}</text>
+					<text class='font-color'>₫{{totalPrice || 0}}</text>
 				</view>
 				<view class='settlement' style='z-index:100' @tap="SubOrder">立即结算</view>
 			</view>
@@ -167,7 +167,7 @@
 							Số thứ tự：{{vnplayInfo.orderid}}
 						</view>
 						<view class="">
-							Tổng giá：	<text class='font-color'>￥{{totalPrice || 0}}</text>
+							Tổng giá：	<text class='font-color'>₫{{totalPrice || 0}}</text>
 						</view>
 						<view class="">
 							Thanh toán: thanh toán trực tuyến

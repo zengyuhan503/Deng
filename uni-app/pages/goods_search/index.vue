@@ -4,11 +4,11 @@
 			<view class='search acea-row row-between-wrapper'>
 				<view class='input acea-row row-between-wrapper'>
 					<text class='iconfont icon-sousuo2'></text>
-					<input type='text' :value='searchValue' :focus="focus" placeholder='点击搜索商品' placeholder-class='placeholder' @input="setValue"></input>
+					<input type='text' :value='searchValue' :focus="focus" placeholder='Nhấp chuột tìm kiếm hàng hóa' placeholder-class='placeholder' @input="setValue"></input>
 				</view>
-				<view class='bnt' @tap='searchBut'>搜索</view>
+				<view class='bnt' @tap='searchBut'>Tìm kiếm</view>
 			</view>
-			<view class='title'>热门搜索</view>
+			<view class='title'>Tìm kiếm phổ biến</view>
 			<view class='list acea-row'>
 				<block v-for="(item,index) in hotSearchList" :key="index">
 					<view class='item' @tap='setHotSearchValue(item)'>{{item}}</view>
@@ -54,7 +54,7 @@
 				page: 1,
 				loading: false,
 				loadend: false,
-				loadTitle: '加载更多',
+				loadTitle: 'Nạp thêm đạn',
 				hotPage:1,
 				isScroll:true
 			};
@@ -95,11 +95,11 @@
 					that.$set(that,'bastList',that.bastList);
 					that.loading = false;
 					that.loadend = loadend;
-					that.loadTitle = loadend ? "😕人家是有底线的~~" : "加载更多";
+					that.loadTitle = loadend ? "😕Họ có một dòng~~" : "Nạp thêm đạn";
 					that.page = that.page + 1;
 				}).catch(err => {
 					that.loading = false,
-					that.loadTitle = '加载更多'
+					that.loadTitle = 'Nạp thêm đạn'
 				});
 			},
 			getHostProduct: function() {
@@ -129,13 +129,13 @@
 					that.loadend = false;
 					that.$set(that, 'bastList', []);
 					uni.showLoading({
-						title: '正在搜索中'
+						title: 'Đang tìm kiếm'
 					});
 					that.getProductList();
 					uni.hideLoading();
 				} else {
 					return this.$util.Tips({
-						title: '请输入要搜索的商品',
+						title: 'Hãy nhập hàng hóa cần tìm kiếm',
 						icon: 'none',
 						duration: 1000,
 						mask: true,

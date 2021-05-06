@@ -3,7 +3,7 @@
 		<view class='coupon-list' v-if="couponsList.length">
 			<view class='item acea-row row-center-wrapper' v-for='(item,index) in couponsList' :key="index">
 				<view class='money' :class='item._type == 0 ? "moneyGray" : ""'>
-					<view>￥<text class='num'>{{item.coupon_price}}</text></view>
+					<view>₫<text class='num'>{{item.coupon_price}}</text></view>
 					<view class="pic-num">满{{ item.use_min_price }}Nguyên có sẵn</view>
 				</view>
 				<view class='text'>

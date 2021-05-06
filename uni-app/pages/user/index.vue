@@ -33,16 +33,16 @@
 						<text class="num">{{userInfo.now_money || 0}}</text>
 						<view class="txt">Thăng bằng</view>
 					</view>
-					<view class="num-item" @click="goMenuPage('/pages/users/user_integral/index')">
+					<!-- <view class="num-item" @click="goMenuPage('/pages/users/user_integral/index')">
 						<text class="num">{{userInfo.integral || 0}}</text>
 						<view class="txt">Xác nhận</view>
-					</view>
+					</view> -->
 					<view class="num-item" @click="goMenuPage('/pages/users/user_coupon/index')">
 						<text class="num">{{userInfo.couponCount || 0}}</text>
 						<view class="txt">Phiếu giảm giá</view>
 					</view>
 				</view>
-				<view class="sign" @click="goSignIn">QianDao</view>
+				<!-- <view class="sign" @click="goSignIn">QianDao</view> -->
 			</view>
 			<view class="order-wrapper">
 				<view class="order-hd flex">

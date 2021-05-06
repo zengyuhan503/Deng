@@ -3,15 +3,15 @@
 		<view class='coupon-window' :class='window==true?"on":""'>
 			<view class='couponWinList'>
 				<view class='item acea-row row-between-wrapper' v-for="(item,index) in couponList" :key="index">
-					<view class='money font-color'>￥<text class='num'>{{item.coupon_price}}</text></view>
+					<view class='money font-color'>₫<text class='num'>{{item.coupon_price}}</text></view>
 					<view class='text'>
-						<view class='name'>购物买{{item.use_min_price}}减{{item.coupon_price}}</view>
+						<view class='name'>Mua sắm{{item.use_min_price}}giảm{{item.coupon_price}}</view>
 						<view>{{item.start_time ? item.start_time+'-' : ''}}{{item.end_time}}</view>
 					</view>
 				</view>
 			</view>
 			<view class='lid'>
-				<navigator hover-class='none' url='/pages/users/user_get_coupon/index' class='bnt font-color'>立即领取</navigator>
+				<navigator hover-class='none' url='/pages/users/user_get_coupon/index' class='bnt font-color'>Ngay lập tức</navigator>
 				<view class='iconfont icon-guanbi3' @click="close"></view>
 			</view>
 		</view>

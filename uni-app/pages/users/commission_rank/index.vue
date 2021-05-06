@@ -23,7 +23,7 @@
 		          <view class="pictrue"><image :src="item.avatar"></image></view>
 		          <view class="text line1">{{item.nickname}}</view>
 		        </view>
-		        <view class="people font-color">￥{{item.brokerage_price}}</view>
+		        <view class="people font-color">₫{{item.brokerage_price}}</view>
 		      </view>
 		    </view>
 		    </view>

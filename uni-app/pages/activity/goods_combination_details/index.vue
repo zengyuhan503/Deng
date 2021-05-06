@@ -22,7 +22,7 @@
 					<view class='wrapper'>
 						<view class='share acea-row row-between row-bottom'>
 							<view class='money font-color'>
-								￥<text class='num'>{{storeInfo.price}}</text><text class='y-money'>￥{{storeInfo.product_price}}</text>
+								₫<text class='num'>{{storeInfo.price}}</text><text class='y-money'>₫{{storeInfo.product_price}}</text>
 							</view>
 							<view class='iconfont icon-fenxiang' @click="listenerActionSheet"></view>
 						</view>

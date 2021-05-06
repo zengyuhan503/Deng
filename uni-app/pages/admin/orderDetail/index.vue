@@ -43,15 +43,15 @@
 					</view>
 				</view>
 				<view class="money">
-					<view class="x-money">￥{{ item.cart_info.productInfo.price }}</view>
+					<view class="x-money">₫{{ item.cart_info.productInfo.price }}</view>
 					<view class="num">x{{ item.cart_info.cart_num }}</view>
-					<view class="y-money">￥{{ item.cart_info.productInfo.ot_price }}</view>
+					<view class="y-money">₫{{ item.cart_info.productInfo.ot_price }}</view>
 				</view>
 			</navigator>
 		</view>
 		<view class="public-total">
 			共{{ orderInfo.total_num }}件商品，应支付
-			<span class="money">￥{{ orderInfo.pay_price }}</span> ( 邮费 ¥{{
+			<span class="money">₫{{ orderInfo.pay_price }}</span> ( 邮费 ¥{{
         orderInfo.pay_postage
       }}
 			)
@@ -92,18 +92,18 @@
 		<view class="wrapper">
 			<view class="item acea-row row-between">
 				<view>支付金额：</view>
-				<view class="conter">￥{{ orderInfo.total_price }}</view>
+				<view class="conter">₫{{ orderInfo.total_price }}</view>
 			</view>
 			<view class="item acea-row row-between">
 				<view>优惠券抵扣：</view>
-				<view class="conter">-￥{{ orderInfo.coupon_price }}</view>
+				<view class="conter">-₫{{ orderInfo.coupon_price }}</view>
 			</view>
 			<view class="item acea-row row-between">
 				<view>运费：</view>
-				<view class="conter">￥{{ orderInfo.freight_price }}</view>
+				<view class="conter">₫{{ orderInfo.freight_price }}</view>
 			</view>
 			<view class="actualPay acea-row row-right">
-				实付款：<span class="money font-color-red">￥{{ orderInfo.pay_price }}</span>
+				实付款：<span class="money font-color-red">₫{{ orderInfo.pay_price }}</span>
 			</view>
 		</view>
 		<view class="wrapper" v-if="

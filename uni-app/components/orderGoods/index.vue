@@ -1,6 +1,6 @@
 <template>
 	<view class="orderGoods">
-		<view class='total'>共{{totalNmu}}件商品</view>
+		<view class='total'>chuvash{{totalNmu}}Hàng hóa</view>
 		<view class='goodWrapper'>
 			<view class='item acea-row row-between-wrapper' v-for="(item,index) in cartInfo" :key="index" @click="jumpCon(item.product_id)">
 				<view class='pictrue'>
@@ -13,10 +13,10 @@
 						<view class='num'>x {{item.cart_num}}</view>
 					</view>
 					<view class='attr line1' v-if="item.productInfo.attrInfo">{{item.productInfo.attrInfo.suk}}</view>
-					<view class='money font-color' v-if="item.productInfo.attrInfo">￥{{item.productInfo.attrInfo.price}}</view>
-					<view class='money font-color' v-else>￥{{item.productInfo.price}}</view>
-					<view class='evaluate' v-if='item.is_reply==0 && evaluate==3' @click.stop="evaluateTap(item.unique,orderId)">评价</view>
-					<view class='evaluate' v-else-if="item.is_reply==1 && evaluate==3">已评价</view>
+					<view class='money font-color' v-if="item.productInfo.attrInfo">₫{{item.productInfo.attrInfo.price}}</view>
+					<view class='money font-color' v-else>₫{{item.productInfo.price}}</view>
+					<view class='evaluate' v-if='item.is_reply==0 && evaluate==3' @click.stop="evaluateTap(item.unique,orderId)">Đánh giá</view>
+					<view class='evaluate' v-else-if="item.is_reply==1 && evaluate==3">Đã được đánh giá</view>
 				</view>
 			</view>
 		</view>

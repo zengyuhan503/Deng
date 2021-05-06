@@ -8,7 +8,7 @@
 				<view class='text acea-row row-between'>
 					<view class='name line2'>{{product.productInfo.store_name}}</view>
 					<view class='money'>
-						<view>￥{{product.truePrice}}</view>
+						<view>₫{{product.truePrice}}</view>
 						<view>x{{product.cart_num}}</view>
 					</view>
 				</view>

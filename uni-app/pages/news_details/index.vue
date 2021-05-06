@@ -17,17 +17,17 @@
 				<view class="text">
 					<view class="name line1">{{store_info.store_name}}</view>
 					<view class="money font-color">
-						￥<text class="num">{{store_info.price}}</text>
+						₫<text class="num">{{store_info.price}}</text>
 					</view>
-					<view class="y_money">￥{{store_info.ot_price}}</view>
+					<view class="y_money">₫{{store_info.ot_price}}</view>
 				</view>
-				<navigator :url="'/pages/goods_details/index?id='+store_info.id" hover-class="none" class="label"><text class="span">查看商品</text></navigator>
+				<navigator :url="'/pages/goods_details/index?id='+store_info.id" hover-class="none" class="label"><text class="span">Xem hàng hóa</text></navigator>
 			</view>
 			<!-- #ifdef H5 -->
-			<button class="bnt bg-color" hover-class='none' @click="listenerActionSheet" v-if="this.$wechat.isWeixin()">和好友一起分享</button>
+			<button class="bnt bg-color" hover-class='none' @click="listenerActionSheet" v-if="this.$wechat.isWeixin()">Chia sẻ với bạn bè</button>
 			<!-- #endif -->
 			<!-- #ifdef MP -->
-			<button class="bnt bg-color" open-type="share" hover-class='none'>和好友一起分享</button>
+			<button class="bnt bg-color" open-type="share" hover-class='none'>Chia sẻ với bạn bè</button>
 			<!-- #endif -->
 		</view>
 		<shareInfo @setShareInfoStatus="setShareInfoStatus" :shareInfoStatus="shareInfoStatus"></shareInfo>

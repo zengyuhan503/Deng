@@ -42,10 +42,10 @@
 					<view class='text acea-row row-column-around'>
 						<view class='line2'>{{bargainInfo.title}}</view>
 						<view class='money font-color'>
-							当前: ￥
+							当前: ₫
 							<text class='num'>{{bargainInfo.price}}</text>
 						</view>
-						<view class='successNum'>最低:￥{{bargainInfo.min_price}}</view>
+						<view class='successNum'>最低:₫{{bargainInfo.min_price}}</view>
 						<!-- <view class='successNum'>已有{{bargainSumCount}}人砍价成功</view> -->
 					</view>
 				</view>

@@ -36,7 +36,7 @@
 			<view class="mp-bg"></view>
 			<!-- #endif -->
 			<!-- banner -->
-			<view class="swiper">
+			<!-- <view class="swiper">
 				<swiper indicator-dots="true" :autoplay="true" :circular="circular" :interval="interval" :duration="duration"
 				 indicator-color="rgba(255,255,255,0.6)" indicator-active-color="#fff">
 					<block v-for="(item,index) in imgUrls" :key="index">
@@ -47,7 +47,7 @@
 						</swiper-item>
 					</block>
 				</swiper>
-			</view>
+			</view> -->
 			<!-- menu -->
 			<view class='nav acea-row' v-if="menus.length">
 				<block v-for="(item,index) in menus" :key="index">
@@ -147,7 +147,7 @@
 								<view class="name line1">{{item.title}}</view>
 								<view class="price-box">
 									<text class="tips">cướp</text>
-									<text class="price"><text>￥</text>{{item.price}}</text>
+									<text class="price"><text>₫</text>{{item.price}}</text>
 								</view>
 							</view>
 						</navigator>
@@ -166,7 +166,7 @@
 								<view class='list-box' @click="bargDetail(item)">
 									<image :src="item.image" class="slide-image"></image>
 									<view class="info-txt">
-										<view class="price">￥{{item.price}}</view>
+										<view class="price">₫{{item.price}}</view>
 										<view class="txt">Ngay lập tức mặc cả</view>
 									</view>
 								</view>
@@ -206,7 +206,7 @@
 								<view class="name line1">{{item.title}}</view>
 								<view class="price-box">
 									<text class="tips">Chính tả giá</text>
-									<text class="price"><text>￥</text>{{item.price}}</text>
+									<text class="price"><text>₫</text>{{item.price}}</text>
 								</view>
 							</view>
 							<view class="bom-btn">Tham gia vào nhiệm vụ chính tả</view>
@@ -236,7 +236,7 @@
 							<view class="title line1">{{item.store_name}}</view>
 							<view class="old-price"><text>¥</text>{{item.ot_price}}</view>
 							<view class="price">
-								<text>￥</text>{{item.price}}
+								<text>₫</text>{{item.price}}
 								<view class="txt" v-if="item.checkCoupon">券</view>
 							</view>
 						</view>
@@ -264,9 +264,9 @@
 						</view>
 						<view class='text' :class='is_switch==true?"":"on"'>
 							<view class='name line1'>{{item.store_name}}</view>
-							<view class='money font-color' :class='is_switch==true?"":"on"'>￥<text class='num'>{{item.price}}</text></view>
+							<view class='money font-color' :class='is_switch==true?"":"on"'>₫<text class='num'>{{item.price}}</text></view>
 							<view class='vip acea-row row-between-wrapper' :class='is_switch==true?"":"on"'>
-								<view class='vip-money' v-if="item.vip_price && item.vip_price > 0">￥{{item.vip_price}}
+								<view class='vip-money' v-if="item.vip_price && item.vip_price > 0">₫{{item.vip_price}}
 									<image src='../../static/images/vip.png'></image>
 								</view>
 								<view>已售{{item.sales}}件</view>

@@ -5,7 +5,7 @@
 				<view class='picTxt acea-row row-between-wrapper'>
 					<view class='text'>
 						<view class='name'>Thông tin đơn đặt hàng</view>
-						<view>Tiêu thụ đơn đặt hàng：{{orderData.order_count || 0}} Tổng số tiêu thụ：￥{{orderData.sum_price || 0}}</view>
+						<view>Tiêu thụ đơn đặt hàng：{{orderData.order_count || 0}} Tổng số tiêu thụ：₫{{orderData.sum_price || 0}}</view>
 					</view>
 					<view class='pictrue'>
 						<image src='../../../static/images/orderTime.png'></image>
@@ -58,14 +58,14 @@
 							<view class='text acea-row row-between'>
 								<view class='name line2'>{{item.productInfo.store_name}}</view>
 								<view class='money'>
-									<view v-if="item.productInfo.attrInfo">￥{{item.productInfo.attrInfo.price}}</view>
-									<view v-else>￥{{item.productInfo.price}}</view>
+									<view v-if="item.productInfo.attrInfo">₫{{item.productInfo.attrInfo.price}}</view>
+									<view v-else>₫{{item.productInfo.price}}</view>
 									<view>x{{item.cart_num}}</view>
 								</view>
 							</view>
 						</view>
 						<view class='totalPrice'>共{{item.cartInfo.length || 0}}hàng hóa, tổng số tiền
-							<text class='money font-color'>￥{{item.pay_price}}</text>
+							<text class='money font-color'>₫{{item.pay_price}}</text>
 						</view>
 					</view>
 					<view class='bottom acea-row row-right row-middle'>

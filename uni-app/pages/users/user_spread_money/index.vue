@@ -5,8 +5,8 @@
 				<view class='headerCon acea-row row-between-wrapper'>
 					<view>
 						<view class='name'>{{name}}</view>
-						<view class='money' v-if="recordType == 4">￥<text class='num'>{{extractCount}}</text></view>
-						<view class='money' v-else>￥<text class='num'>{{recordCount}}</text></view>
+						<view class='money' v-if="recordType == 4">₫<text class='num'>{{extractCount}}</text></view>
+						<view class='money' v-else>₫<text class='num'>{{recordCount}}</text></view>
 					</view>
 					<view class='iconfont icon-jinbi1'></view>
 				</view>

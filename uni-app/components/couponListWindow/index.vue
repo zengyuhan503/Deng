@@ -1,24 +1,24 @@
 <template>
 	<view>
 		<view class='coupon-list-window' :class='coupon.coupon==true?"on":""'>
-		   <view class='title'>优惠券<text class='iconfont icon-guanbi' @click='close'></text></view>
+		   <view class='title'>Phiếu giảm giá<text class='iconfont icon-guanbi' @click='close'></text></view>
 		   <view class='coupon-list' v-if="coupon.list.length">
 		      <view class='item acea-row row-center-wrapper' v-for="(item,index) in coupon.list" @click="getCouponUser(index,item.id)" :key='index'>
 		        <view class='money acea-row row-column row-center-wrapper' :class='item.is_use?"moneyGray":""'>
-					<view>￥<text class='num'>{{item.coupon_price}}</text></view>
-					<view class="pic-num">满{{item.use_min_price}}元可用</view>
+					<view>₫<text class='num'>{{item.coupon_price}}</text></view>
+					<view class="pic-num">đầy{{item.use_min_price}}Nguyên có sẵn</view>
 				</view>
 		        <view class='text'>
 					 <view class='condition line1'>
-					    <span class='line-title' :class='item.is_use?"gray":""' v-if='item.type===0'>通用劵</span>
-					    <span class='line-title' :class='item.is_use?"gray":""' v-else-if='item.type===1'>品类券</span>
-					    <span class='line-title' :class='item.is_use?"gray":""' v-else>商品券</span>
+					    <span class='line-title' :class='item.is_use?"gray":""' v-if='item.type===0'>General coupon</span>
+					    <span class='line-title' :class='item.is_use?"gray":""' v-else-if='item.type===1'>Phiếu giảm giá</span>
+					    <span class='line-title' :class='item.is_use?"gray":""' v-else>Chứng từ</span>
 					    <span>{{item.title}}</span>
 					</view>
 		            <view class='data acea-row row-between-wrapper'>
 		              <view>{{ item.start_time ? item.start_time + "-" : ""}}{{ item.end_time }}</view>
-		              <view class='bnt gray' v-if="item.is_use">{{item.use_title || '已领取'}}</view>
-		              <view class='bnt bg-color' v-else>{{coupon.statusTile || '立即领取'}}</view>
+		              <view class='bnt gray' v-if="item.is_use">{{item.use_title || 'Đã nhận được'}}</view>
+		              <view class='bnt bg-color' v-else>{{coupon.statusTile || 'Ngay lập tức'}}</view>
 		            </view>
 		        </view>
 		      </view>
@@ -65,7 +65,7 @@
 			          //领取优惠券
 			          setCouponReceive(id).then(res=>{
 						  that.$emit('ChangCouponsUseState', index);
-						  that.$util.Tips({title: "领取成功"});
+						  that.$util.Tips({title: "Nhận được thành công"});
 						  that.$emit('ChangCoupons', list[index]);
 			          })
 			        break;

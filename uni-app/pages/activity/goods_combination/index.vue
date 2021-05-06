@@ -19,7 +19,7 @@
 								</view>
 							</view>
 							<view class='bottom acea-row row-between-wrapper'>
-								<view class='money'>￥<text class='num'>{{item.price}}</text><text class='y-money'>￥{{item.product_price}}</text></view>
+								<view class='money'>₫<text class='num'>{{item.price}}</text><text class='y-money'>₫{{item.product_price}}</text></view>
 								<view class='groupBnt bg-color'>去拼团<text class="iconfont icon-jiantou"></text></view>
 							</view>
 						</view>

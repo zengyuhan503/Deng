@@ -5,9 +5,9 @@
         {{
           status == 0
             ? orderInfo.refund_status === 1
-              ? "立即退款"
-              : "一键改价"
-            : "订单备注"
+              ? "trả"
+              : "Thay đổi giá trị"
+            : "Từng dùng"
         }}
         <span class="iconfont icon-guanbi" @click="close"></span>
       </view>
@@ -16,7 +16,7 @@
           class="item acea-row row-between-wrapper"
           v-if="orderInfo.refund_status === 0"
         >
-          <view>商品总价(¥)</view>
+          <view>Tổng giá hàng hóa(₫)</view>
           <view class="money">
             {{ orderInfo.total_price }}<span class="iconfont icon-suozi"></span>
           </view>
@@ -25,7 +25,7 @@
           class="item acea-row row-between-wrapper"
           v-if="orderInfo.refund_status === 0"
         >
-          <view>原始邮费(¥)</view>
+          <view>Bưu phí ban đầu(₫)</view>
           <view class="money">
             {{ orderInfo.pay_postage }}<span class="iconfont icon-suozi"></span>
           </view>
@@ -34,7 +34,7 @@
           class="item acea-row row-between-wrapper"
           v-if="orderInfo.refund_status === 0"
         >
-          <view>实际支付(¥)</view>
+          <view>Thực sự thanh toán(₫)</view>
           <view class="money">
             <input
               type="text"
@@ -48,7 +48,7 @@
           class="item acea-row row-between-wrapper"
           v-if="orderInfo.refund_status === 1"
         >
-          <view>实际支付(¥)</view>
+          <view>Thực sự thanh toán(¥)</view>
           <view class="money">
             {{ orderInfo.pay_price }}<span class="iconfont icon-suozi"></span>
           </view>
@@ -57,7 +57,7 @@
           class="item acea-row row-between-wrapper"
           v-if="orderInfo.refund_status === 1"
         >
-          <view>退款金额(¥)</view>
+          <view>Số tiền hoàn lại(¥)</view>
           <view class="money">
             <input
               type="text"
@@ -71,14 +71,14 @@
       <view class="listChange" v-else>
         <textarea
           :placeholder="
-            orderInfo.remark ? orderInfo.remark : '请填写备注信息...'
+            orderInfo.remark ? orderInfo.remark : 'Xin vui lòng điền thông tin ghi chú...'
           "
           v-model="remark"
         ></textarea>
       </view>
       <view class="modify" @click="save">
         {{
-          status === 1 || orderInfo.refund_status == 0 ? "立即修改" : "确认退款"
+          status === 1 || orderInfo.refund_status == 0 ? "Sửa đổi ngay lập tức" : "Xác nhận hoàn lại tiền"
         }}
       </view>
       <view
@@ -86,7 +86,7 @@
         @click="refuse"
         v-if="orderInfo.refund_status == 1 && status == 0"
       >
-        拒绝退款
+        Từ chối hoàn lại tiền
       </view>
     </view>
     <view class="mask" @touchmove.prevent v-show="change === true"></view>

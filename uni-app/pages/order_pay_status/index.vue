@@ -5,43 +5,43 @@
 			<view class='iconfont icon-duihao2 bg-color' v-if="order_pay_info.paid || order_pay_info.pay_type == 'offline'"></view>
 			<view class='iconfont icon-iconfontguanbi bg-color' v-else></view>
 			<!-- 失败时：订单支付失败 -->
-			<view class='status' v-if="order_pay_info.pay_type != 'offline'">{{order_pay_info.paid ? '订单支付成功':'订单支付失败'}}</view>
-			<view class='status' v-else>订单创建成功</view>
+			<view class='status' v-if="order_pay_info.pay_type != 'offline'">{{order_pay_info.paid ? 'Thứ tự thanh toán thành công':'Thứ tự thanh toán thất bại'}}</view>
+			<view class='status' v-else>Đơn đặt hàng thành công</view>
 			<view class='wrapper'>
 				<view class='item acea-row row-between-wrapper'>
-					<view>订单编号</view>
+					<view>Số thứ tự</view>
 					<view class='itemCom'>{{orderId}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper'>
-					<view>下单时间</view>
+					<view>Thời gian duy nhất</view>
 					<view class='itemCom'>{{order_pay_info._pay_time}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper'>
-					<view>支付方式</view>
+					<view>Phương thức thanh toán</view>
 					<view class='itemCom'>{{order_pay_info._status._payType}}</view>
 				</view>
 				<view class='item acea-row row-between-wrapper'>
-					<view>支付金额</view>
+					<view>Số tiền thanh toán</view>
 					<view class='itemCom'>{{order_pay_info.pay_price}}</view>
 				</view>
 				<!--失败时加上这个  -->
 				<view class='item acea-row row-between-wrapper' v-if="order_pay_info.paid==0 && order_pay_info.pay_type != 'offline'">
-					<view>失败原因</view>
-					<view class='itemCom'>{{status==2 ? '取消支付':msg}}</view>
+					<view>Nguyên nhân thất bại</view>
+					<view class='itemCom'>{{status==2 ? 'Hủy bỏ thanh toán':msg}}</view>
 				</view>
 			</view>
 			<!--失败时： 重新购买 -->
 			<view @tap="goOrderDetails" v-if="status==0">
-				<button formType="submit" class='returnBnt bg-color' hover-class='none'>查看订单</button>
+				<button formType="submit" class='returnBnt bg-color' hover-class='none'>Xem đơn đặt hàng</button>
 			</view>
 			<view @tap="goOrderDetails" v-if="order_pay_info.paid==0 && status==1">
-				<button class='returnBnt bg-color' hover-class='none'>重新购买</button>
+				<button class='returnBnt bg-color' hover-class='none'>Mua lại</button>
 			</view>
 			<view @tap="goOrderDetails" v-if="order_pay_info.paid==0 && status==2">
-				<button class='returnBnt bg-color' hover-class='none'>重新支付</button>
+				<button class='returnBnt bg-color' hover-class='none'>Thanh toán lại</button>
 			</view>
-			<button @click="goPink(order_pay_info.pink_id)" class='returnBnt cart-color' formType="submit" hover-class='none' v-if="order_pay_info.pink_id && order_pay_info.paid!=0 && status!=2 && status!=1">邀请好友参团</button>
-			<button @click="goIndex" class='returnBnt cart-color' formType="submit" hover-class='none' v-else>返回首页</button>
+			<button @click="goPink(order_pay_info.pink_id)" class='returnBnt cart-color' formType="submit" hover-class='none' v-if="order_pay_info.pink_id && order_pay_info.paid!=0 && status!=2 && status!=1">Mời bạn bè tham gia nhóm</button>
+			<button @click="goIndex" class='returnBnt cart-color' formType="submit" hover-class='none' v-else>Trở về trang chủ</button>
 			</view>
 		<!-- #ifdef MP -->
 		<authorize @onLoadFun="onLoadFun" :isAuto="isAuto" :isShowAuth="isShowAuth" @authColse="authColse"></authorize>
@@ -119,13 +119,13 @@
 			getOrderPayInfo: function() {
 				let that = this;
 				uni.showLoading({
-					title: '正在加载中'
+					title: 'Đang tải'
 				});
 				getOrderDetail(that.orderId).then(res => {
 					uni.hideLoading();
 					that.$set(that, 'order_pay_info', res.data);
 					uni.setNavigationBarTitle({
-						title: res.data.paid ? '支付成功' : '支付失败'
+						title: res.data.paid ? 'Thanh toán thành công' : 'Thanh toán thất bại'
 					});
 				}).catch(err => {
 					uni.hideLoading();
@@ -153,7 +153,7 @@
 				let that = this;
 				// #ifdef MP
 				uni.showLoading({
-					title: '正在加载',
+					title: 'Đang tải',
 				})
 				openOrderSubscribe().then(res => {
 					uni.hideLoading();

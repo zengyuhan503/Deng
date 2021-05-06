@@ -30,7 +30,7 @@
 									<view class='text'>
 										<view class='line1'>{{item.productInfo.store_name}}</view>
 										<view class='infor line1' v-if="item.productInfo.attrInfo">Thuộc tính/ặc định：{{item.productInfo.attrInfo.suk}}</view>
-										<view class='money'>￥{{item.truePrice}}</view>
+										<view class='money'>₫{{item.truePrice}}</view>
 									</view>
 									<view class='carnum acea-row row-center-wrapper'>
 										<view class="reduce" :class="item.numSub ? 'on' : ''" @click.stop='subCart(index)'>-</view>
@@ -62,7 +62,7 @@
 									<view class='line1 name'>{{item.productInfo.store_name}}</view>
 									<view class='infor line1' v-if="item.productInfo.attrInfo">Thuộc tính：{{item.productInfo.attrInfo.suk}}</view>
 									<view class='acea-row row-between-wrapper'>
-										<!-- <view>￥{{item.truePrice}}</view> -->
+										<!-- <view>₫{{item.truePrice}}</view> -->
 										<view class='end'>Hàng hóa đã hết hiệu lực</view>
 									</view>
 								</view>
@@ -85,7 +85,7 @@
 					</checkbox-group>
 				</view>
 				<view class='money acea-row row-middle' v-if="footerswitch==true">
-					<text class='font-color'>￥{{selectCountPrice}}</text>
+					<text class='font-color'>₫{{selectCountPrice}}</text>
 					<form @submit="subOrder" report-submit='true'>
 						<button class='placeOrder bg-color' formType="submit">chọn tất cả</button>
 					</form>

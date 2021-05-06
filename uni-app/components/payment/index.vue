@@ -2,7 +2,7 @@
 	<view>
 		<view class="payment" :class="pay_close ? 'on' : ''">
 			<view class="title acea-row row-center-wrapper">
-				选择付款方式<text class="iconfont icon-guanbi" @click='close'></text>
+				Chọn phương thức thanh toán<text class="iconfont icon-guanbi" @click='close'></text>
 			</view>
 			<view class="item acea-row row-between-wrapper" @click="item.value=='vnpays'?'':goPay(item.number || 0 , item.value)" v-for="(item,index) in payMode"
 			 :key="index">
@@ -11,7 +11,7 @@
 					<view class="text">
 						<view class="name">{{item.name}}</view>
 						<view class="info" v-if="item.number">
-							{{item.title}} <span class="money">￥{{ item.number }}</span>
+							{{item.title}} <span class="money">₫{{ item.number }}</span>
 						</view>
 						<view class="info" v-else>{{item.title}}</view>
 					</view>
@@ -20,7 +20,7 @@
 				<view class="vnpayConfig" v-if="item.value=='vnpays'" >
 						  <view class="uni-list" >
 								<view class="" style="height: 30px;line-height: 30px;">
-									请选择线上支付方式：
+									Hãy chọn phương thức thanh toán trực tuyến：
 								</view>
 										 <radio-group :value='vnpay' @change="radioChange">
 												 <label class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in items" :key="item.value">
@@ -71,31 +71,31 @@
 					vnpay:"",
 					items: [{
 											value: 'zalo',
-											name: 'ZALO支付'
+											name: 'ZALO Trả tiền'
 									},
 									{
 											value: 'momo',
-											name: 'MOMO支付',
+											name: 'MOMO Trả tiền',
 									},
 									{
 											value: 'vietcombank',
-											name: 'VietCombank支付'
+											name: 'VietCombank Trả tiền'
 									},
 									{
 											value: 'vietinbankipay',
-											name: 'VietInbankiPay支付'
+											name: 'VietInbankiPay Trả tiền'
 									},
 									{
 											value: 'vtpay',
-											name: 'VTpay支付'
+											name: 'VTpay Trả tiền'
 									},
 									{
 											value: 'tpbank',
-											name: 'TPBANK支付'
+											name: 'TPBANK Trả tiền'
 									},
 									{
 											value: 'acbbank',
-											name: 'ACBbank支付'
+											name: 'ACBbank Trả tiền'
 									}
 							],
 			};
@@ -115,18 +115,18 @@
 				let that = this;
 				if(paytype=='vnpays') {
 					 that.$util.Tips({
-						title: '请选择要线上支付的方式'
+						title: 'Hãy chọn cách thanh toán trực tuyến'
 					});
 					return false;
 				}
 				if (!that.order_id) return that.$util.Tips({
-					title: '请选择要支付的订单'
+					title: 'Hãy chọn đơn đặt hàng cần thanh toán'
 				});
 				if (paytype == 'yue' && parseFloat(number) < parseFloat(that.totalPrice)) return that.$util.Tips({
-					title: '余额不足！'
+					title: 'Số dư là không đủ！'
 				});
 				uni.showLoading({
-					title: '支付中'
+					title: 'Trong các khoản thanh toán'
 				});
 				var params={
 					uni: that.order_id,
@@ -145,7 +145,7 @@
 					switch (paytype) {
 						case 'weixin':
 							if (res.data.result === undefined) return that.$util.Tips({
-								title: '缺少支付参数'
+								title: 'Thiếu thông số thanh toán'
 							});
 							// #ifdef MP || APP-PLUS
 							let jsConfig = res.data.result.jsConfig;
@@ -169,7 +169,7 @@
 								fail: function(e) {
 									uni.hideLoading();
 									return that.$util.Tips({
-										title: '取消支付'
+										title: 'Thiếu số thanh toán hủy bỏ thanh toán'
 									}, () => {
 										that.$emit('onChangeFun', {
 											action: 'pay_fail'
@@ -179,7 +179,7 @@
 								complete: function(e) {
 									uni.hideLoading();
 									if (e.errMsg == 'requestPayment:cancel') return that.$util.Tips({
-										title: '取消支付'
+										title: 'Thiếu số thanh toán hủy bỏ thanh toán'
 									}, () => {
 										that.$emit('onChangeFun', {
 											action: 'pay_fail'
@@ -194,7 +194,7 @@
 								uni.hideLoading();
 								location.replace(data.result.jsConfig.mweb_url);
 								return that.$util.Tips({
-									title: "支付成功",
+									title: "Thanh toán thành công",
 									icon: 'success'
 								}, () => {
 									that.$emit('onChangeFun', {
@@ -205,7 +205,7 @@
 								that.$wechat.pay(data.result.jsConfig)
 									.finally(() => {
 										return that.$util.Tips({
-											title: "支付成功",
+											title: "Thanh toán thành công",
 											icon: 'success'
 										}, () => {
 											that.$emit('onChangeFun', {
@@ -215,7 +215,7 @@
 									})
 									.catch(function() {
 										return that.$util.Tips({
-											title: '支付失败'
+											title: 'Thanh toán thất bại'
 										});
 									});
 							}

@@ -9,12 +9,12 @@
 			<view class='item' v-for="(item,index) in hostProduct" :key="index" hover-class='none' @tap="goDetail(item)">
 				<view class='pictrue'>
 					<image :src='item.image'></image>
-					<span class="pictrue_log_big pictrue_log_class" v-if="item.activity && item.activity.type === '1'">秒杀</span>
-					<span class="pictrue_log_big pictrue_log_class" v-if="item.activity && item.activity.type === '2'">砍价</span>
-					<span class="pictrue_log_big pictrue_log_class" v-if="item.activity && item.activity.type === '3'">拼团</span>
+					<span class="pictrue_log_big pictrue_log_class" v-if="item.activity && item.activity.type === '1'">Giây giết</span>
+					<span class="pictrue_log_big pictrue_log_class" v-if="item.activity && item.activity.type === '2'">KanJia</span>
+					<span class="pictrue_log_big pictrue_log_class" v-if="item.activity && item.activity.type === '3'">Đánh vần</span>
 				</view>
 				<view class='name line1'>{{item.store_name}}</view>
-				<view class='money font-color'>￥<text class='num'>{{item.price}}</text></view>
+				<view class='money font-color'>₫<text class='num'>{{item.price}}</text></view>
 			</view>
 		</view>
 	</view>

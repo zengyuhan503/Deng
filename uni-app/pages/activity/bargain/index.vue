@@ -14,7 +14,7 @@
 							<div class="successTxt font-color-red" v-else-if="item.status === 3">砍价成功</div>
 							<div class="endTxt" v-else>活动已结束</div>
 							<div class="money font-color-red">
-								已砍至<span class="symbol">￥</span><span class="num">{{ item.residue_price }}</span>
+								已砍至<span class="symbol">₫</span><span class="num">{{ item.residue_price }}</span>
 							</div>
 						</div>
 					</div>

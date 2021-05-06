@@ -151,18 +151,18 @@
 			<!-- #ifndef MP -->
 			<button class="item" hover-class='none' v-if="weixinStatus === true" @click="H5ShareBox = true">
 				<view class="iconfont icon-weixin3"></view>
-				<view class="">发送给朋友</view>
+				<view class="">Gửi cho bạn bè</view>
 			</button>
 			<!-- #endif -->
 			<!-- #ifdef MP -->
 			<button class="item" open-type="share" hover-class='none' @click="goFriend">
 				<view class="iconfont icon-weixin3"></view>
-				<view class="">发送给朋友</view>
+				<view class="">Gửi cho bạn bè</view>
 			</button>
 			<!-- #endif -->
 			<button class="item" hover-class='none' @click="goPoster">
 				<view class="iconfont icon-haibao"></view>
-				<view class="">生成海报</view>
+				<view class="">Tạo ra các poster</view>
 			</button>
 		</view>
 		<view class="mask" v-if="posters" @click="listenerActionClose"></view>
@@ -174,10 +174,10 @@
 			<image src='../../static/images/poster-close.png' class='close' @click="posterImageClose"></image>
 			<image :src='posterImage'></image>
 			<!-- #ifndef H5  -->
-			<view class='save-poster' @click="savePosterPath">保存到手机</view>
+			<view class='save-poster' @click="savePosterPath">Lưu vào điện thoại di động</view>
 			<!-- #endif -->
 			<!-- #ifdef H5 -->
-			<view class="keep">长按图片可以保存到手机</view>
+			<view class="keep">Hình ảnh có thể được lưu vào điện thoại di động</view>
 			<!-- #endif -->
 		</view>
 		<view class='mask' v-if="posterImageStatus"></view>

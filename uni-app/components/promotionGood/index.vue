@@ -4,18 +4,18 @@
 			<view class='item acea-row row-between-wrapper' @tap="goDetail(item)" hover-class="none">
 				<view class='pictrue'>
 					<image :src='item.image'></image>
-					<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '1'">秒杀</span>
-					<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '2'">砍价</span>
-					<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '3'">拼团</span>
+					<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '1'">Giây giết</span>
+					<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '2'">KanJia</span>
+					<span class="pictrue_log pictrue_log_class" v-if="item.activity && item.activity.type === '3'">Đánh vần</span>
 				</view>
 				<view class='text'>
 					<view class='name line1'>{{item.store_name}}</view>
 					<view class='sp-money acea-row'>
-						<view class='moneyCon'>促销价: ￥<text class='num'>{{item.price}}</text></view>
+						<view class='moneyCon'>Giá khuyến mại: ₫<text class='num'>{{item.price}}</text></view>
 					</view>
 					<view class='acea-row row-between-wrapper'>
-						<view class='money'>日常价：￥{{item.ot_price}}</view>
-						<view>仅剩：{{item.stock}}{{item.unit_name}}</view>
+						<view class='money'>Giá hàng ngày：₫{{item.ot_price}}</view>
+						<view>Chỉ còn lại：{{item.stock}}{{item.unit_name}}</view>
 					</view>
 				</view>
 			</view>

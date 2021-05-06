@@ -42,17 +42,17 @@
 							</view>
 						</view>
 						<view class="money">
-							<view class="x-money">￥{{ val.cart_info.productInfo.price }}</view>
+							<view class="x-money">₫{{ val.cart_info.productInfo.price }}</view>
 							<view class="num">x{{ val.cart_info.cart_num }}</view>
 							<view class="y-money">
-								￥{{ val.cart_info.productInfo.ot_price }}
+								₫{{ val.cart_info.productInfo.ot_price }}
 							</view>
 						</view>
 					</view>
 				</view>
 				<view class="public-total">
 					共{{ item.total_num }}件商品，应支付
-					<span class="money">￥{{ item.pay_price }}</span> ( 邮费 ¥{{
+					<span class="money">₫{{ item.pay_price }}</span> ( 邮费 ¥{{
 	            item.total_postage
 	          }}
 					)

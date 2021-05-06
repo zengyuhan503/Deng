@@ -3,8 +3,8 @@
 		<view class="mask" :class="{'show':showPicker}" @tap="maskTap" @touchmove.stop.prevent catchtouchmove="true"></view>
 		<view class="w-picker-cnt" :class="{'show':showPicker}">
 			<view class="w-picker-hd" @touchmove.stop.prevent catchtouchmove="true">
-			  <view class="w-picker-btn" @tap="pickerCancel">取消</view>
-			  <view class="w-picker-btn" :style="{'color':themeColor}" @tap="pickerConfirm">确定</view>
+			  <view class="w-picker-btn" @tap="pickerCancel">Hủy bỏ</view>
+			  <view class="w-picker-btn" :style="{'color':themeColor}" @tap="pickerConfirm">Chắc chắn</view>
 			</view>
 			<view class="w-picker-view" v-if="mode=='linkage'">
 				<picker-view :indicator-style="itemHeight" :value="pickVal" @change="bindChange"  @touchstart="touchStart" @touchend="touchEnd">

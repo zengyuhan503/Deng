@@ -3,7 +3,7 @@
 		<view class='productList'>
 			<view class='search bg-color acea-row row-between-wrapper'>
 				<view class='input acea-row row-between-wrapper'><text class='iconfont icon-sousuo'></text>
-					<input placeholder='搜索商品名称' placeholder-class='placeholder' confirm-type='search' name="search" :value='where.keyword'
+					<input placeholder='Tìm kiếm tên hàng hóa' placeholder-class='placeholder' confirm-type='search' name="search" :value='where.keyword'
 					 @confirm="searchSubmit"></input>
 				</view>
 				<view class='iconfont' :class='is_switch==true?"icon-pailie":"icon-tupianpailie"' @click='Changswitch'></view>
@@ -35,9 +35,9 @@
 					</view>
 					<view class='text' :class='is_switch==true?"":"on"'>
 						<view class='name line1'>{{item.store_name}}</view>
-						<view class='money font-color' :class='is_switch==true?"":"on"'>￥<text class='num'>{{item.price}}</text></view>
+						<view class='money font-color' :class='is_switch==true?"":"on"'>₫<text class='num'>{{item.price}}</text></view>
 						<view class='vip acea-row row-between-wrapper' :class='is_switch==true?"":"on"'>
-							<view class='vip-money' v-if="item.vip_price && item.vip_price > 0">￥{{item.vip_price}}
+							<view class='vip-money' v-if="item.vip_price && item.vip_price > 0">₫{{item.vip_price}}
 								<image src='../../static/images/vip.png'></image>
 							</view>
 							<view>Đã bán{{item.sales}}con số</view>

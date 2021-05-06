@@ -5,10 +5,10 @@
 	   <view class='sharing-con' @click='goShare'>
 	      <image src='../../static/images/red-packets.png'></image>
 	      <view class='text font-color'>
-	        <view>会员分享返</view>
-	        <view class='money'><text class='label'>￥</text>{{sharePacket.priceName}}</view>
-	        <view class='tip'>下单即返佣金</view>
-	        <view class='shareBut'>立即分享</view>
+	        <view>Thành viên chia sẻ trở lại</view>
+	        <view class='money'><text class='label'>₫</text>{{sharePacket.priceName}}</view>
+	        <view class='tip'>Đơn đặt hàng trở lại hoa hồng</view>
+	        <view class='shareBut'>Chia sẻ ngay lập tức</view>
 	      </view>
 	   </view>  
 	</view>

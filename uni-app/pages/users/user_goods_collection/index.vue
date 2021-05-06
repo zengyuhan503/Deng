@@ -9,7 +9,7 @@
 				<view class='text acea-row row-column-between'>
 					<view class='name line1'>{{item.store_name}}</view>
 					<view class='acea-row row-between-wrapper'>
-						<view class='money font-color'>￥{{item.price}}</view>
+						<view class='money font-color'>₫{{item.price}}</view>
 						<view class='delete' @click.stop='delCollection(item.pid,index)'>Xoá bỏ</view>
 					</view>
 				</view>
