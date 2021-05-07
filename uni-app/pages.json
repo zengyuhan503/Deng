@@ -3,7 +3,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页",
+				"navigationBarTitleText": "Trang đầu",
 				"navigationStyle": "custom",
 				"app-plus": {
 					"scrollIndicator": false //禁用原生导航栏
@@ -13,13 +13,13 @@
 		{
 			"path": "pages/order_addcart/order_addcart",
 			"style": {
-				"navigationBarTitleText": "购物车"
+				"navigationBarTitleText": "Giỏ hàng"
 			}
 		},
 		{
 			"path": "pages/user/index",
 			"style": {
-				"navigationBarTitleText": "个人中心",
+				"navigationBarTitleText": "Trung tâm cá nhân",
 				"navigationBarBackgroundColor": "#e93323"
 				// #ifdef MP
 				,"navigationBarTextStyle": "#fff"
@@ -38,45 +38,45 @@
 		{
 			"path": "pages/goods_cate/goods_cate",
 			"style": {
-				"navigationBarTitleText": "商品分类"
+				"navigationBarTitleText": "Phân loại hàng hóa"
 			}
 		},
 		{
 			"path": "pages/retrieve_password/index",
 			"style": {
-				"navigationBarTitleText": "找回密码"
+				"navigationBarTitleText": "Lấy lại mật khẩu"
 			}
 		},
 		// #ifdef H5
 		{
 			"path": "pages/customer_list/index",
 			"style": {
-				"navigationBarTitleText": "客服列表"
+				"navigationBarTitleText": "Danh sách khách hàng"
 			}
 		},
 		{
 			"path": "pages/customer_list/chat",
 			"style": {
-				"navigationBarTitleText": "客服聊天"
+				"navigationBarTitleText": "Khách hàng chat"
 			}
 		},
 		// #endif
 		{
 			"path": "pages/goods_list/index",
 			"style": {
-				"navigationBarTitleText": "商品列表"
+				"navigationBarTitleText": "Danh sách hàng hóa"
 			}
 		},
 		{
 			"path": "pages/news_list/index",
 			"style": {
-				"navigationBarTitleText": "资讯"
+				"navigationBarTitleText": "Thông tin"
 			}
 		},
 		{
 			"path": "pages/news_details/index",
 			"style": {
-				"navigationBarTitleText": "资讯详情"
+				"navigationBarTitleText": "Thông tin chi tiết"
 			}
 		},
 		//#ifdef H5
@@ -90,19 +90,19 @@
 		{
 			"path": "pages/goods_search/index",
 			"style": {
-				"navigationBarTitleText": "搜索商品"
+				"navigationBarTitleText": "Tìm kiếm hàng hóa"
 			}
 		},
 		{
 			"path": "pages/order_pay_status/index",
 			"style": {
-				"navigationBarTitleText": "支付成功"
+				"navigationBarTitleText": "Thanh toán thành công"
 			}
 		},
 		{
 			"path": "pages/order_details/index",
 			"style": {
-				"navigationBarTitleText": "订单详情",
+				"navigationBarTitleText": "Chi tiết đơn đặt hàng",
 				"navigationBarBackgroundColor": "#e93323"
 				// #ifdef MP
 				,"navigationBarTextStyle": "#fff"
@@ -118,7 +118,7 @@
 				{
 					"path": "retrievePassword/index",
 					"style": {
-						"navigationBarTitleText": "忘记密码"
+						"navigationBarTitleText": "Quên mật khẩu"
 					}
 				},	
 			  {
@@ -130,55 +130,55 @@
 			  {
 			  	"path": "user_get_coupon/index",
 			  	"style": {
-			  		"navigationBarTitleText": "领取优惠券"
+			  		"navigationBarTitleText": "Nhận phiếu giảm giá"
 			  	}
 			  },
 			  {
 			  	"path": "user_goods_collection/index",
 			  	"style": {
-			  		"navigationBarTitleText": "收藏商品"
+			  		"navigationBarTitleText": "Bộ sưu tập hàng hóa"
 			  	}
 			  },
 			  {
 			  	"path": "user_sgin/index",
 			  	"style": {
-			  		"navigationBarTitleText": "签到"
+			  		"navigationBarTitleText": "QianDao"
 			  	}
 			  },
 			  {
 			  	"path": "user_sgin_list/index",
 			  	"style": {
-			  		"navigationBarTitleText": "签到记录"
+			  		"navigationBarTitleText": "Đăng ký hồ sơ"
 			  	}
 			  },
 			  {
 			  	"path": "user_money/index",
 			  	"style": {
-			  		"navigationBarTitleText": "我的账户"
+			  		"navigationBarTitleText": "Tài khoản của tôi"
 			  	}
 			  },
 			  {
 			  	"path": "user_bill/index",
 			  	"style": {
-			  		"navigationBarTitleText": "账单明细"
+			  		"navigationBarTitleText": "Chi tiết hóa đơn"
 			  	}
 			  },
 			  {
 			  	"path": "user_integral/index",
 			  	"style": {
-			  		"navigationBarTitleText": "积分详情"
+			  		"navigationBarTitleText": "Điểm chi tiết"
 			  	}
 			  },
 			  {
 			  	"path": "user_coupon/index",
 			  	"style": {
-			  		"navigationBarTitleText": "我的优惠券"
+			  		"navigationBarTitleText": "Phiếu giảm giá của tôi"
 			  	}
 			  },
 			  {
 			  	"path": "user_spread_user/index",
 			  	"style": {
-			  		"navigationBarTitleText": "我的推广",
+			  		"navigationBarTitleText": "Sự quảng bá của tôi",
 			  		"navigationBarBackgroundColor": "#e93323"
 			  		// #ifdef MP
 			  		,"navigationBarTextStyle": "#fff"
@@ -188,13 +188,13 @@
 			  {
 			  	"path": "user_spread_code/index",
 			  	"style": {
-			  		"navigationBarTitleText": "分销海报"
+			  		"navigationBarTitleText": "Quảng cáo phân phối"
 			  	}
 			  },
 			  {
 			  	"path": "user_spread_money/index",
 			  	"style": {
-			  		"navigationBarTitleText": "佣金记录",
+			  		"navigationBarTitleText": "Tiền hoa hồng",
 			  		"navigationBarBackgroundColor": "#e93323"
 			  		// #ifdef MP
 			  		,"navigationBarTextStyle": "#fff"
@@ -204,7 +204,7 @@
 			  {
 			  	"path": "user_cash/index",
 			  	"style": {
-			  		"navigationBarTitleText": "提现",
+			  		"navigationBarTitleText": "DiXian",
 			  		"navigationBarBackgroundColor": "#e93323"
 			  		// #ifdef MP
 			  		,"navigationBarTextStyle": "#fff"
@@ -214,7 +214,7 @@
 			  {
 			  	"path": "user_vip/index",
 			  	"style": {
-			  		"navigationBarTitleText": "会员中心",
+			  		"navigationBarTitleText": "Trung tâm thành viên",
 			  		"navigationBarBackgroundColor": "#232323"
 			  		// #ifdef MP
 			  		,"navigationBarTextStyle": "#fff"
@@ -224,19 +224,19 @@
 			  {
 			  	"path": "user_address_list/index",
 			  	"style": {
-			  		"navigationBarTitleText": "地址管理"
+			  		"navigationBarTitleText": "Quản lý địa chỉ"
 			  	}
 			  },
 			  {
 			  	"path": "user_address/index",
 			  	"style": {
-			  		"navigationBarTitleText": "添加地址"
+			  		"navigationBarTitleText": "Thêm địa chỉ"
 			  	}
 			  },
 			  {
 			  	"path": "user_phone/index",
 			  	"style": {
-			  		"navigationBarTitleText": "绑定手机",
+			  		"navigationBarTitleText": "Ràng buộc điện thoại di động",
 			  		"navigationBarBackgroundColor": "#e93323"
 			  		// #ifdef MP
 			  		,"navigationBarTextStyle": "#fff"
@@ -246,13 +246,13 @@
 			  {
 			  	"path": "user_payment/index",
 			  	"style": {
-			  		"navigationBarTitleText": "余额充值"
+			  		"navigationBarTitleText": "Nạp tiền cân bằng"
 			  	}
 			  },
 			  {
 			  	"path": "user_pwd_edit/index",
 			  	"style": {
-			  		"navigationBarTitleText": "修改密码",
+			  		"navigationBarTitleText": "Thay đổi mật khẩu",
 			  		"navigationBarBackgroundColor": "#e93323"
 			  		// #ifdef MP
 			  		,"navigationBarTextStyle": "#fff"
@@ -262,19 +262,19 @@
 				{
 					"path": "order_confirm/index",
 					"style": {
-						"navigationBarTitleText": "提交订单"
+						"navigationBarTitleText": "Gửi đơn đặt hàng"
 					}
 				},
 				{
 					"path": "goods_details_store/index",
 					"style": {
-						"navigationBarTitleText": "门店列表"
+						"navigationBarTitleText": "Danh sách các cửa hàng"
 					}
 				},
 				{
 					"path": "promoter-list/index",
 					"style": {
-						"navigationBarTitleText": "推广人列表",
+						"navigationBarTitleText": "Danh sách nhà quảng cáo",
 						"navigationBarBackgroundColor": "#e93323"
 						// #ifdef MP
 						,"navigationBarTextStyle": "#fff"
@@ -284,7 +284,7 @@
 				{
 					"path": "promoter-order/index",
 					"style": {
-						"navigationBarTitleText": "推广人订单",
+						"navigationBarTitleText": "Quảng cáo đơn đặt hàng",
 						"navigationBarBackgroundColor": "#e93323"
 						// #ifdef MP
 						,"navigationBarTextStyle": "#fff"
@@ -294,7 +294,7 @@
 				{
 					"path": "promoter_rank/index",
 					"style": {
-						"navigationBarTitleText": "推广人排行",
+						"navigationBarTitleText": "Người quảng cáo xếp hạng",
 						"navigationBarBackgroundColor": "#e93323"
 						// #ifdef MP
 						,"navigationBarTextStyle": "#fff"
@@ -304,7 +304,7 @@
 				{
 					"path": "commission_rank/index",
 					"style": {
-						"navigationBarTitleText": "佣金排行",
+						"navigationBarTitleText": "Ủy ban xếp hạng",
 						"navigationBarBackgroundColor": "#e93323"
 						// #ifdef MP
 						,"navigationBarTextStyle": "#fff"
@@ -314,43 +314,43 @@
 				{
 					"path": "order_list/index",
 					"style": {
-						"navigationBarTitleText": "我的订单"
+						"navigationBarTitleText": "Đơn đặt hàng của tôi"
 					}
 				},
 				{
 					"path": "goods_logistics/index",
 					"style": {
-						"navigationBarTitleText": "物流信息"
+						"navigationBarTitleText": "Thông tin hậu cần"
 					}
 				},
 				{
 					"path": "user_return_list/index",
 					"style": {
-						"navigationBarTitleText": "退货列表"
+						"navigationBarTitleText": "Danh sách trở về"
 					}
 				},
 				{
 					"path": "goods_return/index",
 					"style": {
-						"navigationBarTitleText": "申请退货"
+						"navigationBarTitleText": "Áp dụng cho sự trở lại"
 					}
 				},
 				{
 					"path": "login/index",
 					"style": {
-						"navigationBarTitleText": "登录"
+						"navigationBarTitleText": "Đăng nhập"
 					}
 				},
 				{
 					"path": "goods_comment_list/index",
 					"style": {
-						"navigationBarTitleText": "商品评分"
+						"navigationBarTitleText": "Điểm hàng hóa"
 					}
 				},
 				{
 					"path": "goods_comment_con/index",
 					"style": {
-						"navigationBarTitleText": "商品评价"
+						"navigationBarTitleText": "Đánh giá hàng hóa"
 					}
 				}
 		  ]
@@ -397,13 +397,13 @@
 					{
 						"path": "goods_combination_status/index",
 						"style": {
-							"navigationBarTitleText": "拼团"
+							"navigationBarTitleText": "Ghétp hội đồng lãnh đạo,"
 						}
 					},
 					{
 						"path": "goods_seckill/index",
 						"style": {
-							"navigationBarTitleText": "限时秒杀"
+							"navigationBarTitleText": "Giết trong thời gian hạn chế"
 							// #ifdef MP
 							,"navigationBarTextStyle": "#fff"
 							,"navigationBarBackgroundColor":"#e93323"
@@ -413,7 +413,7 @@
 					{
 						"path": "goods_seckill_details/index",
 						"style": {
-							"navigationBarTitleText": "秒杀详情"
+							"navigationBarTitleText": "Thứ hai giết chi tiết"
 							// #ifdef MP
 							,"navigationStyle": "custom"
 							// #endif
@@ -422,7 +422,7 @@
 					{
 						"path": "poster-poster/index",
 						"style": {
-							"navigationBarTitleText": "砍价海报"
+							"navigationBarTitleText": "Poster mặc cả"
 							// #ifdef MP
 							,"navigationBarTextStyle": "#fff"
 							,"navigationBarBackgroundColor":"#e93323"
@@ -432,7 +432,7 @@
 					{
 						"path": "bargain/index",
 						"style": {
-							"navigationBarTitleText": "砍价记录"
+							"navigationBarTitleText": "Hồ sơ mặc cả"
 						}
 					}
 				]
@@ -444,37 +444,37 @@
 					{
 						"path": "order/index",
 						"style": {
-							"navigationBarTitleText": "订单首页"
+							"navigationBarTitleText": "Đặt hàng trang chủ"
 						}
 					},
 					{
 						"path": "orderList/index",
 						"style": {
-							"navigationBarTitleText": "订单列表"
+							"navigationBarTitleText": "Danh sách các đơn đặt hàng"
 						}
 					},
 					{
 						"path": "orderDetail/index",
 						"style": {
-							"navigationBarTitleText": "订单详情"
+							"navigationBarTitleText": "Chi tiết đơn đặt hàng"
 						}
 					},
 					{
 						"path": "delivery/index",
 						"style": {
-							"navigationBarTitleText": "订单发货"
+							"navigationBarTitleText": "Thứ tự vận chuyển"
 						}
 					},
 					{
 						"path": "statistics/index",
 						"style": {
-							"navigationBarTitleText": "订单数据统计"
+							"navigationBarTitleText": "Số liệu thống kê đơn đặt hàng"
 						}
 					},
 					{
 						"path": "order_cancellation/index",
 						"style": {
-							"navigationBarTitleText": "订单核销"
+							"navigationBarTitleText": "Viết đơn đặt hàng"
 						}
 					}
 				]
@@ -486,7 +486,7 @@
 				{
 					"path": "HotNewGoods/index",
 					"style": {
-						"navigationBarTitleText": "精品推荐"
+						"navigationBarTitleText": "Giới thiệu chất lượng"
 					}
 				}
 			]

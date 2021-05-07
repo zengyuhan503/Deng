@@ -63,7 +63,7 @@
 					<!-- #endif -->
 					<view class="item acea-row row-between-wrapper" v-if="userInfo.phone && userInfo.user_type == 'h5'">
 						<view>Mật khẩu</view>
-						<navigator url="/pages/user_pwd_edit/index" hover-class="none" class="input">
+						<navigator style="width: 263px;" url="/pages/user_pwd_edit/index" hover-class="none" class="input">
 							Bấm vào để thay đổi mật khẩu<text class="iconfont icon-xiangyou"></text>
 						</navigator>
 					</view>
@@ -385,6 +385,12 @@
 		width: 140rpx;
 		height: 48rpx;
 		border-radius: 0 20rpx 0 20rpx;
+		font-size: 10px;
+		text-align: center;
+		justify-content: center;
+		display: flex;
+		align-items: center;
+		height: 37px;
 	}
 
 	.personal-data .list {

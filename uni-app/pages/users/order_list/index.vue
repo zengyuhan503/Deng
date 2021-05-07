@@ -14,23 +14,23 @@
 			</view>
 			<view class='nav acea-row row-around'>
 				<view class='item' :class='orderStatus==0 ? "on": ""' @click="statusClick(0)">
-					<view>Để thanh toán</view>
+					<view  class="title">Giá trị</view>
 					<view class='num'>{{orderData.unpaid_count || 0}}</view>
 				</view>
 				<view class='item' :class='orderStatus==1 ? "on": ""' @click="statusClick(1)">
-					<view>Sẵn sàng để phát hành</view>
+					<view class="title">Sẵn sàng để phát hành</view>
 					<view class='num'>{{orderData.unshipped_count || 0}}</view>
 				</view>
 				<view class='item' :class='orderStatus==2 ? "on": ""' @click="statusClick(2)">
-					<view>Nhận được</view>
+					<view  class="title">Nhận được</view>
 					<view class='num '>{{orderData.received_count || 0}}</view>
 				</view>
 				<view class='item' :class='orderStatus==3 ? "on": ""' @click="statusClick(3)">
-					<view>Để đánh giá</view>
+					<view  class="title">Để đánh giá</view>
 					<view class='num'>{{orderData.evaluated_count || 0}}</view>
 				</view>
 				<view class='item' :class='orderStatus==4 ? "on": ""' @click="statusClick(4)">
-					<view>Đã hoàn thành</view>
+					<view  class="title">Đã hoàn thành</view>
 					<view class='num'>{{orderData.complete_count || 0}}</view>
 				</view>
 			</view>
@@ -146,19 +146,19 @@
 				page: 1,
 				limit: 20,
 				payMode: [
-					{
-						name: "Vi-thanh toán",
-						icon: "icon-weixinzhifu",
-						value: 'weixin',
-						title: 'Ứng dụng thanh toán nhanh'
-					},
-					{
-						name: "Thanh toán cân bằng",
-						icon: "icon-yuezhifu",
-						value: 'yue',
-						title: 'Số dư có sẵn:',
-						number: 0
-					},
+					// {
+					// 	name: "Vi-thanh toán",
+					// 	icon: "icon-weixinzhifu",
+					// 	value: 'weixin',
+					// 	title: 'Ứng dụng thanh toán nhanh'
+					// },
+					// {
+					// 	name: "Thanh toán cân bằng",
+					// 	icon: "icon-yuezhifu",
+					// 	value: 'yue',
+					// 	title: 'Số dư có sẵn:',
+					// 	number: 0
+					// },
 					{
 						"name": "Thanh toán trực tuyến",
 						"icon": "icon-yinhangqia",
@@ -426,7 +426,7 @@
 	.my-order .nav {
 		background-color: #fff;
 		width: 690rpx;
-		height: 140rpx;
+		// height: 140rpx;
 		border-radius: 6rpx;
 		margin: -73rpx auto 0 auto;
 	}
@@ -436,7 +436,19 @@
 		font-size: 26rpx;
 		color: #282828;
 		padding: 29rpx 0;
+		width: 20%;
 	}
+	.my-order .nav .item{
+			    font-size: 11px;
+		}
+		.my-order .nav .item .title{
+			    font-size: 11px;
+					font-size: 11px;
+				height: 42px;
+				display: flex;
+				    justify-content: center;
+				    align-items: center;
+		}
 
 	.my-order .nav .item.on {
 		font-weight: bold;
@@ -525,13 +537,16 @@
 	}
 
 	.my-order .list .item .bottom .bnt {
-		width: 176rpx;
+		// width: 176rpx;
 		height: 60rpx;
 		text-align: center;
 		line-height: 60rpx;
 		color: #fff;
 		border-radius: 50rpx;
+		padding: 0 15rpx;
 		font-size: 27rpx;
+		text-align: center;
+		
 	}
 
 	.my-order .list .item .bottom .bnt.cancelBnt {

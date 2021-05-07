@@ -625,11 +625,11 @@
 					that.$set(that, 'store_self_mention', res.data.store_self_mention);
 					that.cartArr[1].title = 'Số dư có sẵn:' + res.data.userInfo.now_money;
 					that.cartArr[0].payStatus = 2
-					that.cartArr[1].payStatus = 1
+					that.cartArr[1].payStatus = 2
 					if (res.data.offline_pay_status == 2){
-						that.cartArr[2].payStatus = 1
+						that.cartArr[2].payStatus = 2
 					}else{
-						that.cartArr[2].payStatus = 1
+						that.cartArr[2].payStatus = 2
 					}
 					
 					// that.$set(that, 'cartArr', that.cartArr);

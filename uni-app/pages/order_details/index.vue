@@ -75,7 +75,7 @@
 						<text class="iconfont icon-weizhi"></text>Xem vị trí
 					</view>
 				</view>
-				<view class='address' v-if="orderInfo.shipping_type === 1">
+				<!-- <view class='address' v-if="orderInfo.shipping_type === 1">
 					<view class='name'>{{orderInfo.real_name}}<text class='phone'>{{orderInfo.user_phone}}</text></view>
 					<view>{{orderInfo.user_address}}</view>
 				</view>
@@ -83,22 +83,13 @@
 					<view class='name' @tap="makePhone">{{orderInfo.system_store.name}}<text class='phone'>{{orderInfo.system_store.phone}}</text><text
 						 class="iconfont icon-tonghua font-color"></text></view>
 					<view>{{orderInfo.system_store._detailed_address}}</view>
-				</view>
+				</view> -->
 				<view class='line' v-if="orderInfo.shipping_type === 1">
 					<image src='../../static/images/line.jpg'></image>
 				</view>
 			</view>
 			<orderGoods :evaluate='evaluate' :orderId="order_id" :cartInfo="cartInfo" :jump="true"></orderGoods>
-			<div class="goodCall" @click="goGoodCall">
-				<!-- #ifdef H5 -->
-				<span class="iconfont icon-kefu"></span><span>Trả lời</span>
-				<!-- #endif -->
-				<!-- #ifdef MP -->
-				<button open-type='contact' hover-class='none'>
-					<span class="iconfont icon-kefu"></span><span>Trả lời</span>
-				</button>
-				<!-- #endif -->
-			</div>
+			
 			<view class='wrapper'>
 				<view class='item acea-row row-between'>
 					<view>Số thứ tự：</view>
@@ -374,7 +365,7 @@
 
 	.order-details .wrapper .item .conter {
 		color: #868686;
-		width: 460rpx;
+		// width: 460rpx;
 		text-align: right;
 	}
 
@@ -629,19 +620,20 @@
 				isGoodsReturn: false, //是否为退款订单
 				status: {}, //订单底部按钮状态
 				isClose: false,
-				payMode: [{
-						name: "Vi-thanh toán",
-						icon: "icon-weixinzhifu",
-						value: 'weixin',
-						title: 'Vi-thanh toán'
-					},
-					{
-						name: "Thanh toán cân bằng",
-						icon: "icon-yuezhifu",
-						value: 'yue',
-						title: 'Số dư có sẵn:',
-						number: 0
-					},
+				payMode: [
+					// {
+					// 	name: "Vi-thanh toán",
+					// 	icon: "icon-weixinzhifu",
+					// 	value: 'weixin',
+					// 	title: 'Vi-thanh toán'
+					// },
+					// {
+					// 	name: "Thanh toán cân bằng",
+					// 	icon: "icon-yuezhifu",
+					// 	value: 'yue',
+					// 	title: 'Số dư có sẵn:',
+					// 	number: 0
+					// },
 					{
 						"name": "Thanh toán trực tuyến",
 						"icon": "icon-yinhangqia",
