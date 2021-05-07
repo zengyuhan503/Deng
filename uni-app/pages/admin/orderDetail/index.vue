@@ -50,8 +50,8 @@
 			</navigator>
 		</view>
 		<view class="public-total">
-			共{{ orderInfo.total_num }}件商品，应支付
-			<span class="money">₫{{ orderInfo.pay_price }}</span> ( 邮费 ¥{{
+			共{{ orderInfo.total_num }}Một điều商品，应支付
+			<span class="money">₫{{ orderInfo.pay_price }}</span> ( 邮费 ₫{{
         orderInfo.pay_postage
       }}
 			)

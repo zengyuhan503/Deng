@@ -10,7 +10,7 @@
  * 开源地址:
  * https://gitee.com/uCharts/uCharts
  * 
- * uni-app插件市场地址：
+ * uni-app插Một điều市场地址：
  * http://ext.dcloud.net.cn/plugin?id=271
  * 
  */
@@ -101,7 +101,7 @@ var util = {
   }
 };
 
-//兼容H5点击事件
+//兼容H5点击事Một điều
 function getH5Offset(e) {
   e.mp = {
     changedTouches: []

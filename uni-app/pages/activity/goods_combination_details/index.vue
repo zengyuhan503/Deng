@@ -29,8 +29,8 @@
 						<view class='introduce'>{{storeInfo.title}}</view>
 						<view class='label acea-row row-between-wrapper'>
 							<view class='stock'>类型：{{storeInfo.people}}人团</view>
-							<view>累计销量：{{storeInfo.total?storeInfo.total:0}}件</view>
-							<view>限购: {{ storeInfo.quota ? storeInfo.quota : 0 }} 件</view>
+							<view>累计销量：{{storeInfo.total?storeInfo.total:0}}Một điều</view>
+							<view>限购: {{ storeInfo.quota ? storeInfo.quota : 0 }} Một điều</view>
 						</view>
 					</view>
 					<view class='attribute acea-row row-between-wrapper' @tap='selecAttr' v-if='attribute.productAttr.length'>
@@ -40,7 +40,7 @@
 					<view class='notice acea-row row-middle'>
 						<view class='num font-color'>
 							<text class='iconfont icon-laba'></text>
-							已拼{{pink_ok_sum}}件<text class='line'>|</text>
+							已拼{{pink_ok_sum}}Một điều<text class='line'>|</text>
 						</view>
 						<view class='swiper'>
 							<swiper :indicator-dots="indicatorDots" :autoplay="autoplay" interval="2500" duration="500" vertical="true"

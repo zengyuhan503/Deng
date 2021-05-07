@@ -1,4 +1,4 @@
-### easy-upload 组件
+### easy-upload 组Một điều
 
 使用方法
 ```js
@@ -8,9 +8,9 @@
 	@successImage="successImage" @successVideo="successvideo"
 	></easy-upload>
 	
-	//先引入组件
+	//先引入组Một điều
     import easyUpload from '@/components/easy-upload/easy-upload.vue'
-    //注册组件
+    //注册组Một điều
     components:{
         easyUpload
     }
@@ -31,9 +31,9 @@
 | upload_max  | Number | 否 | 上传大小(默认为3M)
 | upload_max  | Number | 否 | 上传大小(默认为3M)
 
-|  事件  | 是否必填 | 参数描述
+|  事Một điều  | 是否必填 | 参数描述
 |  ---- | ---- | ----
-| successImage  | 否 | 上传图片成功事件
+| successImage  | 否 | 上传图片成功事Một điều
 | successVideo  |  否 | 上传视频成功回调
 
 示例项目中有服务端代码 (node.js)

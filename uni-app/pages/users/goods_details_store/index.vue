@@ -127,7 +127,7 @@
 				// 	let loc;
 				// 	let _this = this;
 				// 	if (cookie.get(MAPKEY)) _this.locationShow = true;
-				// 	//监听定位组件的message事件
+				// 	//监听定位组Một điều的message事Một điều
 				// 	window.addEventListener(
 				// 		"message",
 				// 		function(event) {
@@ -141,7 +141,7 @@
 				// 				cookie.remove(LATITUDE);
 				// 				cookie.remove(LONGITUDE);
 				// 				_this.getList();
-				// 				//定位组件在定位失败后，也会触发message, event.data为null
+				// 				//定位组Một điều在定位失败后，也会触发message, event.data为null
 				// 				console.log("定位失败");
 				// 			}
 				// 		},

@@ -633,14 +633,14 @@
 		},
 
 		/**
-		 * 页面相关事件处理函数--监听用户下拉动作
+		 * 页面相关事Một điều处理函数--监听用户下拉动作
 		 */
 		onPullDownRefresh: function() {
 
 		},
 
 		/**
-		 * 页面上拉触底事件的处理函数
+		 * 页面上拉触底事Một điều的处理函数
 		 */
 		onReachBottom: function() {
 

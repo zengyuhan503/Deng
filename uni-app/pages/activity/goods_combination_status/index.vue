@@ -158,7 +158,7 @@
 				pinkId: 0,
 				count: 0, //拼团剩余人数
 				iShidden: false,
-				isOpen: false, //是否打开属性组件
+				isOpen: false, //是否打开属性组Một điều
 				attr: {
 					cartAttr: false,
 					productSelect: {

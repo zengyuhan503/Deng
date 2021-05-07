@@ -44,8 +44,8 @@
 						</view>
 						<view class='label acea-row row-middle'>
 							<!-- <view class='stock'>库存：{{storeInfo.stock}}{{storeInfo.unit_name}}</view> -->
-							<view class='stock'>累计销售：{{storeInfo.total?storeInfo.total:0}}件</view>
-							<view>限量: {{ storeInfo.quota ? storeInfo.quota : 0 }} 件</view>
+							<view class='stock'>累计销售：{{storeInfo.total?storeInfo.total:0}}Một điều</view>
+							<view>限量: {{ storeInfo.quota ? storeInfo.quota : 0 }} Một điều</view>
 						</view>
 					</view>
 					<view class='attribute acea-row row-between-wrapper' @tap='selecAttr' v-if='attribute.productAttr.length'>

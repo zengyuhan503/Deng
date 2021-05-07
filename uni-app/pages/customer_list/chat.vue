@@ -588,7 +588,7 @@
 				clearTimeout(this.timeOutEvent);
 				if (this.timeOutEvent !== 0 && this.longClick === 0) {
 					//点击
-					//此处为点击事件----在此处添加跳转详情页
+					//此处为点击事Một điều----在此处添加跳转详情页
 					console.log("这是点击");
 				}
 				this.speak = "按住 说话";

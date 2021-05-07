@@ -244,7 +244,7 @@
 				});
 			},
 			/**
-			 * 上传文件
+			 * 上传文Một điều
 			 * 
 			 */
 			uploadpic: function() {

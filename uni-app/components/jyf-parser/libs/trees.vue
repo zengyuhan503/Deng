@@ -1,8 +1,8 @@
 <!--
-  trees 递归显示组件
+  trees 递归显示组Một điều
   github：https://github.com/jin-yufeng/Parser 
   docs：https://jin-yufeng.github.io/Parser
-  插件市场：https://ext.dcloud.net.cn/plugin?id=805
+  插Một điều市场：https://ext.dcloud.net.cn/plugin?id=805
   author：JinYufeng
   update：2020/04/13
 -->
@@ -145,7 +145,7 @@
 			// #endif
 		},
 		mounted() {
-			// 获取顶层组件
+			// 获取顶层组Một điều
 			this.top = this.$parent;
 			while (this.top.$options.name != 'parser') {
 				if (this.top.top) {

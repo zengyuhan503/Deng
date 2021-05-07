@@ -371,7 +371,7 @@
 					},
 				});
 			},
-			// charts触摸事件
+			// charts触摸事Một điều
 			touchLineA(e) {
 				canvaLineA.scrollStart(e);
 			},

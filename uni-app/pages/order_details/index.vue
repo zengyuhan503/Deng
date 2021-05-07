@@ -705,7 +705,7 @@
 				});
 			},
 			/**
-			 * 事件回调
+			 * 事Một điều回调
 			 * 
 			 */
 			onChangeFun: function(e) {
@@ -742,14 +742,14 @@
 				});
 			},
 			/**
-			 * 关闭支付组件
+			 * 关闭支付组Một điều
 			 * 
 			 */
 			payClose: function() {
 				this.pay_close = false;
 			},
 			/**
-			 * 打开支付组件
+			 * 打开支付组Một điều
 			 * 
 			 */
 			pay_open: function() {

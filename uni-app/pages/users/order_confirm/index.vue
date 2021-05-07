@@ -305,10 +305,10 @@
 					coupon: false,
 					list: [],
 					statusTile: 'Sử dụng ngay lập tức'
-				}, //优惠券组件
+				}, //优惠券组Một điều
 				address: {
 					address: false
-				}, //地址组件
+				}, //地址组Một điều
 				addressInfo: {}, //地址信息
 				pinkId: 0, //拼团id
 				addressId: 0, //地址id
@@ -452,7 +452,7 @@
 				this.vnpay=value.detail.value
 			},
 			/**
-			 * 授权回调事件
+			 * 授权回调事Một điều
 			 * 
 			 */
 			onLoadFun: function() {
@@ -539,7 +539,7 @@
 				this.$set(this.coupon, 'list', this.coupon.list);
 			},
 			/**
-			 * 处理点击优惠券后的事件
+			 * 处理点击优惠券后的事Một điều
 			 * 
 			 */
 			ChangCoupons: function(e) {
@@ -580,7 +580,7 @@
 				this.computedPrice();
 			},
 			/**
-			 * 选择地址后改变事件
+			 * 选择地址后改变事Một điều
 			 * @param object e
 			 */
 			OnChangeAddress: function(e) {

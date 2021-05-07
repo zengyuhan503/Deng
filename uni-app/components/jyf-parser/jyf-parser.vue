@@ -1,8 +1,8 @@
 <!--
-  parser 主模块组件
+  parser 主模块组Một điều
   github：https://github.com/jin-yufeng/Parser 
   docs：https://jin-yufeng.github.io/Parser
-  插件市场：https://ext.dcloud.net.cn/plugin?id=805
+  插Một điều市场：https://ext.dcloud.net.cn/plugin?id=805
   author：JinYufeng
   update：2020/04/14
 -->
@@ -416,7 +416,7 @@
 					} else nodes = parser.parse();
 					this.$emit('parse', nodes);
 				} else if (Object.prototype.toString.call(html) == '[object Array]') {
-					// 非本插件产生的 array 需要进行一些转换
+					// 非本插Một điều产生的 array 需要进行一些转换
 					if (html.length && html[0].PoweredBy != 'Parser') {
 						let parser = new Parser(html, this);
 						(function f(ns) {

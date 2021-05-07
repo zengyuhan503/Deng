@@ -48,7 +48,7 @@
           class="item acea-row row-between-wrapper"
           v-if="orderInfo.refund_status === 1"
         >
-          <view>Thực sự thanh toán(¥)</view>
+          <view>Thực sự thanh toán(₫)</view>
           <view class="money">
             {{ orderInfo.pay_price }}<span class="iconfont icon-suozi"></span>
           </view>
@@ -57,7 +57,7 @@
           class="item acea-row row-between-wrapper"
           v-if="orderInfo.refund_status === 1"
         >
-          <view>Số tiền hoàn lại(¥)</view>
+          <view>Số tiền hoàn lại(₫)</view>
           <view class="money">
             <input
               type="text"

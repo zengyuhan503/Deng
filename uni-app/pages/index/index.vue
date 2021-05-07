@@ -234,7 +234,7 @@
 						</view>
 						<view class="text-info">
 							<view class="title line1">{{item.store_name}}</view>
-							<view class="old-price"><text>¥</text>{{item.ot_price}}</view>
+							<view class="old-price"><text>₫</text>{{item.ot_price}}</view>
 							<view class="price">
 								<text>₫</text>{{item.price}}
 								<view class="txt" v-if="item.checkCoupon">券</view>
@@ -269,7 +269,7 @@
 								<view class='vip-money' v-if="item.vip_price && item.vip_price > 0">₫{{item.vip_price}}
 									<image src='../../static/images/vip.png'></image>
 								</view>
-								<view>已售{{item.sales}}件</view>
+								<view>已售{{item.sales}}Một điều</view>
 							</view>
 						</view>
 					</view>

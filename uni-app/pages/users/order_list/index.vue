@@ -200,7 +200,7 @@
 				this.isShowAuth = e
 			},
 			/**
-			 * 事件回调
+			 * 事Một điều回调
 			 * 
 			 */
 			onChangeFun: function(e) {
@@ -221,7 +221,7 @@
 				});
 			},
 			/**
-			 * 关闭支付组件
+			 * 关闭支付组Một điều
 			 * 
 			 */
 			payClose: function() {
@@ -269,7 +269,7 @@
 				});
 			},
 			/**
-			 * 打开支付组件
+			 * 打开支付组Một điều
 			 * 
 			 */
 			goPay: function(pay_price, order_id) {

@@ -211,8 +211,8 @@ class AuthWechat {
 	}
 
 	/**
-	 * 绑定事件
-	 * @param {Object} name 事件名
+	 * 绑定事Một điều
+	 * @param {Object} name 事Một điều名
 	 * @param {Object} config 参数
 	 */
 	wechatEvevt(name, config) {

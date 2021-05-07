@@ -81,7 +81,7 @@
 			}
 		},
 		/**
-		 * 页面上拉触底事件的处理函数
+		 * 页面上拉触底事Một điều的处理函数
 		 */
 		onReachBottom: function() {
 			this.getOrderList();

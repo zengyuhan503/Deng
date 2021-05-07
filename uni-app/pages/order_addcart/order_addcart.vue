@@ -91,9 +91,9 @@
 					</form>
 				</view>
 				<view class='button acea-row row-middle' v-else>
-					<form @submit="subCollect" report-submit='true'>
+				<!-- 	<form @submit="subCollect" report-submit='true'>
 						<button class='bnt cart-color' formType="submit">Bộ sưu tập</button>
-					</form>
+					</form> -->
 					<form @submit="subDel" report-submit='true'>
 						<button class='bnt' formType="submit">Xoá bỏ</button>
 					</form>
@@ -192,7 +192,7 @@
 		methods: {
 			
 			     /**
-			     * 手动输入数量失焦事件
+			     * 手动输入数量失焦事Một điều
 			     */
 			  //   inputBlur(index,val) {
 			  //     if (val <= 1) {

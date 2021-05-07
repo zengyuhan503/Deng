@@ -1,4 +1,4 @@
-/* 配置文件 */
+/* 配置文Một điều */
 // #ifdef MP-WEIXIN
 const canIUse = wx.canIUse('editor'); // 高基础库标识，用于兼容
 // #endif

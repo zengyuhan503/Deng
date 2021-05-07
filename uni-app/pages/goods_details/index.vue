@@ -104,7 +104,7 @@
 											<span class="pictrue_log pictrue_log_class" v-if="val.activity && val.activity.type === '3'">Đánh vần</span>
 										</view>
 										<view class="name line1">{{val.store_name}}</view>
-										<view class="money font-color">¥{{val.price}}</view>
+										<view class="money font-color">₫{{val.price}}</view>
 									</view>
 								</view>
 							</swiper-item>
@@ -140,7 +140,7 @@
 			</view>
 		</view>
 		<shareRedPackets :sharePacket="sharePacket" @listenerActionSheet="listenerActionSheet" @closeChange="closeChange"></shareRedPackets>
-		<!-- 组件 -->
+		<!-- 组Một điều -->
 		<productWindow :attr="attr" :isShow='1' :iSplus='1' @myevent="onMyEvent" @ChangeAttr="ChangeAttr" @ChangeCartNum="ChangeCartNum"
 		 @attrVal="attrVal" @iptCartNum="iptCartNum" id='product-window'></productWindow>
 		<home></home>
@@ -261,7 +261,7 @@
 				cart_num: 1, //购买数量
 				isAuto: false, //没有授权的不会自动授权
 				isShowAuth: false, //是否隐藏授权
-				isOpen: false, //是否打开属性组件
+				isOpen: false, //是否打开属性组Một điều
 				actionSheetHidden: true,
 				posterImageStatus: false,
 				storeImage: '', //海报产品图
@@ -804,14 +804,14 @@
 				}
 			},
 			/**
-			 * 打开属性插件
+			 * 打开属性插Một điều
 			 */
 			selecAttr: function() {
 				this.$set(this.attr, 'cartAttr', true);
 				this.$set(this, 'isOpen', true);
 			},
 			/**
-			 * 打开优惠券插件
+			 * 打开优惠券插Một điều
 			 */
 			couponTap: function() {
 				let that = this;

@@ -141,7 +141,7 @@
 					// that.$set(that, 'hostProduct', res.data)
 				});
 			},
-			//点击事件处理
+			//点击事Một điều处理
 			set_where: function(e) {
 				switch (e) {
 					case 1:
@@ -174,7 +174,7 @@
 				this.$set(this.where, 'page', 1);
 				this.get_product_list(true);
 			},
-			//设置where条件
+			//设置where条Một điều
 			setWhere: function() {
 				if (this.price == 0) this.where.priceOrder = '';
 				else if (this.price == 1) this.where.priceOrder = 'desc';

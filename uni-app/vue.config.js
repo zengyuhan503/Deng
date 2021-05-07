@@ -1,5 +1,5 @@
 module.exports = {
-	productionSourceMap: false, // 生产打包时不输出map文件，增加打包速度
+	productionSourceMap: false, // 生产打包时不输出map文Một điều，增加打包速度
 	configureWebpack: config => {
 		if (process.env.NODE_ENV === 'production') {
 			config.optimization.minimizer[0].options.terserOptions.compress.warnings = false
