@@ -185,3 +185,13 @@ export function postOrderComputed(key, data) {
 export function postOrderVnpayCallback( key,data) {
   return request.post("order/getPayInfo/" + key,data );
 }
+
+/**
+ * vnPay callback
+ * @param key
+ * @param data
+ * @returns {*}
+ */
+export function postOrderbankPayInfoCallback( key,data) {
+  return request.post("order/bankPayInfo/" + key,data );
+}

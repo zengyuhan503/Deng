@@ -2,7 +2,7 @@
 	<view>
 		<view class='order-submission'>
 			<view class="allAddress" :style="store_self_mention ? '':'padding-top:10rpx'">
-			<!-- 	<view class="nav acea-row">
+				<!-- 	<view class="nav acea-row">
 					<view class="item font-color" :class="shippingType == 0 ? 'on' : 'on2'" @tap="addressType(0)" v-if='store_self_mention'></view>
 					<view class="item font-color" :class="shippingType == 1 ? 'on' : 'on2'" @tap="addressType(1)" v-if='store_self_mention'></view>
 				</view> -->
@@ -12,7 +12,9 @@
 							<text class='phone'>{{addressInfo.phone}}</text>
 						</view>
 						<view>
-							<text class='default font-color' v-if="addressInfo.is_default">[默认]</text>{{addressInfo.province}}{{addressInfo.city}}{{addressInfo.district}}{{addressInfo.detail}}</view>
+							<text class='default font-color'
+								v-if="addressInfo.is_default">[默认]</text>{{addressInfo.province}}{{addressInfo.city}}{{addressInfo.district}}{{addressInfo.detail}}
+						</view>
 						<!-- <view class='setaddress'>设置收货地址</view> -->
 					</view>
 					<view class='addressCon' v-else>
@@ -40,13 +42,15 @@
 			</view>
 			<orderGoods :cartInfo="cartInfo"></orderGoods>
 			<view class='wrapper'>
-				<view class='item acea-row row-between-wrapper' @tap='couponTap' v-if="!pinkId && !BargainId && !combinationId && !seckillId">
+				<view class='item acea-row row-between-wrapper' @tap='couponTap'
+					v-if="!pinkId && !BargainId && !combinationId && !seckillId">
 					<view>Phiếu giảm giá</view>
 					<view class='discount'>{{couponTitle}}
 						<text class='iconfont icon-jiantou'></text>
 					</view>
 				</view>
-				<view class='item acea-row row-between-wrapper' v-if="!pinkId && !BargainId && !combinationId && !seckillId">
+				<view class='item acea-row row-between-wrapper'
+					v-if="!pinkId && !BargainId && !combinationId && !seckillId">
 					<view>Tích hợp khấu trừ</view>
 					<view class='discount acea-row row-middle'>
 						<view> {{useIntegral ? "Điểm còn lại":"Điểm hiện tại"}}
@@ -57,7 +61,8 @@
 						</checkbox-group>
 					</view>
 				</view>
-				<view class='item acea-row row-between-wrapper' v-if="priceGroup.vipPrice > 0 && userInfo.vip && !pinkId && !BargainId && !combinationId && !seckillId">
+				<view class='item acea-row row-between-wrapper'
+					v-if="priceGroup.vipPrice > 0 && userInfo.vip && !pinkId && !BargainId && !combinationId && !seckillId">
 					<view>Thành viên giảm giá</view>
 					<view class='discount'>-₫{{priceGroup.vipPrice}}</view>
 				</view>
@@ -70,13 +75,15 @@
 					<view class="item acea-row row-between-wrapper">
 						<view>Người liên lạc</view>
 						<view class="discount">
-							<input type="text" placeholder="Xin vui lòng điền tên liên lạc của bạn" placeholder-class="placeholder" @blur='realName'></input>
+							<input type="text" placeholder="Xin vui lòng điền tên liên lạc của bạn"
+								placeholder-class="placeholder" @blur='realName'></input>
 						</view>
 					</view>
 					<view class="item acea-row row-between-wrapper">
 						<view>Số liên lạc</view>
 						<view class="discount">
-							<input type="text" placeholder="Xin vui lòng điền vào số liên lạc của bạn" placeholder-class="placeholder" @blur='phone'></input>
+							<input type="text" placeholder="Xin vui lòng điền vào số liên lạc của bạn"
+								placeholder-class="placeholder" @blur='phone'></input>
 						</view>
 					</view>
 				</view>
@@ -86,35 +93,51 @@
 		    </view> -->
 				<view class='item' v-if="textareaStatus">
 					<view>Từng dùng</view>
-					<textarea v-if="coupon.coupon===false" placeholder-class='placeholder' @input='bindHideKeyboard' value="" name="mark"
-					 placeholder='Xin vui lòng thêm ghi chú (ít hơn 150 từ)'></textarea>
+					<textarea v-if="coupon.coupon===false" placeholder-class='placeholder' @input='bindHideKeyboard'
+						value="" name="mark" placeholder='Xin vui lòng thêm ghi chú (ít hơn 150 từ)'></textarea>
 				</view>
 			</view>
 			<view class='wrapper'>
 				<view class='item'>
 					<view>Trả tiền</view>
 					<view class='list'>
-						<view class='payItem acea-row row-middle' :class='active==index ?"on":""' @tap='payItem(index)' v-for="(item,index) in cartArr"
-						 :key='index' v-if="item.payStatus==1">
+						<view class='payItem acea-row row-middle' :class='active==index ?"on":""' @tap='payItem(index)'
+							v-for="(item,index) in cartArr" :key='index' v-if="item.payStatus==1">
 							<view class='name acea-row row-center-wrapper'>
-								<view class='iconfont animated' :class='(item.icon) + " " + (animated==true&&active==index ?"bounceIn":"")'></view>{{item.name}}
+								<view class='iconfont animated'
+									:class='(item.icon) + " " + (animated==true&&active==index ?"bounceIn":"")'></view>
+								{{item.name}}
 							</view>
 							<view class='tip'>{{item.title}}</view>
-							<view class="vnpayConfig" v-if="item.value=='vnpay'" >
-									  <view class="uni-list"  v-show='active==index'>
-									             <radio-group @change="radioChange">
-									                 <label class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in items" :key="item.value">
-									                     <view>
-									                         <radio :value="item.value" :checked="item.checked === vnpay" />
-									                     </view>
-									                     <view>{{item.name}}</view>
-									                 </label>
-									             </radio-group>
-									         </view>
+							<view class="vnpayConfig" v-if="item.value=='vnpay'">
+								<view class="uni-list" v-show='active==index'>
+									<radio-group @change="radioChange">
+										<label class="uni-list-cell uni-list-cell-pd" v-for="(item, index) in items"
+											:key="item.value">
+											<view>
+												<radio :value="item.value" :checked="item.checked === vnpay" />
+											</view>
+											<view>{{item.name}}</view>
+										</label>
+									</radio-group>
+								</view>
+							</view>
+							<view class="bankpayConfig" v-if="item.value=='bankpay'">
+								<view class="uni-list" v-show='active==index'>
+									<radio-group @change="radiobankpayChange">
+										<label class="uni-list-cell uni-list-cell-pd"
+											v-for="(item, index) in bankpayitems" :key="item.value">
+											<view>
+												<radio :value="item.value" :checked="item.checked === vnpay" />
+											</view>
+											<view>{{item.name}}</view>
+										</label>
+									</radio-group>
+								</view>
 							</view>
 						</view>
 					</view>
-					
+
 				</view>
 			</view>
 			<view class='moneyList'>
@@ -146,8 +169,8 @@
 				<view class="Modalbody">
 					<view class="modalBody_title">
 						Thanh toán kết quả
-						<view class="modal_close"  @click="handleVnpaycallback">
-								X
+						<view class="modal_close" @click="handleVnpaycallback">
+							X
 						</view>
 					</view>
 					<view class="Orderinfo">
@@ -158,7 +181,7 @@
 							Số thứ tự：{{vnplayInfo.orderid}}
 						</view>
 						<view class="">
-							Tổng giá：	<text class='font-color'>₫{{totalPrice || 0}}</text>
+							Tổng giá： <text class='font-color'>₫{{totalPrice || 0}}</text>
 						</view>
 						<view class="">
 							Thanh toán: thanh toán trực tuyến
@@ -166,19 +189,19 @@
 					</view>
 					<view class="orderBtn">
 						<view class="clear">
-							 <button type="default"  @click="handleVnpaycallback" >Hủy bỏ</button>
+							<button type="default" @click="handleVnpaycallback">Hủy bỏ</button>
 						</view>
 						<view class="payResult">
-							 <button type="default" @click="handleVnpaycallback">Đã hoàn thành thanh toán</button>
+							<button type="default" @click="handleVnpaycallback">Đã hoàn thành thanh toán</button>
 						</view>
 					</view>
 				</view>
 			</view>
 		</view>
 		<couponListWindow :coupon='coupon' @ChangCouponsClone="ChangCouponsClone" :openType='openType' :cartId='cartId'
-		 @ChangCoupons="ChangCoupons"></couponListWindow>
-		<addressWindow ref="addressWindow" @changeTextareaStatus="changeTextareaStatus" :address='address' :pagesUrl="pagesUrl"
-		 @OnChangeAddress="OnChangeAddress" @changeClose="changeClose"></addressWindow>
+			@ChangCoupons="ChangCoupons"></couponListWindow>
+		<addressWindow ref="addressWindow" @changeTextareaStatus="changeTextareaStatus" :address='address'
+			:pagesUrl="pagesUrl" @OnChangeAddress="OnChangeAddress" @changeClose="changeClose"></addressWindow>
 		<!-- #ifdef MP -->
 		<authorize @onLoadFun="onLoadFun" :isAuto="isAuto" :isShowAuth="isShowAuth" @authColse="authColse"></authorize>
 		<!-- #endif -->
@@ -232,50 +255,65 @@
 		},
 		data() {
 			return {
-				vnplayInfo:{},
-				vnpayActive:false,
-				vnpay:"momo",
-				 items: [{
-											value: 'zalo',
-											name: 'ZALO Trả tiền'
-									},
-									{
-											value: 'momo',
-											name: 'MOMOTrả tiền',
-											checked: 'momo'
-									},
-									{
-											value: 'vietcombank',
-											name: 'VietCombank Trả tiền'
-									},
-									{
-											value: 'vietinbankipay',
-											name: 'VietInbankiPay Trả tiền'
-									},
-									{
-											value: 'vtpay',
-											name: 'VTpay Trả tiền'
-									},
-									{
-											value: 'tpbank',
-											name: 'TPBANK Trả tiền'
-									},
-									{
-											value: 'acbbank',
-											name: 'ACBbank Trả tiền'
-									}
-							],
+				vnplayInfo: {},
+				vnpayActive: false,
+				bankpay:"",
+				vnpay: "momo",
+				items: [{
+						value: 'zalo',
+						name: 'ZALO Trả tiền'
+					},
+					{
+						value: 'momo',
+						name: 'MOMOTrả tiền',
+						checked: 'momo'
+					},
+					{
+						value: 'vietcombank',
+						name: 'VietCombank Trả tiền'
+					},
+					{
+						value: 'vietinbankipay',
+						name: 'VietInbankiPay Trả tiền'
+					},
+					{
+						value: 'vtpay',
+						name: 'VTpay Trả tiền'
+					},
+					{
+						value: 'tpbank',
+						name: 'TPBANK Trả tiền'
+					},
+					{
+						value: 'acbbank',
+						name: 'ACBbank Trả tiền'
+					}
+				],
+				bankpayitems: [{
+						value: 'zalo',
+						name: 'Thanh toán baht thái LAN'
+					},
+					{
+						value: 'momo',
+						name: 'Thanh toán bằng rupee',
+						checked: 'momo'
+					},
+					{
+						value: 'vietcombank',
+						name: 'Việt nam đồng thanh toán'
+					},
+
+				],
 				textareaStatus: true,
 				//支付方式
-				cartArr: [
-					{
+				cartArr: [{
 						"name": "Vi-thanh toán",
 						"icon": "icon-weixin2",
 						value: 'weixin',
 						title: 'Ứng dụng thanh toán nhanh',
 						payStatus: 2,
 					},
-				
+
 					{
 						"name": "Thanh toán cân bằng",
 						"icon": "icon-icon-test",
@@ -289,12 +327,19 @@
 						value: 'offline',
 						title: 'Giao dịch dưới đường dây',
 						payStatus: 1,
-					},	
+					},
 					{
 						"name": "Thanh toán trực tuyến",
 						"icon": "icon-yinhangqia",
 						value: 'vnpay',
 						title: 'Thanh toán trực tuyến',
+						payStatus: 1,
+					},
+					{
+						"name": "Thanh toán thẻ ngân hàng",
+						"icon": "icon-yinhangqia",
+						value: 'bankpay',
+						title: 'Thanh toán thẻ ngân hàng',
 						payStatus: 1,
 					},
 				],
@@ -422,19 +467,21 @@
 		// 	console.log(999);
 		// 	this.isClose = true
 		// },
-		methods: {/**
+		methods: {
+			/**
 			 * VNpay 支付回调
 			 * 
 			 * */
-			handleVnpaycallback(){
-				var _this=this;
-				var params={
-					ticket:this.vnplayInfo.ticket,
-					orderid:this.vnplayInfo.orderid
+			handleVnpaycallback() {
+				var _this = this;
+				var params = {
+					ticket: this.vnplayInfo.ticket,
+					orderid: this.vnplayInfo.orderid
 				}
-				postOrderVnpayCallback(this.orderKey,params).then(res=>{
+				postOrderVnpayCallback(this.orderKey, params).then(res => {
 					console.log(res)
-					var	goPages = '/pages/order_pay_status/index?order_id=' + _this.vnplayInfo.orderid + '&msg=订单完成';
+					var goPages = '/pages/order_pay_status/index?order_id=' + _this.vnplayInfo.orderid +
+						'&msg=订单完成';
 					this.$util.Tips({
 						title: res.msg
 					}, {
@@ -448,8 +495,11 @@
 			 * 选择支付类型
 			 * 
 			 * */
-			radioChange(value){
-				this.vnpay=value.detail.value
+			radioChange(value) {
+				this.vnpay = value.detail.value
+			},
+			radiobankpayChange(value) {
+				this.bankpay = value.detail.value
 			},
 			/**
 			 * 授权回调事Một điều
@@ -488,9 +538,9 @@
 			 * 跳转门店列表
 			 */
 			showStoreList: function() {
-				
+
 				let _this = this
-				if(this.storeList.length >0){
+				if (this.storeList.length > 0) {
 					uni.navigateTo({
 						url: '/pages/users/goods_details_store/index'
 					})
@@ -600,7 +650,7 @@
 			getConfirm: function() {
 				let that = this;
 				orderConfirm(that.cartId).then(res => {
-					console.log(res,'res')
+					console.log(res, 'res')
 					that.$set(that, 'userInfo', res.data.userInfo);
 					that.$set(that, 'integral', res.data.userInfo.integral);
 					that.$set(that, 'cartInfo', res.data.cartInfo);
@@ -609,8 +659,9 @@
 					that.$set(that, 'orderKey', res.data.orderKey);
 
 					that.$set(that, 'priceGroup', res.data.priceGroup);
-					that.$set(that, 'totalPrice', that.$util.$h.Add(parseFloat(res.data.priceGroup.totalPrice), parseFloat(res.data
-						.priceGroup.storePostage)));
+					that.$set(that, 'totalPrice', that.$util.$h.Add(parseFloat(res.data.priceGroup.totalPrice),
+						parseFloat(res.data
+							.priceGroup.storePostage)));
 					that.$set(that, 'seckillId', parseInt(res.data.seckill_id));
 
 					// if (res.data.usableCoupon == null) {
@@ -626,18 +677,18 @@
 					that.cartArr[1].title = 'Số dư có sẵn:' + res.data.userInfo.now_money;
 					that.cartArr[0].payStatus = 2
 					that.cartArr[1].payStatus = 2
-					if (res.data.offline_pay_status == 2){
+					if (res.data.offline_pay_status == 2) {
 						that.cartArr[2].payStatus = 2
-					}else{
+					} else {
 						that.cartArr[2].payStatus = 2
 					}
-					
+
 					// that.$set(that, 'cartArr', that.cartArr);
 					that.$set(that, 'ChangePrice', that.totalPrice);
 					that.getBargainId();
 					that.getCouponList();
 				}).catch(err => {
-					console.log(err,'err')
+					console.log(err, 'err')
 					// return this.$util.Tips({
 					// 	title: err
 					// }, {
@@ -722,7 +773,8 @@
 				let that = this;
 				that.textareaStatus = false;
 				that.address.address = true;
-				that.pagesUrl = '/pages/users/user_address_list/index?cartId=' + this.cartId + '&pinkId=' + this.pinkId +
+				that.pagesUrl = '/pages/users/user_address_list/index?cartId=' + this.cartId + '&pinkId=' + this
+					.pinkId +
 					'&couponId=' +
 					this.couponId;
 			},
@@ -739,7 +791,7 @@
 					let status = res.data.status,
 						orderId = res.data.result.orderId,
 						jsConfig = res.data.result.jsConfig,
-						
+
 						goPages = '/pages/order_pay_status/index?order_id=' + orderId + '&msg=' + res.msg;
 					switch (status) {
 						case 'ORDER_EXIST':
@@ -782,7 +834,8 @@
 								paySign: jsConfig.paySign,
 								success: function(res) {
 									uni.hideLoading();
-									if (that.BargainId || that.combinationId || that.pinkId || that.seckillId)
+									if (that.BargainId || that.combinationId || that.pinkId || that
+										.seckillId)
 										return that.$util.Tips({
 											title: 'Thanh toán thành công',
 											icon: 'success'
@@ -810,12 +863,13 @@
 								complete: function(e) {
 									uni.hideLoading();
 									//关闭当前页面跳转至订单状态
-									if (res.errMsg == 'requestPayment:cancel') return that.$util.Tips({
-										title: 'Hủy bỏ thanh toán'
-									}, {
-										tab: 5,
-										url: goPages + '&status=0'
-									});
+									if (res.errMsg == 'requestPayment:cancel') return that.$util
+										.Tips({
+											title: 'Hủy bỏ thanh toán'
+										}, {
+											tab: 5,
+											url: goPages + '&status=0'
+										});
 								},
 							})
 							// #endif
@@ -856,14 +910,14 @@
 							break;
 						case "VNPAY":
 							uni.hideLoading();
-							var vnPay=res.data.result.vnPay;
-							var vnPayUrl=vnPay.pageurl
-							location.href =vnPayUrl
-							this.vnplayInfo=vnPay
-							this.vnpayActive=true;
+							var vnPay = res.data.result.vnPay;
+							var vnPayUrl = vnPay.pageurl
+							location.href = vnPayUrl
+							this.vnplayInfo = vnPay
+							this.vnpayActive = true;
 							break;
 					}
-				
+
 				}).catch(err => {
 					uni.hideLoading();
 					return that.$util.Tips({
@@ -872,10 +926,10 @@
 				});
 			},
 			SubOrder: function(e) {
-				
+
 				let that = this,
 					data = {};
-				
+
 				if (!that.payType) return that.$util.Tips({
 					title: 'Hãy chọn phương thức thanh toán'
 				});
@@ -919,13 +973,17 @@
 					'from': that.from,
 					shipping_type: that.$util.$h.Add(that.shippingType, 1)
 				};
-				if(data.payType=='vnpay'){
-					data.type=that.vnpay;
+				if (data.payType == 'vnpay') {
+					data.type = that.vnpay;
+				}
+				if (data.payType == 'bankpay') {
+					data.type = that.bankpay;
 				}
 				console.log(data);
-				if (data.payType == 'yue' && parseFloat(that.userInfo.now_money) < parseFloat(that.totalPrice)) return that.$util.Tips({
-					title: 'Số dư là không đủ！'
-				});
+				if (data.payType == 'yue' && parseFloat(that.userInfo.now_money) < parseFloat(that.totalPrice))
+				return that.$util.Tips({
+						title: 'Số dư là không đủ！'
+					});
 				uni.showLoading({
 					title: 'Thứ tự thanh toán'
 				});
@@ -993,7 +1051,7 @@
 
 	.order-submission .allAddress {
 		width: 100%;
-		background: linear-gradient(to bottom, #e93323 0%,#f5f5f5 100%);
+		background: linear-gradient(to bottom, #e93323 0%, #f5f5f5 100%);
 		// background-image: linear-gradient(to bottom, #e93323 0%, #f5f5f5 100%);
 		// background-image: -webkit-linear-gradient(to bottom, #e93323 0%, #f5f5f5 100%);
 		// background-image: -moz-linear-gradient(to bottom, #e93323 0%, #f5f5f5 100%);
@@ -1235,26 +1293,36 @@
 	}
 </style>
 <style>
-	.vnpayConfig{
+	.vnpayConfig {
 		background: #fff;
 		width: 100%;
-		    
-		    padding: 9px;
-		    box-sizing: border-box;
+
+		padding: 9px;
+		box-sizing: border-box;
 	}
-	.vnpayConfig .uni-list>uni-radio-group{
+
+	.vnpayConfig .uni-list>uni-radio-group {
 		display: flex;
 		width: 100%;
 		flex-wrap: wrap;
 	}
-	.vnpayConfig .uni-label-pointer{
+
+	.vnpayConfig .uni-label-pointer {
 		display: flex;
 		width: 50%;
-    height: 32px;
+		height: 32px;
 		justify-content: start;
 		align-items: center;
 	}
-	.vnPayModal{
+	.bankpayConfig .uni-label-pointer {
+		display: flex;
+		width: 100%;
+		height: 32px;
+		justify-content: start;
+		align-items: center;
+	}
+
+	.vnPayModal {
 		width: 100%;
 		height: 100%;
 		background: #0000008a;
@@ -1269,68 +1337,76 @@
 		align-items: center;
 		z-index: 100;
 	}
-	.Modalbody{
+
+	.Modalbody {
 		width: 300px;
 		height: 300px;
 		border-radius: 10px;
 		box-shadow: 0px 0px 1px #DDDDDD;
 		background: #fff;
 		position: relative;
-		}
-		.modalBody_title{
-			height: 40px;
-			background: #DF2D0A;
-			color: #FFFFFF;
-			text-align: center;
-			font-size: 18px;
-			line-height: 40px;
-			position: relative;
-		}
-		.modal_close{
-			width: 30px;
-			height: 30px;
-			text-align: center;
-			line-height: 30px;
-			border-radius: 50%;
-			position: absolute;
-			right: 0;
-			top: 0;
-		}
-		.Orderinfo{
-			padding: 30px;
-			box-sizing: border-box;
-		}
-		.Orderinfo .infotxt{
-			height: 30px;
-			line-height: 30px;
-		}
-		.orderBtn{
-			padding: 15px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			position: absolute;
-			    bottom: 0;
-			    width: 100%;
-		}
-		.orderBtn .clear button{
-			background: #FFFFFF;
-			color: #000000;
-			border: 1px solid #000;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 120px;
-			height: 40px;
-		}
-		.orderBtn .payResult button{
-			background: #df2d0a;
-			color: #fff;
-			border: 1px solid #df2d0a;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 120px;
-			height: 40px;
-		}
+	}
+
+	.modalBody_title {
+		height: 40px;
+		background: #DF2D0A;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 18px;
+		line-height: 40px;
+		position: relative;
+	}
+
+	.modal_close {
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		border-radius: 50%;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.Orderinfo {
+		padding: 30px;
+		box-sizing: border-box;
+	}
+
+	.Orderinfo .infotxt {
+		height: 30px;
+		line-height: 30px;
+	}
+
+	.orderBtn {
+		padding: 15px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+	}
+
+	.orderBtn .clear button {
+		background: #FFFFFF;
+		color: #000000;
+		border: 1px solid #000;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 120px;
+		height: 40px;
+	}
+
+	.orderBtn .payResult button {
+		background: #df2d0a;
+		color: #fff;
+		border: 1px solid #df2d0a;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 120px;
+		height: 40px;
+	}
 </style>
