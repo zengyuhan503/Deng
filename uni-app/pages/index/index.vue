@@ -36,7 +36,7 @@
 			<view class="mp-bg"></view>
 			<!-- #endif -->
 			<!-- banner -->
-			<!-- <view class="swiper">
+			<view class="swiper">
 				<swiper indicator-dots="true" :autoplay="true" :circular="circular" :interval="interval" :duration="duration"
 				 indicator-color="rgba(255,255,255,0.6)" indicator-active-color="#fff">
 					<block v-for="(item,index) in imgUrls" :key="index">
@@ -47,7 +47,7 @@
 						</swiper-item>
 					</block>
 				</swiper>
-			</view> -->
+			</view>
 			<!-- menu -->
 			<view class='nav acea-row' v-if="menus.length">
 				<block v-for="(item,index) in menus" :key="index">
@@ -112,7 +112,7 @@
 			</block>
 			<!-- #endif -->
 			<!-- 拼团热点图 -->
-			<view class="hot-img" :style="{'marginTop':liveList.length>0?'40rpx':'0'}">
+			<!-- <view class="hot-img" :style="{'marginTop':liveList.length>0?'40rpx':'0'}">
 				<swiper :autoplay="autoplay" :circular="circular" :interval="interval">
 					<block v-for="(item,index) in activityList" :key="index">
 						<swiper-item>
@@ -122,7 +122,7 @@
 						</swiper-item>
 					</block>
 				</swiper>
-			</view>
+			</view> -->
 			<!-- 限时秒杀 -->
 			<view class="spike-box" v-if="spikeList.length>0">
 				<view class="hd">

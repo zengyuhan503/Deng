@@ -19,16 +19,16 @@
 					<view class='wrapper'>
 						<view class='share acea-row row-between row-bottom'>
 							<view class='money font-color'>
-								￥
+								₫
 								<text class='num'>{{storeInfo.price}}</text>
-								<text class='vip-money' v-if="storeInfo.vip_price && storeInfo.vip_price > 0">￥{{storeInfo.vip_price}}</text>
+								<text class='vip-money' v-if="storeInfo.vip_price && storeInfo.vip_price > 0">₫{{storeInfo.vip_price}}</text>
 								<image v-if="storeInfo.vip_price && storeInfo.vip_price > 0" src="../../static/images/vip.png"></image>
 							</view>
 							<view class='iconfont icon-fenxiang' @click="listenerActionSheet"></view>
 						</view>
 						<view class='introduce'>{{storeInfo.store_name}}</view>
 						<view class='label acea-row row-between-wrapper'>
-							<view>Giá gốc:￥{{storeInfo.ot_price}}</view>
+							<view>Giá gốc:₫{{storeInfo.ot_price}}</view>
 							<view>trong kho:{{storeInfo.stock}}{{storeInfo.unit_name}}</view>
 							<view>Bán hang:{{storeInfo.fsales}}{{storeInfo.unit_name}}</view>
 						</view>
