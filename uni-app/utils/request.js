@@ -9,7 +9,7 @@ import store from '../store';
 function baseRequest(url, method, data, {noAuth = false, noVerify = false})
 {
   // let Url = HTTP_REQUEST_URL,
-  let Url = "http://a.ajskajhsjsa.top",
+  let Url = "http://www.iphonexvn.com",
 	 header = HEADER;
   
   if (!noAuth) {
