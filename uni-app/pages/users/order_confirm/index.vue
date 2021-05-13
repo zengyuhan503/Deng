@@ -555,6 +555,7 @@
 					shipping_type: parseInt(shippingType) + 1,
 					payType: this.payType
 				}).then(res => {
+					console.log(res)
 					let result = res.data.result;
 					if (result) {
 						this.totalPrice = result.pay_price;
