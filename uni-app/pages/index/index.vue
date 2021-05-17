@@ -322,8 +322,8 @@
 		<authorize @onLoadFun="onLoadFun" :isAuto="isAuto" :isShowAuth="isShowAuth" @authColse="authColse" :isGoIndex="false"></authorize>
 		<!-- #endif -->
 		<!-- banner广告弹框展示 -->
-	<view class="bannerCenter">
-		<view class="bannerIamgmode" v-show="showImages">
+	<view class="bannerCenter"  v-show="showImages">
+		<view class="bannerIamgmode">
 			<view class="close" @click="showImages = false">Đóng</view>
 			<image :src="'http://www.iphonexvn.com/' + newGoodsBananr" mode=""></image>
 		</view>
