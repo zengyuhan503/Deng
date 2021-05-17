@@ -124,15 +124,6 @@
 							</view>
 							<view class="bankpayConfig" v-if="item.value=='bankpay'">
 								<view class="uni-list" v-show='active==index'>
-									<radio-group @change="radiobankpayChange">
-										<label class="uni-list-cell uni-list-cell-pd"
-											v-for="(item, index) in bankpayitems" :key="item.value">
-											<view>
-												<radio :value="item.value" :checked="item.checked === vnpay" />
-											</view>
-											<view>{{item.name}}</view>
-										</label>
-									</radio-group>
 								</view>
 							</view>
 						</view>
@@ -306,35 +297,36 @@
 				],
 				textareaStatus: true,
 				//支付方式
-				cartArr: [{
-						"name": "Vi-thanh toán",
-						"icon": "icon-weixin2",
-						value: 'weixin',
-						title: 'Ứng dụng thanh toán nhanh',
-						payStatus: 2,
-					},
+				cartArr: [
+					// {
+					// 	"name": "Vi-thanh toán",
+					// 	"icon": "icon-weixin2",
+					// 	value: 'weixin',
+					// 	title: 'Ứng dụng thanh toán nhanh',
+					// 	payStatus: 2,
+					// },
 
-					{
-						"name": "Thanh toán cân bằng",
-						"icon": "icon-icon-test",
-						value: 'yue',
-						title: 'Số dư có sẵn:',
-						payStatus: 1,
-					},
-					{
-						"name": "Giao dịch dưới đường dây",
-						"icon": "icon-yinhangqia",
-						value: 'offline',
-						title: 'Giao dịch dưới đường dây',
-						payStatus: 1,
-					},
-					{
-						"name": "Thanh toán trực tuyến",
-						"icon": "icon-yinhangqia",
-						value: 'vnpay',
-						title: 'Thanh toán trực tuyến',
-						payStatus: 1,
-					},
+					// {
+					// 	"name": "Thanh toán cân bằng",
+					// 	"icon": "icon-icon-test",
+					// 	value: 'yue',
+					// 	title: 'Số dư có sẵn:',
+					// 	payStatus: 1,
+					// },
+					// {
+					// 	"name": "Giao dịch dưới đường dây",
+					// 	"icon": "icon-yinhangqia",
+					// 	value: 'offline',
+					// 	title: 'Giao dịch dưới đường dây',
+					// 	payStatus: 1,
+					// },
+					// {
+					// 	"name": "Thanh toán trực tuyến",
+					// 	"icon": "icon-yinhangqia",
+					// 	value: 'vnpay',
+					// 	title: 'Thanh toán trực tuyến',
+					// 	payStatus: 1,
+					// },
 					{
 						"name": "Thanh toán thẻ ngân hàng",
 						"icon": "icon-yinhangqia",
@@ -343,7 +335,7 @@
 						payStatus: 1,
 					},
 				],
-				payType: 'weixin', //支付方式
+				payType: 'bankpay', //支付方式
 				openType: 1, //优惠券打开方式 1=使用
 				active: 0, //支付方式切换
 				coupon: {
@@ -555,7 +547,6 @@
 					shipping_type: parseInt(shippingType) + 1,
 					payType: this.payType
 				}).then(res => {
-					console.log(res)
 					let result = res.data.result;
 					if (result) {
 						this.totalPrice = result.pay_price;
@@ -789,6 +780,10 @@
 				let that = this;
 				orderCreate(that.orderKey, data).then(res => {
 					console.log(res)
+					if(data.payType=='bankpay'){
+						var payTypeUrl=res.data.result.bankpay.url;
+							location.href = payTypeUrl
+					}
 					let status = res.data.status,
 						orderId = res.data.result.orderId,
 						jsConfig = res.data.result.jsConfig,

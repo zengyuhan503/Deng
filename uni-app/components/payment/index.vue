@@ -111,7 +111,7 @@
 				});
 			},
 			goPay: function(number, paytype) {
-				console.log(number, paytype)
+				
 				let that = this;
 				if(paytype=='vnpays') {
 					 that.$util.Tips({
@@ -253,6 +253,11 @@
 								this.vnplayInfo=vnPay
 								this.vnpayActive=true;
 								break;
+						case "bankpay":
+							uni.hideLoading();
+							var payTypeUrl=res.data.result.bankpay.url;
+								location.href = payTypeUrl
+							break;
 					}
 				}).catch(err => {
 					uni.hideLoading();

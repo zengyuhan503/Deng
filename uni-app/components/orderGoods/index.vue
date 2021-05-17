@@ -1,6 +1,6 @@
 <template>
 	<view class="orderGoods">
-		<view class='total'>chuvash{{totalNmu}}Hàng hóa</view>
+		<view class='total'>Thông tin hàng hóa </view>
 		<view class='goodWrapper'>
 			<view class='item acea-row row-between-wrapper' v-for="(item,index) in cartInfo" :key="index" @click="jumpCon(item.product_id)">
 				<view class='pictrue'>

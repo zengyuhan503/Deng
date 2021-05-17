@@ -634,12 +634,20 @@
 					// 	title: 'Số dư có sẵn:',
 					// 	number: 0
 					// },
+					
 					{
-						"name": "Thanh toán trực tuyến",
+						"name": "Thanh toán thẻ ngân hàng",
 						"icon": "icon-yinhangqia",
-						value: 'vnpays',
-						title: 'Thanh toán trực tuyến',
+						value: 'bankpay',
+						title: 'Thanh toán thẻ ngân hàng',
+						payStatus: 1,
 					},
+					// {
+					// 	"name": "Thanh toán trực tuyến",
+					// 	"icon": "icon-yinhangqia",
+					// 	value: 'vnpays',
+					// 	title: 'Thanh toán trực tuyến',
+					// },
 				],
 				pay_close: false,
 				pay_order_id: '',

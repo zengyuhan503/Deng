@@ -200,7 +200,9 @@
 				if (that.loginType == 'h5') {
 					uni.showModal({
 					    title: 'Gợi ý',
-					    content: 'Xác nhận đăng nhập?',
+						cancelText:'từ chối ',
+						confirmText:'Đồng ý ',
+					    content: 'Xác nhận đăng Xuất ?',
 					    success: function (res) {
 					        if (res.confirm) {
 					            getLogout()

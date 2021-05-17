@@ -336,6 +336,12 @@
 					}
 				},
 				{
+					"path": "guide/guideBaners",
+					"style": {
+						"navigationBarTitleText": "Đăng nhập"
+					}
+				},
+				{
 					"path": "login/index",
 					"style": {
 						"navigationBarTitleText": "Đăng nhập"
@@ -353,7 +359,8 @@
 						"navigationBarTitleText": "Đánh giá hàng hóa"
 					}
 				}
-		  ]
+		      
+            ]
 	    },
 			{
 				"root": "pages/activity",

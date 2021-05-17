@@ -16,9 +16,13 @@ const state = {
 	userInfo: null,
 	uid: Cache.get(UID) || null,
 	homeActive: false,
+	showGuideType:false,
 };
 
 const mutations = {
+	SETGUIDETYPE(state,showGuideType){
+		state.showGuideType=showGuideType;
+	},
 	LOGIN(state, opt) {
 		state.token = opt.token;
 		Cache.set(LOGIN_STATUS, opt.token, opt.time);

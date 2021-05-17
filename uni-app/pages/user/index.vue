@@ -31,7 +31,7 @@
 				<view class="num-wrapper">
 					<view class="num-item" @click="goMenuPage('/pages/users/user_money/index')">
 						<text class="num">{{userInfo.now_money || 0}}</text>
-						<view class="txt">Thăng bằng</view>
+						<view class="txt">Số dư </view>
 					</view>
 					<!-- <view class="num-item" @click="goMenuPage('/pages/users/user_integral/index')">
 						<text class="num">{{userInfo.integral || 0}}</text>

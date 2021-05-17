@@ -4,10 +4,10 @@
 		<view v-if="insert || show" class="uni-calendar__content" :class="{'uni-calendar--fixed':!insert,'uni-calendar--ani-show':aniMaskShow}">
 			<view v-if="!insert" class="uni-calendar__header uni-calendar--fixed-top">
 				<view class="uni-calendar__header-btn-box" @click="close">
-					<text class="uni-calendar__header-text uni-calendar--fixed-width">取消</text>
+					<text class="uni-calendar__header-text uni-calendar--fixed-width">Hủy bỏ</text>
 				</view>
 				<view class="uni-calendar__header-btn-box" @click="confirm">
-					<text class="uni-calendar__header-text uni-calendar--fixed-width">确定</text>
+					<text class="uni-calendar__header-text uni-calendar--fixed-width">Chắc chắn</text>
 				</view>
 			</view>
 			<view class="uni-calendar__header">
@@ -18,7 +18,7 @@
 				<view class="uni-calendar__header-btn-box" @click="next">
 					<view class="uni-calendar__header-btn uni-calendar--right"></view>
 				</view>
-				<text class="uni-calendar__backtoday" @click="backtoday">回到今天</text>
+				<text class="uni-calendar__backtoday" @click="backtoday">Trở lại với ngày hôm nay</text>
 			</view>
 			<view class="uni-calendar__box">
 				<view v-if="showMonth" class="uni-calendar__box-bg">

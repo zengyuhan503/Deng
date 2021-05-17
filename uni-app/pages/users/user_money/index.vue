@@ -6,7 +6,7 @@
 					<view class='headerCon'>
 						<view class='account acea-row row-top row-between'>
 							<view class='assets'>
-								<view>Tổng tài sản (nhân dân tệ)</view>
+								<view>Tổng tài sản (VND)</view>
 								<view class='money'>{{userInfo.now_money || 0}}</view>
 							</view>
 							<!-- #ifdef APP-PLUS || H5 -->
@@ -30,7 +30,7 @@
 							</view> -->
 							<!-- #endif -->
 							<view class='item'>
-								<view>Người tiêu dùng tích lũy (yuan)</view>
+								<view>Người tiêu dùng tích lũy (VND)</view>
 								<view class='money'>{{userInfo.orderStatusSum || 0}}</view>
 							</view>
 						</view>

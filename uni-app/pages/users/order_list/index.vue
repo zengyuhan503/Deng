@@ -64,7 +64,7 @@
 								</view>
 							</view>
 						</view>
-						<view class='totalPrice'>共{{item.cartInfo.length || 0}}hàng hóa, tổng số tiền
+						<view class='totalPrice'>{{item.cartInfo.length || 0}}hàng hóa, tổng số tiền
 							<text class='money font-color'>₫{{item.pay_price}}</text>
 						</view>
 					</view>
@@ -160,11 +160,19 @@
 					// 	number: 0
 					// },
 					{
-						"name": "Thanh toán trực tuyến",
+						"name": "Thanh toán thẻ ngân hàng",
 						"icon": "icon-yinhangqia",
-						value: 'vnpays',
-						title: 'Thanh toán trực tuyến',
+						value: 'bankpay',
+						title: 'Thanh toán thẻ ngân hàng',
+						payStatus: 1,
 					},
+					// {
+					// 	"name": "Thanh toán trực tuyến",
+					// 	"icon": "icon-yinhangqia",
+					// 	value: 'vnpays',
+					// 	title: 'Thanh toán trực tuyến',
+					// },
+					
 				],
 				pay_close: false,
 				pay_order_id: '',

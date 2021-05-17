@@ -523,8 +523,8 @@ import {
  				status = 1;
  			} else if (status === 2) {
  				uni.showModal({
- 					content: "系统定位已关闭",
- 					confirmText: "确定",
+ 					content: "Vị trí hệ thống đã bị tắt",
+ 					confirmText: "Chắc chắn",
  					showCancel: false,
  					success: function(res) {}
  				})
